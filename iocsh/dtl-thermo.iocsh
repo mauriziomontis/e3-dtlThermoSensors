@@ -1,0 +1,282 @@
+##############################################################################
+############ Startup File for DTL Thermo Sensors System 
+############ 
+############ Author: Maurizio Montis || INFN-LNL
+############ Mail:   maurizio.montis@lnl.infn.it
+############
+##############################################################################
+
+
+##############################################################################
+############ Environment 
+
+###
+############ Configuration
+############ Set the values in order to proper configure the application
+############
+###
+
+#
+### Communication 
+# Ethercat Master Index
+epicsEnvSet("MASTER_ID", "2")
+
+### Application
+# IOC application name 
+epicsEnvSet("IOC", "DTL-000")
+# Modules version
+epicsEnvSet("ECMCCFG_VERSION", "6.2.0")
+epicsEnvSet("ECMC_VERSION", "6.2.1")
+epicsEnvSet("STREAM_VERSION", "2.8.10")
+epicsEnvSet("DTLTHERMOS_VERSION", "master")
+# Axis configuration
+#epicsEnvSet("DTL_AXIS_PATH", "/home/iocuser/e3/e3-dtlTuners/cfg")
+
+
+#
+############ End of Configuration part
+#
+
+
+
+### Standard Configuration - DO NOT MODIFY
+#
+epicsEnvSet("ECMC_CONFIG_ROOT",     "${E3_SITEMODS_PATH}/ecmccfg/${ECMCCFG_VERSION}/")
+epicsEnvSet("ECMC_CONFIG_DB",       "${ECMC_CONFIG_ROOT}db/")
+epicsEnvSet("DTL_THERMOS_ROOT",     "${E3_SITEMODS_PATH}/dtlThermoSensors/${DTLTHERMOS_VERSION}/")
+epicsEnvSet("SCRIPTEXEC",           "${SCRIPTEXEC=iocshLoad}")
+epicsEnvSet("STREAM_PROTOCOL_PATH", "${STREAM_PROTOCOL_PATH=""}:${ECMC_CONFIG_ROOT}:${ECMC_CONFIG_DB}")
+epicsEnvSet("SM_PREFIX",            "${IOC}:")
+
+##############################################################################
+############ Modules Required
+
+require ecmccfg, ${ECMCCFG_VERSION}
+require ecmc, ${ECMC_VERSION}
+require stream, ${STREAM_VERSION}
+
+
+##############################################################################
+############ Application Initialization
+
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}${INIT=initAll}.cmd"
+
+
+##############################################################################
+############ EtherCAT Master Configuration
+
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addMaster.cmd", "MASTER_ID=${MASTER_ID}"
+
+
+##############################################################################
+############ EtherCAT Slaves Configuration
+
+
+
+# - Module EK1100
+#   Position indexes: 0,2,23,45,66,88,113,125
+epicsEnvSet("IOC", "DTL-000") 
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EK1100, SLAVE_ID=0"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EK1100, SLAVE_ID=2"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EK1100, SLAVE_ID=23"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EK1100, SLAVE_ID=45"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EK1100, SLAVE_ID=66"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EK1100, SLAVE_ID=88"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EK1100, SLAVE_ID=113"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EK1100, SLAVE_ID=125"
+
+# - Module EK1122-0080
+#   Position indexes: 1,44,87,112
+epicsEnvSet("IOC", "DTL-000") 
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EK1122, SLAVE_ID=1"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EK1122, SLAVE_ID=44"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EK1122, SLAVE_ID=87"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EK1122, SLAVE_ID=112"
+
+# - Module EL9410
+#   Position indexes: 9,16,30,37,52,59,73,80,95,102,118
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL9410, SLAVE_ID=9"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL9410, SLAVE_ID=16"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL9410, SLAVE_ID=30"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL9410, SLAVE_ID=37"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL9410, SLAVE_ID=52"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL9410, SLAVE_ID=59"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL9410, SLAVE_ID=73"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL9410, SLAVE_ID=80"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL9410, SLAVE_ID=95"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL9410, SLAVE_ID=102"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL9410, SLAVE_ID=118"
+
+# - Module EL1809
+#   Position indexes: 109,114,115,116,117,126,127,128
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL1809, SLAVE_ID=109"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL1809, SLAVE_ID=114"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL1809, SLAVE_ID=115"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL1809, SLAVE_ID=116"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL1809, SLAVE_ID=117"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL1809, SLAVE_ID=126"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL1809, SLAVE_ID=127"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL1809, SLAVE_ID=128"
+
+# - Module EL2624
+#   Position indexes: 110,111,119,120,121,122,123,124,129,130,131,132
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL2624, SLAVE_ID=110"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL2624, SLAVE_ID=111"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL2624, SLAVE_ID=119"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL2624, SLAVE_ID=120"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL2624, SLAVE_ID=121"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL2624, SLAVE_ID=122"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL2624, SLAVE_ID=123"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL2624, SLAVE_ID=124"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL2624, SLAVE_ID=129"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL2624, SLAVE_ID=130"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL2624, SLAVE_ID=131"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL2624, SLAVE_ID=132"
+
+# - Module EL3202-0010
+#   Position indexes: [3,8],[10,15],[17,22],[24,29],[31,36],[38,43],[46,51],[53,58],[60,65],[67,72],[74,79],[81,86],[89,94],[96,101],[103,108]
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=3"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=4"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=5"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=6"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=7"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=8"
+
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=10"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=11"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=12"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=13"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=14"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=15"
+
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=17"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=18"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=19"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=20"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=21"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=22"
+
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=24"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=25"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=26"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=27"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=28"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=29"
+
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=31"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=32"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=33"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=34"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=35"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=36"
+
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=38"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=39"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=40"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=41"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=42"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=43"
+
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=46"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=47"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=48"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=49"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=50"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=51"
+
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=53"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=54"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=55"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=56"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=57"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=58"
+
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=60"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=61"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=62"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=63"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=64"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=65"
+
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=67"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=68"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=69"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=70"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=71"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=72"
+
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=74"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=75"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=76"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=77"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=78"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=79"
+
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=81"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=82"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=83"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=84"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=85"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=86"
+
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=89"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=90"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=91"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=92"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=93"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=94"
+
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=96"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=97"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=98"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=99"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=100"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=101"
+
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=103"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=104"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=105"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=106"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=107"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL3202-0010, SLAVE_ID=108"
+
+
+
+##############################################################################
+############# Apply Configuration
+
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}applyConfig.cmd"
+
+
+
+##############################################################################
+############ Go Active
+
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}setAppMode.cmd"
+
+
+
+##############################################################################
+############# Post Configuration - Aliases Definition
+
+
+# Motor Driver
+#${SCRIPTEXEC} "${DTL_TUNERS_ROOT}aliasMotorDriver.cmd", "SLAVE_ID=8, HW_DESC=EL7047, SECTION_NAME=DTL-010, DEVICE_POS=001"
+
+# Limit Switch (DI)
+#${SCRIPTEXEC} "${DTL_TUNERS_ROOT}aliasMotorSwitchInput.cmd", "SLAVE_ID=4, HW_DESC=EL1008, BIT_IN=2, BIT_OUT=1, SECTION_NAME=DTL-010, DEVICE_POS=1"
+
+# Limit Switch (DO)
+#${SCRIPTEXEC} "${DTL_TUNERS_ROOT}aliasMotorSwitchOutput.cmd", "SLAVE_ID=11, HW_DESC=EL2819, BIT_IN=2, BIT_OUT=1, SECTION_NAME=DTL-010, DEVICE_POS=1"
+
+
+##############################################################################
+############## Post Configuration - Record Fields Config
+
+## Linear Encorders
+## 
+#${SCRIPTEXEC} "${DTL_TUNERS_ROOT}postInitLinearEncConfig.cmd", "SECTION_NAME=DTL-010, DEVICE_POS=1"
+
+## SQL State Machine
+## 
+#${SCRIPTEXEC} "${DTL_TUNERS_ROOT}postInitStateMachine.cmd", "SECTION_NAME=DTL-050"
