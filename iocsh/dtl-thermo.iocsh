@@ -260,14 +260,12 @@ ${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}setAppMode.cmd"
 ############# Post Configuration - Aliases Definition
 
 
-# Motor Driver
+# Thermo Sensors
 #${SCRIPTEXEC} "${DTL_TUNERS_ROOT}aliasMotorDriver.cmd", "SLAVE_ID=8, HW_DESC=EL7047, SECTION_NAME=DTL-010, DEVICE_POS=001"
 
-# Limit Switch (DI)
+# Enables Switches 
 #${SCRIPTEXEC} "${DTL_TUNERS_ROOT}aliasMotorSwitchInput.cmd", "SLAVE_ID=4, HW_DESC=EL1008, BIT_IN=2, BIT_OUT=1, SECTION_NAME=DTL-010, DEVICE_POS=1"
 
-# Limit Switch (DO)
-#${SCRIPTEXEC} "${DTL_TUNERS_ROOT}aliasMotorSwitchOutput.cmd", "SLAVE_ID=11, HW_DESC=EL2819, BIT_IN=2, BIT_OUT=1, SECTION_NAME=DTL-010, DEVICE_POS=1"
 
 
 ##############################################################################
