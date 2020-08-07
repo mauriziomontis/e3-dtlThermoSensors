@@ -177,6 +177,12 @@ ${SCRIPTEXEC} "${DTL_THERMOS_ROOT}aliasEnableSteerer.cmd", "SLAVE_ID=119, HW_DES
 
 
 
+${SCRIPTEXEC} "${DTL_THERMOS_ROOT}aliasSteererOkStatus.cmd", "SLAVE_ID=114, HW_DESC=EL1809, BIT_IN=1, SECTION_NAME=DTL-010, STEERER_POS=H, POS_INDEX=001, SIGNAL=OkStat"
+${SCRIPTEXEC} "${DTL_THERMOS_ROOT}aliasSteererOkStatus.cmd", "SLAVE_ID=115, HW_DESC=EL1809, BIT_IN=3, SECTION_NAME=DTL-010, STEERER_POS=H, POS_INDEX=001, SIGNAL=TS_OkStat"
+
+${SCRIPTEXEC} "${DTL_THERMOS_ROOT}aliasEnableSteererPower.cmd", "SLAVE_ID=116, HW_DESC=EL1809, BIT_IN=6, SECTION_NAME=DTL-010ROW, START_INDEX=1, STOP_INDEX=3"
+
+
 ##############################################################################
 ############## Post Configuration - Record Fields Config
 
