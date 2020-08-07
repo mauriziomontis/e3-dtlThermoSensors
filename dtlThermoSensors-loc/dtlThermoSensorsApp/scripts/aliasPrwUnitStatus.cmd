@@ -14,7 +14,7 @@
 #-d   \param POS_INDEX Device signal mapped with this digital interface, i.e. 001
 #-d   \note Example call:
 #-d   \code
-#-d    ${SCRIPTEXEC} "${dtlTuner_DIR}aliasPrwUnitStatus.cmd", "SLAVE_ID=1, HW_DESC=EL1809, BIT_IN=1, SECTION_NAME=DTL-010, POS_INDEX=DTL-010Ok"
+#-d    ${SCRIPTEXEC} "${dtlThermo_DIR}aliasPrwUnitStatus.cmd", "SLAVE_ID=1, HW_DESC=EL1809, BIT_IN=1, SECTION_NAME=DTL-010, POS_INDEX=DTL-010Ok"
 #-d   \endcode
 #-d */
 

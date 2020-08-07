@@ -14,7 +14,7 @@
 #-d   \param SIGNAL Device signal mapped with this digital interface, i.e. DTL-010Ok
 #-d   \note Example call:
 #-d   \code
-#-d    ${SCRIPTEXEC} "${dtlTuner_DIR}aliasSkidInterlockStatus.cmd", "SLAVE_ID=1, HW_DESC=EL1809, BIT_IN=1, SECTION_NAME=DTL-010, SIGNAL=DTL-010Ok"
+#-d    ${SCRIPTEXEC} "${dtlThermo_DIR}aliasSkidInterlockStatus.cmd", "SLAVE_ID=1, HW_DESC=EL1809, BIT_IN=1, SECTION_NAME=DTL-010, SIGNAL=DTL-010Ok"
 #-d   \endcode
 #-d */
 

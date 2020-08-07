@@ -1,0 +1,189 @@
+##############################################################################
+############ Startup File for DTL Thermo Sensors System 
+############ 
+############ Author: Maurizio Montis || INFN-LNL
+############ Mail:   maurizio.montis@lnl.infn.it
+############
+##############################################################################
+
+
+##############################################################################
+############ Environment 
+
+###
+############ Configuration
+############ Set the values in order to proper configure the application
+############
+###
+
+#
+### Communication 
+# Ethercat Master Index
+epicsEnvSet("MASTER_ID", "2")
+
+### Application
+# IOC application name 
+epicsEnvSet("IOC", "DTL-000")
+# Modules version
+epicsEnvSet("ECMCCFG_VERSION", "6.2.0")
+epicsEnvSet("ECMC_VERSION", "6.2.1")
+epicsEnvSet("STREAM_VERSION", "2.8.10")
+epicsEnvSet("DTLTHERMOS_VERSION", "master")
+# Axis configuration
+#epicsEnvSet("DTL_AXIS_PATH", "/home/iocuser/e3/e3-dtlTuners/cfg")
+
+
+#
+############ End of Configuration part
+#
+
+
+
+### Standard Configuration - DO NOT MODIFY
+#
+epicsEnvSet("ECMC_CONFIG_ROOT",     "${E3_SITEMODS_PATH}/ecmccfg/${ECMCCFG_VERSION}/")
+epicsEnvSet("ECMC_CONFIG_DB",       "${ECMC_CONFIG_ROOT}db/")
+epicsEnvSet("DTL_THERMOS_ROOT",     "${E3_SITEMODS_PATH}/dtlThermoSensors/${DTLTHERMOS_VERSION}/")
+epicsEnvSet("SCRIPTEXEC",           "${SCRIPTEXEC=iocshLoad}")
+epicsEnvSet("STREAM_PROTOCOL_PATH", "${STREAM_PROTOCOL_PATH=""}:${ECMC_CONFIG_ROOT}:${ECMC_CONFIG_DB}")
+epicsEnvSet("SM_PREFIX",            "${IOC}:")
+
+##############################################################################
+############ Modules Required
+
+require ecmccfg, ${ECMCCFG_VERSION}
+require ecmc, ${ECMC_VERSION}
+require stream, ${STREAM_VERSION}
+
+
+##############################################################################
+############ Application Initialization
+
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}${INIT=initAll}.cmd"
+
+
+##############################################################################
+############ EtherCAT Master Configuration
+
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addMaster.cmd", "MASTER_ID=${MASTER_ID}"
+
+
+##############################################################################
+############ EtherCAT Slaves Configuration
+
+
+
+# - Module EK1100
+#   Position indexes: 0,2,23,45,66,88,113,125
+epicsEnvSet("IOC", "DTL-000") 
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EK1100, SLAVE_ID=0"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EK1100, SLAVE_ID=2"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EK1100, SLAVE_ID=23"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EK1100, SLAVE_ID=45"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EK1100, SLAVE_ID=66"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EK1100, SLAVE_ID=88"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EK1100, SLAVE_ID=113"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EK1100, SLAVE_ID=125"
+
+# - Module EK1122-0080
+#   Position indexes: 1,44,87,112
+epicsEnvSet("IOC", "DTL-000") 
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EK1122, SLAVE_ID=1"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EK1122, SLAVE_ID=44"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EK1122, SLAVE_ID=87"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EK1122, SLAVE_ID=112"
+
+# - Module EL9410
+#   Position indexes: 9,16,30,37,52,59,73,80,95,102,118
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL9410, SLAVE_ID=9"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL9410, SLAVE_ID=16"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL9410, SLAVE_ID=30"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL9410, SLAVE_ID=37"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL9410, SLAVE_ID=52"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL9410, SLAVE_ID=59"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL9410, SLAVE_ID=73"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL9410, SLAVE_ID=80"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL9410, SLAVE_ID=95"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL9410, SLAVE_ID=102"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL9410, SLAVE_ID=118"
+
+# - Module EL1809
+#   Position indexes: 109,114,115,116,117,126,127,128
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL1809, SLAVE_ID=109"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL1809, SLAVE_ID=114"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL1809, SLAVE_ID=115"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL1809, SLAVE_ID=116"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL1809, SLAVE_ID=117"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL1809, SLAVE_ID=126"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL1809, SLAVE_ID=127"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL1809, SLAVE_ID=128"
+
+# - Module EL2624
+#   Position indexes: 110,111,119,120,121,122,123,124,129,130,131,132
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL2624, SLAVE_ID=110"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL2624, SLAVE_ID=111"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL2624, SLAVE_ID=119"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL2624, SLAVE_ID=120"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL2624, SLAVE_ID=121"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL2624, SLAVE_ID=122"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL2624, SLAVE_ID=123"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL2624, SLAVE_ID=124"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL2624, SLAVE_ID=129"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL2624, SLAVE_ID=130"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL2624, SLAVE_ID=131"
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EL2624, SLAVE_ID=132"
+
+##############################################################################
+############# Apply Configuration
+
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}applyConfig.cmd"
+
+
+
+##############################################################################
+############ Go Active
+
+${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}setAppMode.cmd"
+
+
+
+##############################################################################
+############# Post Configuration - Aliases Definition
+
+
+${SCRIPTEXEC} "${DTL_THERMOS_ROOT}aliasSkidInterlockStatus.cmd", "SLAVE_ID=109, HW_DESC=EL1809, BIT_IN=2, SECTION_NAME=CWM-CWS04, SIGNAL=OkStat"
+${SCRIPTEXEC} "${DTL_THERMOS_ROOT}aliasSkidInterlockStatus.cmd", "SLAVE_ID=109, HW_DESC=EL1809, BIT_IN=3, SECTION_NAME=CWM-CWS04, SIGNAL=DTL-010Ok"
+${SCRIPTEXEC} "${DTL_THERMOS_ROOT}aliasSkidInterlockStatus.cmd", "SLAVE_ID=109, HW_DESC=EL1809, BIT_IN=4, SECTION_NAME=CWM-CWS04, SIGNAL=DTL-020Ok"
+${SCRIPTEXEC} "${DTL_THERMOS_ROOT}aliasSkidInterlockStatus.cmd", "SLAVE_ID=109, HW_DESC=EL1809, BIT_IN=5, SECTION_NAME=CWM-CWS04, SIGNAL=DTL-030Ok"
+${SCRIPTEXEC} "${DTL_THERMOS_ROOT}aliasSkidInterlockStatus.cmd", "SLAVE_ID=109, HW_DESC=EL1809, BIT_IN=6, SECTION_NAME=CWM-CWS04, SIGNAL=DTL-040Ok"
+${SCRIPTEXEC} "${DTL_THERMOS_ROOT}aliasSkidInterlockStatus.cmd", "SLAVE_ID=109, HW_DESC=EL1809, BIT_IN=7, SECTION_NAME=CWM-CWS04, SIGNAL=DTL-050Ok"
+
+# Power Unit Status
+${SCRIPTEXEC} "${DTL_THERMOS_ROOT}aliasPrwUnitStatus.cmd", "SLAVE_ID=109, HW_DESC=EL1809, BIT_IN=1, SECTION_NAME=DTL-010ROW, POS_INDEX=001"
+
+# Cavity Temperature Status
+${SCRIPTEXEC} "${DTL_THERMOS_ROOT}aliasCavityTemp.cmd", "SLAVE_ID=110, HW_DESC=EL2624, BIT_IN=1, SECTION_NAME=DTL-010"
+${SCRIPTEXEC} "${DTL_THERMOS_ROOT}aliasCavityTemp.cmd", "SLAVE_ID=110, HW_DESC=EL2624, BIT_IN=2, SECTION_NAME=DTL-020"
+${SCRIPTEXEC} "${DTL_THERMOS_ROOT}aliasCavityTemp.cmd", "SLAVE_ID=110, HW_DESC=EL2624, BIT_IN=3, SECTION_NAME=DTL-030"
+${SCRIPTEXEC} "${DTL_THERMOS_ROOT}aliasCavityTemp.cmd", "SLAVE_ID=110, HW_DESC=EL2624, BIT_IN=4, SECTION_NAME=DTL-040"
+${SCRIPTEXEC} "${DTL_THERMOS_ROOT}aliasCavityTemp.cmd", "SLAVE_ID=111, HW_DESC=EL2624, BIT_IN=1, SECTION_NAME=DTL-050"
+
+
+# Steerer Enable System
+${SCRIPTEXEC} "${DTL_THERMOS_ROOT}aliasEnableSteerer.cmd", "SLAVE_ID=119, HW_DESC=EL2624, BIT_IN=1, SECTION_NAME=DTL-010, STEERER_POS=V, POS_INDEX=001"
+${SCRIPTEXEC} "${DTL_THERMOS_ROOT}aliasEnableSteerer.cmd", "SLAVE_ID=119, HW_DESC=EL2624, BIT_IN=2, SECTION_NAME=DTL-010, STEERER_POS=H, POS_INDEX=001"
+${SCRIPTEXEC} "${DTL_THERMOS_ROOT}aliasEnableSteerer.cmd", "SLAVE_ID=119, HW_DESC=EL2624, BIT_IN=3, SECTION_NAME=DTL-010, STEERER_POS=V, POS_INDEX=002"
+${SCRIPTEXEC} "${DTL_THERMOS_ROOT}aliasEnableSteerer.cmd", "SLAVE_ID=119, HW_DESC=EL2624, BIT_IN=4, SECTION_NAME=DTL-010, STEERER_POS=H, POS_INDEX=002"
+
+
+
+##############################################################################
+############## Post Configuration - Record Fields Config
+
+## Linear Encorders
+## 
+#${SCRIPTEXEC} "${DTL_TUNERS_ROOT}postInitLinearEncConfig.cmd", "SECTION_NAME=DTL-010, DEVICE_POS=1"
+
+## SQL State Machine
+## 
+#${SCRIPTEXEC} "${DTL_TUNERS_ROOT}postInitStateMachine.cmd", "SECTION_NAME=DTL-050"

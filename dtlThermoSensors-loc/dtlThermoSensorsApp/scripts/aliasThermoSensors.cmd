@@ -14,7 +14,7 @@
 #-d   \param DEVICE_POS Device position (accordig to ESS Naming Convetion indexing)
 #-d   \note Example call:
 #-d   \code
-#-d    ${SCRIPTEXEC} "${dtlTuner_DIR}aliasThermoSensors.cmd", "SLAVE_ID=1, HW_DESC=EL1809, AN_INDEX=1, SECTION_NAME=DTL-010, DEVICE_POS=001"
+#-d    ${SCRIPTEXEC} "${dtlThermo_DIR}aliasThermoSensors.cmd", "SLAVE_ID=1, HW_DESC=EL1809, AN_INDEX=1, SECTION_NAME=DTL-010, DEVICE_POS=001"
 #-d   \endcode
 #-d */
 
