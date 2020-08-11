@@ -1,0 +1,8 @@
+
+record(calc, "${PREFIX}:EMR-TT-${INDEX}:TempIlk") {
+        field(SCAN, "${SCANTIME}")        
+        field(INPA, "${PREFIX}:EMR-TT-${INDEX}:Temp.SEVR")
+        field(CALC, "A=${LEVEL}?1:0")
+}
+
+
