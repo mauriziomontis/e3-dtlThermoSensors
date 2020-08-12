@@ -1010,10 +1010,9 @@ ${SCRIPTEXEC} "${DTL_THERMOS_ROOT}postInitTemperatureAlarm.cmd", "SECTION_NAME=D
 
 ## SQL State Machine
 ## 
-#${SCRIPTEXEC} "${DTL_TUNERS_ROOT}postInitStateMachine.cmd", "SECTION_NAME=DTL-050"
-#
-seq temperature010_interlock "SECTION_NAME=DTL-010"
-seq temperature020_interlock "SECTION_NAME=DTL-020"
-seq temperature030_interlock "SECTION_NAME=DTL-030"
-seq temperature040_interlock "SECTION_NAME=DTL-040"
-seq temperature050_interlock "SECTION_NAME=DTL-050"
+${SCRIPTEXEC} "${DTL_THERMOS_ROOT}postInitStateMachine_Temperature.cmd", "SECTION_NAME=DTL-010, TANK=010"
+${SCRIPTEXEC} "${DTL_THERMOS_ROOT}postInitStateMachine_Temperature.cmd", "SECTION_NAME=DTL-020, TANK=020"
+${SCRIPTEXEC} "${DTL_THERMOS_ROOT}postInitStateMachine_Temperature.cmd", "SECTION_NAME=DTL-030, TANK=030"
+${SCRIPTEXEC} "${DTL_THERMOS_ROOT}postInitStateMachine_Temperature.cmd", "SECTION_NAME=DTL-040, TANK=040"
+${SCRIPTEXEC} "${DTL_THERMOS_ROOT}postInitStateMachine_Temperature.cmd", "SECTION_NAME=DTL-050, TANK=050"
+
