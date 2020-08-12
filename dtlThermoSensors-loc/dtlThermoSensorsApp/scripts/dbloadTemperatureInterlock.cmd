@@ -4,7 +4,7 @@
 
 #-d /**
 #-d   \brief Load Temperature Interlock Database 
-#-d   \details Load temperature interlock records which raise an interlock in case of alarm severity.
+#-d   \details Load temperature interlock records which raise an interlock in case of alarm severity and a bypass in case of maintenance.
 #-d   \author Maurizio Montis (INFN-LNL)
 #-d   \file
 #-d   \param SECTION_NAME Section name, i.e. DTL-010

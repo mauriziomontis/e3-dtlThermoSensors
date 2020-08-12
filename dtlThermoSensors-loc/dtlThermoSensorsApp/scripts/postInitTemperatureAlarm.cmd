@@ -34,5 +34,8 @@ afterInit(dbpf "${SECTION_NAME}:EMR-TT-${DEVICE_POS}:Temp.HSV" "${HSV}")
 afterInit(dbpf "${SECTION_NAME}:EMR-TT-${DEVICE_POS}:Temp.HIHI" "${HIHI}")
 afterInit(dbpf "${SECTION_NAME}:EMR-TT-${DEVICE_POS}:Temp.HHSV" "${HHSV}")
 afterInit(dbpf "${SECTION_NAME}:EMR-TT-${DEVICE_POS}:Temp.HYST" "${HYST}")
+# bypass
+afterInit(dbpf "${SECTION_NAME}:EMR-TT-${DEVICE_POS}:Temp.SDIS" "${SECTION_NAME}:EMR-TT-${DEVICE_POS}:TempDis")
+afterInit(dbpf "${SECTION_NAME}:EMR-TT-${DEVICE_POS}:Temp.DISV" "1")
 
 

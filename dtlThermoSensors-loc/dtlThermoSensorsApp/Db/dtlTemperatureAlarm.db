@@ -1,8 +1,15 @@
 
 record(calc, "${PREFIX}:EMR-TT-${INDEX}:TempIlk") {
+	field(DESC, "${PREFIX}-${INDEX} temp ilk")
         field(SCAN, "${SCANTIME}")        
         field(INPA, "${PREFIX}:EMR-TT-${INDEX}:Temp.SEVR")
         field(CALC, "A=${LEVEL}?1:0")
 }
 
-
+record(bo, "${PREFIX}:EMR-TT-${INDEX}:TempDis") {
+	field(DESC, "${PREFIX}-${INDEX} temp bypass")
+	field(PINI, "YES")
+	field(VAL, "0")
+	field(ONAM, "DISABLED")
+	field(ZNAM, "ENABLED")
+}
