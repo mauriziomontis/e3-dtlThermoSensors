@@ -211,6 +211,13 @@ monitor TempIlk_059;
 int TempIlk_060;
 assign TempIlk_060 to "{SECTION_NAME}:EMR-TT-060:TempIlk";
 monitor TempIlk_060;
+int TempIlk_100;
+assign TempIlk_100 to "{SECTION_NAME}:EMR-TT-100:TempIlk";
+monitor TempIlk_100;
+int TempIlk_200;
+assign TempIlk_200 to "{SECTION_NAME}:EMR-TT-200:TempIlk";
+monitor TempIlk_200;
+
 
 int TempDisable_001;
 assign TempDisable_001  to "{SECTION_NAME}:EMR-TT-001:TempDis";
@@ -392,6 +399,13 @@ monitor TempDisable_059;
 int TempDisable_060;
 assign TempDisable_060 to "{SECTION_NAME}:EMR-TT-060:TempDis";
 monitor TempDisable_060;
+int TempDisable_100;
+assign TempDisable_100 to "{SECTION_NAME}:EMR-TT-100:TempDis";
+monitor TempDisable_100;
+int TempDisable_200;
+assign TempDisable_200 to "{SECTION_NAME}:EMR-TT-100:TempDis";
+monitor TempDisable_200;
+
 
 int RfSlow_okstatus;
 assign RfSlow_okstatus to "{SECTION_NAME}:EMR-CAV-001:WrtC_OkStatS";
@@ -415,21 +429,21 @@ ss temperature010_interlock {
 		}
 	
 		when (pvConnectCount()==pvAssignCount()) {
-			printf("[SEQ TEMPERATURE] All PVs connected\n");
+			printf("[SEQ TEMPERATURE - TANK1] All PVs connected\n");
 		} state normal_operation
 	}
 
 /* state NORMAL-OPERATION */
 	state normal_operation {
 		entry {
-                        printf("\n[SEQ TEMPERATURE] Enter in normal operation status\n");
+                        printf("\n[SEQ TEMPERATURE  - TANK1] Enter in normal operation status\n");
                 }
 
-		when ( ( (TempIlk_001 == 1) && (TempDisable_001 == 0) ) || ( (TempIlk_002 == 1) && (TempDisable_002 == 0) ) || ( (TempIlk_003 == 1) && (TempDisable_003 == 0) ) || ( (TempIlk_004 == 1) && (TempDisable_004 == 0) ) || ( (TempIlk_005 == 1) && (TempDisable_005 == 0) ) || ( (TempIlk_006 == 1) && (TempDisable_006 == 0) ) || ( (TempIlk_007 == 1) && (TempDisable_007 == 0) ) || ( (TempIlk_008 == 1) && (TempDisable_008 == 0) ) || ( (TempIlk_009 == 1) && (TempDisable_009 == 0) ) || ( (TempIlk_010 == 1) && (TempDisable_010 == 0) ) || ( (TempIlk_011 == 1) && (TempDisable_011 == 0) ) || ( (TempIlk_012 == 1) && (TempDisable_012 == 0) ) || ( (TempIlk_013 == 1) && (TempDisable_013 == 0) ) || ( (TempIlk_014 == 1) && (TempDisable_014 == 0) ) || ( (TempIlk_015 == 1) && (TempDisable_015 == 0) ) || ( (TempIlk_016 == 1) && (TempDisable_016 == 0) ) || ( (TempIlk_017 == 1) && (TempDisable_017 == 0) ) || ( (TempIlk_018 == 1) && (TempDisable_018 == 0) ) || ( (TempIlk_019 == 1) && (TempDisable_019 == 0) ) || ( (TempIlk_020 == 1) && (TempDisable_020 == 0) ) || ( (TempIlk_021 == 1) && (TempDisable_021 == 0) ) || ( (TempIlk_022 == 1) && (TempDisable_022 == 0) ) || ( (TempIlk_023 == 1) && (TempDisable_023 == 0) ) || ( (TempIlk_024 == 1) && (TempDisable_024 == 0) ) || ( (TempIlk_025 == 1) && (TempDisable_025 == 0) ) || ( (TempIlk_026 == 1) && (TempDisable_026 == 0) ) || ( (TempIlk_027 == 1) && (TempDisable_027 == 0) ) || ( (TempIlk_028 == 1) && (TempDisable_028 == 0) ) || ( (TempIlk_029 == 1) && (TempDisable_029 == 0) ) || ( (TempIlk_030 == 1) && (TempDisable_030 == 0) ) || ( (TempIlk_031 == 1) && (TempDisable_031 == 0) ) || ( (TempIlk_032 == 1) && (TempDisable_032 == 0) ) || ( (TempIlk_033 == 1) && (TempDisable_033 == 0) ) || ( (TempIlk_034 == 1) && (TempDisable_034 == 0) ) || ( (TempIlk_035 == 1) && (TempDisable_035 == 0) ) || ( (TempIlk_036 == 1) && (TempDisable_036 == 0) ) || ( (TempIlk_037 == 1) && (TempDisable_037 == 0) ) || ( (TempIlk_038 == 1) && (TempDisable_038 == 0) ) || ( (TempIlk_039 == 1) && (TempDisable_039 == 0) ) || ( (TempIlk_040 == 1) && (TempDisable_040 == 0) ) || ( (TempIlk_041 == 1) && (TempDisable_041 == 0) ) || ( (TempIlk_042 == 1) && (TempDisable_042 == 0) ) || ( (TempIlk_043 == 1) && (TempDisable_043 == 0) ) || ( (TempIlk_044 == 1) && (TempDisable_044 == 0) ) || ( (TempIlk_045 == 1) && (TempDisable_045 == 0) ) || ( (TempIlk_046 == 1) && (TempDisable_046 == 0) ) || ( (TempIlk_047 == 1) && (TempDisable_047 == 0) ) || ( (TempIlk_048 == 1) && (TempDisable_048 == 0) ) || ( (TempIlk_049 == 1) && (TempDisable_049 == 0) ) || ( (TempIlk_050 == 1) && (TempDisable_050 == 0) ) || ( (TempIlk_051 == 1) && (TempDisable_051 == 0) ) || ( (TempIlk_052 == 1) && (TempDisable_052 == 0) ) || ( (TempIlk_053 == 1) && (TempDisable_053 == 0) ) || ( (TempIlk_054 == 1) && (TempDisable_054 == 0) ) || ( (TempIlk_055 == 1) && (TempDisable_055 == 0) ) || ( (TempIlk_056 == 1) && (TempDisable_056 == 0) ) || ( (TempIlk_057 == 1) && (TempDisable_057 == 0) ) || ( (TempIlk_058 == 1) && (TempDisable_058 == 0) ) || ( (TempIlk_059 == 1) && (TempDisable_059 == 0) ) || ( (TempIlk_060 == 1) && (TempDisable_060 == 0) ) ) {
+		when ( ( (TempIlk_001 == 1) && (TempDisable_001 == 0) ) || ( (TempIlk_002 == 1) && (TempDisable_002 == 0) ) || ( (TempIlk_003 == 1) && (TempDisable_003 == 0) ) || ( (TempIlk_004 == 1) && (TempDisable_004 == 0) ) || ( (TempIlk_005 == 1) && (TempDisable_005 == 0) ) || ( (TempIlk_006 == 1) && (TempDisable_006 == 0) ) || ( (TempIlk_007 == 1) && (TempDisable_007 == 0) ) || ( (TempIlk_008 == 1) && (TempDisable_008 == 0) ) || ( (TempIlk_009 == 1) && (TempDisable_009 == 0) ) || ( (TempIlk_010 == 1) && (TempDisable_010 == 0) ) || ( (TempIlk_011 == 1) && (TempDisable_011 == 0) ) || ( (TempIlk_012 == 1) && (TempDisable_012 == 0) ) || ( (TempIlk_013 == 1) && (TempDisable_013 == 0) ) || ( (TempIlk_014 == 1) && (TempDisable_014 == 0) ) || ( (TempIlk_015 == 1) && (TempDisable_015 == 0) ) || ( (TempIlk_016 == 1) && (TempDisable_016 == 0) ) || ( (TempIlk_017 == 1) && (TempDisable_017 == 0) ) || ( (TempIlk_018 == 1) && (TempDisable_018 == 0) ) || ( (TempIlk_019 == 1) && (TempDisable_019 == 0) ) || ( (TempIlk_020 == 1) && (TempDisable_020 == 0) ) || ( (TempIlk_021 == 1) && (TempDisable_021 == 0) ) || ( (TempIlk_022 == 1) && (TempDisable_022 == 0) ) || ( (TempIlk_023 == 1) && (TempDisable_023 == 0) ) || ( (TempIlk_024 == 1) && (TempDisable_024 == 0) ) || ( (TempIlk_025 == 1) && (TempDisable_025 == 0) ) || ( (TempIlk_026 == 1) && (TempDisable_026 == 0) ) || ( (TempIlk_027 == 1) && (TempDisable_027 == 0) ) || ( (TempIlk_028 == 1) && (TempDisable_028 == 0) ) || ( (TempIlk_029 == 1) && (TempDisable_029 == 0) ) || ( (TempIlk_030 == 1) && (TempDisable_030 == 0) ) || ( (TempIlk_031 == 1) && (TempDisable_031 == 0) ) || ( (TempIlk_032 == 1) && (TempDisable_032 == 0) ) || ( (TempIlk_033 == 1) && (TempDisable_033 == 0) ) || ( (TempIlk_034 == 1) && (TempDisable_034 == 0) ) || ( (TempIlk_035 == 1) && (TempDisable_035 == 0) ) || ( (TempIlk_036 == 1) && (TempDisable_036 == 0) ) || ( (TempIlk_037 == 1) && (TempDisable_037 == 0) ) || ( (TempIlk_038 == 1) && (TempDisable_038 == 0) ) || ( (TempIlk_039 == 1) && (TempDisable_039 == 0) ) || ( (TempIlk_040 == 1) && (TempDisable_040 == 0) ) || ( (TempIlk_041 == 1) && (TempDisable_041 == 0) ) || ( (TempIlk_042 == 1) && (TempDisable_042 == 0) ) || ( (TempIlk_043 == 1) && (TempDisable_043 == 0) ) || ( (TempIlk_044 == 1) && (TempDisable_044 == 0) ) || ( (TempIlk_045 == 1) && (TempDisable_045 == 0) ) || ( (TempIlk_046 == 1) && (TempDisable_046 == 0) ) || ( (TempIlk_047 == 1) && (TempDisable_047 == 0) ) || ( (TempIlk_048 == 1) && (TempDisable_048 == 0) ) || ( (TempIlk_049 == 1) && (TempDisable_049 == 0) ) || ( (TempIlk_050 == 1) && (TempDisable_050 == 0) ) || ( (TempIlk_051 == 1) && (TempDisable_051 == 0) ) || ( (TempIlk_052 == 1) && (TempDisable_052 == 0) ) || ( (TempIlk_053 == 1) && (TempDisable_053 == 0) ) || ( (TempIlk_054 == 1) && (TempDisable_054 == 0) ) || ( (TempIlk_055 == 1) && (TempDisable_055 == 0) ) || ( (TempIlk_056 == 1) && (TempDisable_056 == 0) ) || ( (TempIlk_057 == 1) && (TempDisable_057 == 0) ) || ( (TempIlk_058 == 1) && (TempDisable_058 == 0) ) || ( (TempIlk_059 == 1) && (TempDisable_059 == 0) ) || ( (TempIlk_060 == 1) && (TempDisable_060 == 0) ) || ( (TempIlk_100 == 1) && (TempDisable_100 == 0) ) || ( (TempIlk_200 == 1) && (TempDisable_200 == 0) ) ) {
 
 	 		RfSlow_okstatus=0;
 			pvPut(RfSlow_okstatus);	
-			printf("[SEQ TEMPERATURE] Set Tank 1 Tempearture OK status to 0\n");
+			printf("[SEQ TEMPERATURE  - TANK1] Set Tank 1 Tempearture OK status to 0\n");
 		} state interlock
 
         }
@@ -440,13 +454,13 @@ ss temperature010_interlock {
 /* state INTERLOCK */
 	state interlock {
 		entry {
-                        printf("\n[SEQ TEMPERATURE] Enter in interlock status\n");
+                        printf("\n[SEQ TEMPERATURE  - TANK1] Enter in interlock status\n");
                 }
 
-		when ( (TempIlk_001 == 0) && (TempIlk_002 == 0) && (TempIlk_003 == 0) && (TempIlk_004 == 0) && (TempIlk_005 == 0) && (TempIlk_006 == 0) && (TempIlk_007 == 0) && (TempIlk_008 == 0) && (TempIlk_009 == 0) && (TempIlk_010 == 0) && (TempIlk_011 == 0) && (TempIlk_012 == 0) && (TempIlk_013 == 0) && (TempIlk_014 == 0) && (TempIlk_015 == 0) && (TempIlk_016 == 0) && (TempIlk_017 == 0) && (TempIlk_018 == 0) && (TempIlk_019 == 0) && (TempIlk_020 == 0) && (TempIlk_021 == 0) && (TempIlk_022 == 0) && (TempIlk_023 == 0) && (TempIlk_024 == 0) && (TempIlk_025 == 0) && (TempIlk_026 == 0) && (TempIlk_027 == 0) && (TempIlk_028 == 0) && (TempIlk_029 == 0) && (TempIlk_030 == 0) && (TempIlk_031 == 0) && (TempIlk_032 == 0) && (TempIlk_033 == 0) && (TempIlk_034 == 0) && (TempIlk_035 == 0) && (TempIlk_036 == 0) && (TempIlk_037 == 0) && (TempIlk_038 == 0) && (TempIlk_039 == 0) && (TempIlk_040 == 0) && (TempIlk_041 == 0) && (TempIlk_042 == 0) && (TempIlk_043 == 0) && (TempIlk_044 == 0) && (TempIlk_045 == 0) && (TempIlk_046 == 0) && (TempIlk_047 == 0) && (TempIlk_048 == 0) && (TempIlk_049 == 0) && (TempIlk_050 == 0) && (TempIlk_051 == 0) && (TempIlk_052 == 0) && (TempIlk_053 == 0) && (TempIlk_054 == 0) && (TempIlk_055 == 0) && (TempIlk_056 == 0) && (TempIlk_057 == 0) && (TempIlk_058 == 0) && (TempIlk_059 == 0) && (TempIlk_060 == 0)  ) {
+		when ( (TempIlk_001 == 0) && (TempIlk_002 == 0) && (TempIlk_003 == 0) && (TempIlk_004 == 0) && (TempIlk_005 == 0) && (TempIlk_006 == 0) && (TempIlk_007 == 0) && (TempIlk_008 == 0) && (TempIlk_009 == 0) && (TempIlk_010 == 0) && (TempIlk_011 == 0) && (TempIlk_012 == 0) && (TempIlk_013 == 0) && (TempIlk_014 == 0) && (TempIlk_015 == 0) && (TempIlk_016 == 0) && (TempIlk_017 == 0) && (TempIlk_018 == 0) && (TempIlk_019 == 0) && (TempIlk_020 == 0) && (TempIlk_021 == 0) && (TempIlk_022 == 0) && (TempIlk_023 == 0) && (TempIlk_024 == 0) && (TempIlk_025 == 0) && (TempIlk_026 == 0) && (TempIlk_027 == 0) && (TempIlk_028 == 0) && (TempIlk_029 == 0) && (TempIlk_030 == 0) && (TempIlk_031 == 0) && (TempIlk_032 == 0) && (TempIlk_033 == 0) && (TempIlk_034 == 0) && (TempIlk_035 == 0) && (TempIlk_036 == 0) && (TempIlk_037 == 0) && (TempIlk_038 == 0) && (TempIlk_039 == 0) && (TempIlk_040 == 0) && (TempIlk_041 == 0) && (TempIlk_042 == 0) && (TempIlk_043 == 0) && (TempIlk_044 == 0) && (TempIlk_045 == 0) && (TempIlk_046 == 0) && (TempIlk_047 == 0) && (TempIlk_048 == 0) && (TempIlk_049 == 0) && (TempIlk_050 == 0) && (TempIlk_051 == 0) && (TempIlk_052 == 0) && (TempIlk_053 == 0) && (TempIlk_054 == 0) && (TempIlk_055 == 0) && (TempIlk_056 == 0) && (TempIlk_057 == 0) && (TempIlk_058 == 0) && (TempIlk_059 == 0) && (TempIlk_060 == 0) && (TempIlk_100 == 0) && (TempIlk_200 == 0)  ) {
                         RfSlow_okstatus=1;
                         pvPut(RfSlow_okstatus);
-			printf("[SEQ TEMPERATURE] Set Tank 1 Tempearture OK status to 1\n");
+			printf("[SEQ TEMPERATURE  - TANK1] Set Tank 1 Tempearture OK status to 1\n");
                 } state interlock
 
 

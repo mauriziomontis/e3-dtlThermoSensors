@@ -802,7 +802,7 @@ ${SCRIPTEXEC} "${DTL_THERMOS_ROOT}dbloadTemperatureInterlock.cmd", "SECTION_NAME
 ${SCRIPTEXEC} "${DTL_THERMOS_ROOT}dbloadTemperatureInterlock.cmd", "SECTION_NAME=DTL-050, POS_INDEX=019, SCAN=.5 second, SEVERITY=2"
 ${SCRIPTEXEC} "${DTL_THERMOS_ROOT}dbloadTemperatureInterlock.cmd", "SECTION_NAME=DTL-050, POS_INDEX=020, SCAN=.5 second, SEVERITY=2"
 ${SCRIPTEXEC} "${DTL_THERMOS_ROOT}dbloadTemperatureInterlock.cmd", "SECTION_NAME=DTL-050, POS_INDEX=021, SCAN=.5 second, SEVERITY=2"
-${SCRIPTEXEC} "${DTL_THERMOS_ROOT}dbloadTemperatureInterlock.cmd", "SECTION_NAME=DTL-040, POS_INDEX=022, SCAN=.5 second, SEVERITY=2"
+${SCRIPTEXEC} "${DTL_THERMOS_ROOT}dbloadTemperatureInterlock.cmd", "SECTION_NAME=DTL-050, POS_INDEX=022, SCAN=.5 second, SEVERITY=2"
 # End Plates
 ${SCRIPTEXEC} "${DTL_THERMOS_ROOT}dbloadTemperatureInterlock.cmd", "SECTION_NAME=DTL-010, POS_INDEX=100, SCAN=.5 second, SEVERITY=2"
 ${SCRIPTEXEC} "${DTL_THERMOS_ROOT}dbloadTemperatureInterlock.cmd", "SECTION_NAME=DTL-010, POS_INDEX=200, SCAN=.5 second, SEVERITY=2"
@@ -1013,3 +1013,7 @@ ${SCRIPTEXEC} "${DTL_THERMOS_ROOT}postInitTemperatureAlarm.cmd", "SECTION_NAME=D
 #${SCRIPTEXEC} "${DTL_TUNERS_ROOT}postInitStateMachine.cmd", "SECTION_NAME=DTL-050"
 #
 seq temperature010_interlock "SECTION_NAME=DTL-010"
+seq temperature020_interlock "SECTION_NAME=DTL-020"
+seq temperature030_interlock "SECTION_NAME=DTL-030"
+seq temperature040_interlock "SECTION_NAME=DTL-040"
+seq temperature050_interlock "SECTION_NAME=DTL-050"

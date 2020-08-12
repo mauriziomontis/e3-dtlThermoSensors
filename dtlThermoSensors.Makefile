@@ -91,7 +91,11 @@ endif
 # SOURCES += $(APPSRC)/aCalcPostfix.c
 # SOURCES += $(APPSRC)/aCalcPerform.c
 
-SOURCES += $(APPSRC)/temperature_interlock.st
+SOURCES += $(APPSRC)/temperature_interlock_tank1.st
+SOURCES += $(APPSRC)/temperature_interlock_tank2.st
+SOURCES += $(APPSRC)/temperature_interlock_tank3.st
+SOURCES += $(APPSRC)/temperature_interlock_tank4.st
+SOURCES += $(APPSRC)/temperature_interlock_tank5.st
 # SOURCES += $(APPSRC)/calcUtil.c
 # SOURCES += $(APPSRC)/myFreeListLib.c
 # SOURCES += $(APPSRC)/devsCalcoutSoft.c
