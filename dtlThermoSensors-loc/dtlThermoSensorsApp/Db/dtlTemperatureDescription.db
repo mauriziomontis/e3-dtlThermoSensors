@@ -1,0 +1,6 @@
+
+record(stringin, "${PREFIX}:EMR-TT-${INDEX}:Temp-Desc") {
+	field(DESC, "TT-${INDEX} description")
+        field(VAL, "${DESCRIPTION}")
+}
+
