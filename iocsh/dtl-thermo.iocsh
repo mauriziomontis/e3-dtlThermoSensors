@@ -1098,6 +1098,9 @@ ${SCRIPTEXEC} "${DTL_THERMOS_ROOT}dbloadTemperatureDescription.cmd", "SECTION_NA
 ${SCRIPTEXEC} "${DTL_THERMOS_ROOT}dbloadTemperatureDescription.cmd", "SECTION_NAME=DTL-050, POS_INDEX=100, DESCRIPTION=Temp Sensor"
 ${SCRIPTEXEC} "${DTL_THERMOS_ROOT}dbloadTemperatureDescription.cmd", "SECTION_NAME=DTL-050, POS_INDEX=200, DESCRIPTION=Temp Sensor"
 
+# Load steerer ok status check
+${SCRIPTEXEC} "${DTL_THERMOS_ROOT}dbloadSteererTotalOkStatus.cmd"
+
 
 ##############################################################################
 ############## Post Configuration - Record Fields Config

@@ -1,0 +1,83 @@
+
+record(calc, "DTL-010ROW::PwrPs1OnEn") {
+	field(DESC, "Chassis 1 - total ok Status")
+	#field(SCAN, ".5 second)
+	field(INPA, "DTL-010:PwrC-PSCV-01:OkStat")
+	field(INPB, "DTL-010:PwrC-PSCH-01:OkStat")
+	field(INPC, "DTL-010:PwrC-PSCV-02:OkStat")
+	field(INPD, "DTL-010:PwrC-PSCH-02:OkStat")
+	field(INPE, "DTL-010:PwrC-PSCV-03:OkStat")
+	field(INPF, "DTL-010:PwrC-PSCH-03:OkStat")
+	field(INPG, "DTL-010:PwrC-PSCV-04:OkStat")
+	field(INPH, "DTL-010:PwrC-PSCH-04:OkStat")
+	field(INPI, "DTL-010:PwrC-PSCV-05:OkStat")
+	field(INPJ, "DTL-010:PwrC-PSCH-05:OkStat")
+	field(INPK, "DTL-010:PwrC-PSCV-06:OkStat")
+	field(INPL, "DTL-010:PwrC-PSCH-06:OkStat")
+	field(CALC, "A&&B&&C&&D&&E&&F&&G&&H&&I&&J&&K&&L")
+}
+
+record(calc, "DTL-010ROW::PwrPs2OnEn") {
+        field(DESC, "Chassis 2 - total ok Status")
+	#field(SCAN, ".5 second)
+        field(INPA, "DTL-020:PwrC-PSCV-01:OkStat")
+        field(INPB, "DTL-020:PwrC-PSCH-01:OkStat")
+        field(INPC, "DTL-020:PwrC-PSCV-02:OkStat")
+        field(INPD, "DTL-020:PwrC-PSCH-02:OkStat")
+        field(INPE, "DTL-020:PwrC-PSCV-03:OkStat")
+        field(INPF, "DTL-020:PwrC-PSCH-03:OkStat")
+	field(CALC, "A&&B&&C&&D&&E&&F")
+}
+
+record(calc, "DTL-010ROW::PwrPs3OnEn") { 
+        field(DESC, "Chassis 3 - total ok Status")
+        #field(SCAN, ".5 second)
+        field(INPA, "DTL-030:PwrC-PSCV-01:OkStat")
+        field(INPB, "DTL-030:PwrC-PSCH-01:OkStat")
+        field(INPC, "DTL-030:PwrC-PSCV-02:OkStat")
+        field(INPD, "DTL-030:PwrC-PSCH-02:OkStat")
+        field(CALC, "A&&B&&C&&D")
+}
+
+record(calc, "DTL-030ROW::PwrPs1OnEn") { 
+        field(DESC, "Chassis 4 - total ok Status")
+        #field(SCAN, ".5 second)
+        field(INPA, "DTL-040:PwrC-PSCV-01:OkStat")
+        field(INPB, "DTL-040:PwrC-PSCH-01:OkStat")
+        field(INPC, "DTL-040:PwrC-PSCV-02:OkStat")
+        field(INPD, "DTL-040:PwrC-PSCH-02:OkStat")
+        field(CALC, "A&&B&&C&&D")
+}
+
+record(calc, "DTL-030ROW::PwrPs2OnEn") {
+        field(DESC, "Chassis 5 - total ok Status")
+        #field(SCAN, ".5 second)
+        field(INPA, "DTL-050:PwrC-PSCV-01:OkStat")
+        field(INPB, "DTL-050:PwrC-PSCH-01:OkStat")
+        field(INPC, "DTL-050:PwrC-PSCV-02:OkStat")
+        field(INPD, "DTL-050:PwrC-PSCH-02:OkStat")
+        field(CALC, "A&&B&&C&&D")
+}
+
+record(calcout, "DTL-010ROW::PwrPsOnEnCond") {
+	field(DESC, "Rack 1 Ok status check")
+	field(SCAN, ".5 second")
+	field(INPA, "DTL-010ROW::PwrPs1OnEn PP")
+	field(INPB, "DTL-010ROW::PwrPs2OnEn PP")
+	field(INPC, "DTL-010ROW::PwrPs3OnEn PP")
+	field(CALC, "A&&B&&C)
+	field(OOPT, "On Change")
+	field(DOPT, "Use CALC")
+	field(OUT, "DTL-010ROW::PwrPsOnEn")
+}
+	
+record(calcout, "DTL-030ROW::PwrPsOnEnCond") {
+        field(DESC, "Rack 1 Ok status check")
+        field(SCAN, ".5 second")
+        field(INPA, "DTL-030ROW::PwrPs1OnEn PP")
+        field(INPB, "DTL-030ROW::PwrPs2OnEn PP")
+        field(CALC, "A&&B)
+        field(OOPT, "On Change")
+        field(DOPT, "Use CALC")
+        field(OUT, "DTL-030ROW::PwrPsOnEn")
+}
