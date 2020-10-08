@@ -244,7 +244,7 @@ assign TempDisable_200 to "{SECTION_NAME}:EMR-TT-100:TempDis";
 monitor TempDisable_200;
 
 int RfSlow_okstatus;
-assign RfSlow_okstatus to "{SECTION_NAME}:EMR-CAV-001:WrtC_OkStatS";
+assign RfSlow_okstatus to "{SECTION_NAME}:EMR-Cav-001:WrtC_OkStatS";
 monitor RfSlow_okstatus;
 
 /* Debug Mode: */
@@ -256,7 +256,7 @@ double DEBUG=1;
 # State Machine Definition
 */
 
-ss temperature010_interlock {
+ss temperature020_interlock {
 
 /* state INITIALIZATION	*/
 	state initialization {
@@ -266,6 +266,8 @@ ss temperature010_interlock {
 	
 		when (pvConnectCount()==pvAssignCount()) {
 			printf("[SEQ TEMPERATURE - TANK2] All PVs connected\n");
+			RfSlow_okstatus=1;
+                        pvPut(RfSlow_okstatus);
 		} state normal_operation
 	}
 
@@ -279,7 +281,7 @@ ss temperature010_interlock {
 
 	 		RfSlow_okstatus=0;
 			pvPut(RfSlow_okstatus);	
-			printf("[SEQ TEMPERATURE - TANK2] Set Tank 2 Tempearture OK status to 0\n");
+			printf("[SEQ TEMPERATURE - TANK2] Set Tank 2 Tempearture OK status to 0: INTERLOCK \n");
 		} state interlock
 
         }
@@ -296,7 +298,7 @@ ss temperature010_interlock {
 		when ( (TempIlk_001 == 0) && (TempIlk_002 == 0) && (TempIlk_003 == 0) && (TempIlk_004 == 0) && (TempIlk_005 == 0) && (TempIlk_006 == 0) && (TempIlk_007 == 0) && (TempIlk_008 == 0) && (TempIlk_009 == 0) && (TempIlk_010 == 0) && (TempIlk_011 == 0) && (TempIlk_012 == 0) && (TempIlk_013 == 0) && (TempIlk_014 == 0) && (TempIlk_015 == 0) && (TempIlk_016 == 0) && (TempIlk_017 == 0) && (TempIlk_018 == 0) && (TempIlk_019 == 0) && (TempIlk_020 == 0) && (TempIlk_021 == 0) && (TempIlk_022 == 0) && (TempIlk_023 == 0) && (TempIlk_024 == 0) && (TempIlk_025 == 0) && (TempIlk_026 == 0) && (TempIlk_027 == 0) && (TempIlk_028 == 0) && (TempIlk_029 == 0) && (TempIlk_030 == 0) && (TempIlk_031 == 0) && (TempIlk_032 == 0) && (TempIlk_033 == 0) && (TempIlk_100 == 0) && (TempIlk_200 == 0)  ) {
                         RfSlow_okstatus=1;
                         pvPut(RfSlow_okstatus);
-			printf("[SEQ TEMPERATURE - TANK2] Set Tank 2 Tempearture OK status to 1\n");
+			printf("[SEQ TEMPERATURE - TANK2] Set Tank 2 Tempearture OK status to 1: NORMAL OPERATION\n");
                 } state interlock
 
 	}
