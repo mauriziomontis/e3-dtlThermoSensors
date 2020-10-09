@@ -1,6 +1,6 @@
 #==============================================================================
 # postInitTemperatureAlarm.cmd
-#- Arguments: SECTION_NAME, DEVICE_POS
+#- Arguments: SECTION_NAME, DEVICE_POS, LOLO, LLSV, LOW, LSV, HIGH, HSV, HIHI, HHSV, HYST, HOPR, LOPR
 
 #-d /**
 #-d   \brief Configure Record fields for DTL temperature sensor
@@ -18,9 +18,11 @@
 #-d   \param HIHI Highest alarm value
 #-d   \param HHSV Highest alarm severity, i.e. MAJOR
 #-d   \param HYST Alarm hysteresis value
+#-d   \param HOPR High operator range
+#-d   \param LOPR Low operator range 
 #-d   \note Example call:
 #-d   \code
-#-d    ${SCRIPTEXEC} "${dtlThermo_DIR}postInitTemperatureAlarm.cmd", "SECTION_NAME=DTL-010, DEVICE_POS=001, LOLO=0, LLSV=NO_ALARM, LOW=0, LSV=NO_ALARM, HIGH=30, HSV=MINOR, HIHI=35, HHSV=MAJOR, HYST=5"
+#-d    ${SCRIPTEXEC} "${dtlThermo_DIR}postInitTemperatureAlarm.cmd", "SECTION_NAME=DTL-010, DEVICE_POS=001, LOLO=0, LLSV=NO_ALARM, LOW=0, LSV=NO_ALARM, HIGH=30, HSV=MINOR, HIHI=35, HHSV=MAJOR, HYST=5, HOPR=150, LOPR=10"
 #-d   \endcode
 #-d */
 
@@ -34,6 +36,9 @@ afterInit(dbpf "${SECTION_NAME}:EMR-TT-${DEVICE_POS}:Temp.HSV" "${HSV}")
 afterInit(dbpf "${SECTION_NAME}:EMR-TT-${DEVICE_POS}:Temp.HIHI" "${HIHI}")
 afterInit(dbpf "${SECTION_NAME}:EMR-TT-${DEVICE_POS}:Temp.HHSV" "${HHSV}")
 afterInit(dbpf "${SECTION_NAME}:EMR-TT-${DEVICE_POS}:Temp.HYST" "${HYST}")
+# operator range
+afterInit(dbpf "${SECTION_NAME}:EMR-TT-${DEVICE_POS}:Temp.HOPR" "${HOPR}")
+afterInit(dbpf "${SECTION_NAME}:EMR-TT-${DEVICE_POS}:Temp.LOPR" "${LOPR}")
 # bypass
 afterInit(dbpf "${SECTION_NAME}:EMR-TT-${DEVICE_POS}:Temp.SDIS" "${SECTION_NAME}:EMR-TT-${DEVICE_POS}:TempDis")
 afterInit(dbpf "${SECTION_NAME}:EMR-TT-${DEVICE_POS}:Temp.DISV" "1")
