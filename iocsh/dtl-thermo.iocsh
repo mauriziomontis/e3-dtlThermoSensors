@@ -1,6 +1,6 @@
 ##############################################################################
-############ Startup File for DTL Thermo Sensors System 
-############ 
+############ Startup File for DTL Thermo Sensors System
+############
 ############ Author: Maurizio Montis || INFN-LNL
 ############ Mail:   maurizio.montis@lnl.infn.it
 ############
@@ -8,7 +8,7 @@
 
 
 ##############################################################################
-############ Environment 
+############ Environment
 
 ###
 ############ Configuration
@@ -17,12 +17,12 @@
 ###
 
 #
-### Communication 
+### Communication
 # Ethercat Master Index
 epicsEnvSet("MASTER_ID", "2")
 
 ### Application
-# IOC application name 
+# IOC application name
 epicsEnvSet("IOC", "DTL-000")
 # Modules version
 epicsEnvSet("ECMCCFG_VERSION", "6.2.0")
@@ -75,7 +75,7 @@ ${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addMaster.cmd", "MASTER_ID=${MASTER_ID}"
 
 # - Module EK1100
 #   Position indexes: 0,2,23,45,66,88,113,125
-epicsEnvSet("IOC", "DTL-000") 
+epicsEnvSet("IOC", "DTL-000")
 ${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EK1100, SLAVE_ID=0"
 ${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EK1100, SLAVE_ID=2"
 ${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EK1100, SLAVE_ID=23"
@@ -87,7 +87,7 @@ ${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EK1100, SLAVE_ID=125"
 
 # - Module EK1122-0080
 #   Position indexes: 1,44,87,112
-epicsEnvSet("IOC", "DTL-000") 
+epicsEnvSet("IOC", "DTL-000")
 ${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EK1122, SLAVE_ID=1"
 ${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EK1122, SLAVE_ID=44"
 ${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}addSlave.cmd", "HW_DESC=EK1122, SLAVE_ID=87"
@@ -555,13 +555,6 @@ ${SCRIPTEXEC} "${DTL_THERMOS_ROOT}aliasSkidInterlockStatus.cmd", "SLAVE_ID=109, 
 # Power Unit Status
 ${SCRIPTEXEC} "${DTL_THERMOS_ROOT}aliasPrwUnitStatus.cmd", "SLAVE_ID=109, HW_DESC=EL1809, BIT_IN=1, SECTION_NAME=DTL-010ROW, POS_INDEX=001"
 ${SCRIPTEXEC} "${DTL_THERMOS_ROOT}aliasPrwUnitStatus.cmd", "SLAVE_ID=116, HW_DESC=EL1809, BIT_IN=5, SECTION_NAME=DTL-010ROW, POS_INDEX=003"
-
-# Cavity Temperature Status
-${SCRIPTEXEC} "${DTL_THERMOS_ROOT}aliasCavityTemp.cmd", "SLAVE_ID=110, HW_DESC=EL2624, BIT_IN=1, SECTION_NAME=DTL-010"
-${SCRIPTEXEC} "${DTL_THERMOS_ROOT}aliasCavityTemp.cmd", "SLAVE_ID=110, HW_DESC=EL2624, BIT_IN=2, SECTION_NAME=DTL-020"
-${SCRIPTEXEC} "${DTL_THERMOS_ROOT}aliasCavityTemp.cmd", "SLAVE_ID=110, HW_DESC=EL2624, BIT_IN=3, SECTION_NAME=DTL-030"
-${SCRIPTEXEC} "${DTL_THERMOS_ROOT}aliasCavityTemp.cmd", "SLAVE_ID=110, HW_DESC=EL2624, BIT_IN=4, SECTION_NAME=DTL-040"
-${SCRIPTEXEC} "${DTL_THERMOS_ROOT}aliasCavityTemp.cmd", "SLAVE_ID=111, HW_DESC=EL2624, BIT_IN=1, SECTION_NAME=DTL-050"
 
 # Steerer Enable System
 ${SCRIPTEXEC} "${DTL_THERMOS_ROOT}aliasEnableSteerer.cmd", "SLAVE_ID=119, HW_DESC=EL2624, BIT_IN=1, SECTION_NAME=DTL-010, STEERER_POS=V, POS_INDEX=001"
@@ -1291,10 +1284,9 @@ ${SCRIPTEXEC} "${DTL_THERMOS_ROOT}postInitTemperatureAlarm.cmd", "SECTION_NAME=D
 
 
 ## SQL State Machine
-## 
+##
 ${SCRIPTEXEC} "${DTL_THERMOS_ROOT}postInitStateMachine_Temperature.cmd", "SECTION_NAME=DTL-010, TANK=010"
 ${SCRIPTEXEC} "${DTL_THERMOS_ROOT}postInitStateMachine_Temperature.cmd", "SECTION_NAME=DTL-020, TANK=020"
 ${SCRIPTEXEC} "${DTL_THERMOS_ROOT}postInitStateMachine_Temperature.cmd", "SECTION_NAME=DTL-030, TANK=030"
 ${SCRIPTEXEC} "${DTL_THERMOS_ROOT}postInitStateMachine_Temperature.cmd", "SECTION_NAME=DTL-040, TANK=040"
 ${SCRIPTEXEC} "${DTL_THERMOS_ROOT}postInitStateMachine_Temperature.cmd", "SECTION_NAME=DTL-050, TANK=050"
-
