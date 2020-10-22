@@ -1,6 +1,26 @@
+# Records for Temperature Sensor
+#
+# Temp-Desc: sensor description (for GUI information)
+# Temp-Pos:  sensor position (according to different critical points)
+#
+# Position Code:
+# 	0 -> empty location
+# 	1 -> steerer position
+# 	2 -> BPM position
+# 	3 -> PMQ position
+#
+#
+# Defined by Maurizio Montis | INFN-LNL
+# mail: maurizio.montis@lnl.infn.it
+
 
 record(stringin, "${PREFIX}:EMR-TT-${INDEX}:Temp-Desc") {
 	field(DESC, "TT-${INDEX} description")
-        field(VAL, "${DESCRIPTION}")
+  field(VAL, "${DESCRIPTION}")
 }
 
+
+record(ai, "${PREFIX}:EMR-TT-${INDEX}:Temp-Pos") {
+	field(DESC, "TT-${INDEX} lcoation")
+  field(VAL, "${POSITION_CODE}")
+}
