@@ -430,7 +430,7 @@ double DEBUG=1;
 # State Machine Definition
 */
 
-ss tuners_statemachine {
+ss temperature010_interlock {
 
 /* state INITIALIZATION	*/
 	state initialization {
