@@ -15,7 +15,7 @@
 #-d   \endcode
 #-d */
 
-afterInit(seq temperature${TANK}_interlock  "SECTION_NAME=${SECTION_NAME}")
+afterInit(seq functional_tank${TANK}  "SECTION_NAME=${SECTION_NAME}")
 
 
 

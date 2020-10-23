@@ -22,7 +22,7 @@
 # mail: maurizio.montis@lnl.infn.it
 */
 
-program temperature010_interlock
+program functional_tank030
 
 /*
 # Libraries
@@ -442,7 +442,7 @@ ss temperature010_interlock {
         printf("[SEQ TEMPERATURE - TANK1] All PVs connected\n");
         RfSlow_okstatus=1;
         pvPut(RfSlow_okstatus);
-      } state normal_operation
+      } state self_check
 	}
 
 
