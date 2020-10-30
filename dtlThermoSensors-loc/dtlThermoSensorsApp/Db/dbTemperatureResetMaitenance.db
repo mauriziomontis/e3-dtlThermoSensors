@@ -1,0 +1,7 @@
+record(bo, "DTL:EMR-TT:MaintenanceRst") {
+	field(DESC, "${PREFIX}-${INDEX} temp bypass")
+	field(PINI, "YES")
+	field(VAL, "0")
+	field(ONAM, "DISABLED")
+	field(ZNAM, "ENABLED")
+}

@@ -611,194 +611,6 @@ assign TempPos_200 to "{SECTION_NAME}:EMR-TT-200:Temp-Pos";
 monitor TempPos_200;
 
 
-int TempSevr_001;
-assign TempSevr_001  to "{SECTION_NAME}:EMR-TT-001:Temp.SEVR";
-monitor TempSevr_001;
-int TempSevr_002;
-assign TempSevr_002 to "{SECTION_NAME}:EMR-TT-002:Temp.SEVR";
-monitor TempSevr_002;
-int TempSevr_003;
-assign TempSevr_003 to "{SECTION_NAME}:EMR-TT-003:Temp.SEVR";
-monitor TempSevr_003;
-int TempSevr_004;
-assign TempSevr_004 to "{SECTION_NAME}:EMR-TT-004:Temp.SEVR";
-monitor TempSevr_004;
-int TempSevr_005;
-assign TempSevr_005 to "{SECTION_NAME}:EMR-TT-005:Temp.SEVR";
-monitor TempSevr_005;
-int TempSevr_006;
-assign TempSevr_006 to "{SECTION_NAME}:EMR-TT-006:Temp.SEVR";
-monitor TempSevr_006;
-int TempSevr_007;
-assign TempSevr_007 to "{SECTION_NAME}:EMR-TT-007:Temp.SEVR";
-monitor TempSevr_007;
-int TempSevr_008;
-assign TempSevr_008 to "{SECTION_NAME}:EMR-TT-008:Temp.SEVR";
-monitor TempSevr_008;
-int TempSevr_009;
-assign TempSevr_009 to "{SECTION_NAME}:EMR-TT-009:Temp.SEVR";
-monitor TempSevr_009;
-int TempSevr_010;
-assign TempSevr_010 to "{SECTION_NAME}:EMR-TT-010:Temp.SEVR";
-monitor TempSevr_010;
-int TempSevr_011;
-assign TempSevr_011 to "{SECTION_NAME}:EMR-TT-011:Temp.SEVR";
-monitor TempSevr_011;
-int TempSevr_012;
-assign TempSevr_012 to "{SECTION_NAME}:EMR-TT-012:Temp.SEVR";
-monitor TempSevr_012;
-int TempSevr_013;
-assign TempSevr_013 to "{SECTION_NAME}:EMR-TT-013:Temp.SEVR";
-monitor TempSevr_013;
-int TempSevr_014;
-assign TempSevr_014 to "{SECTION_NAME}:EMR-TT-014:Temp.SEVR";
-monitor TempSevr_014;
-int TempSevr_015;
-assign TempSevr_015  to "{SECTION_NAME}:EMR-TT-015:Temp.SEVR";
-monitor TempSevr_015;
-int TempSevr_016;
-assign TempSevr_016 to "{SECTION_NAME}:EMR-TT-016:Temp.SEVR";
-monitor TempSevr_016;
-int TempSevr_017;
-assign TempSevr_017 to "{SECTION_NAME}:EMR-TT-017:Temp.SEVR";
-monitor TempSevr_017;
-int TempSevr_018;
-assign TempSevr_018 to "{SECTION_NAME}:EMR-TT-018:Temp.SEVR";
-monitor TempSevr_018;
-int TempSevr_019;
-assign TempSevr_019 to "{SECTION_NAME}:EMR-TT-019:Temp.SEVR";
-monitor TempSevr_019;
-int TempSevr_020;
-assign TempSevr_020 to "{SECTION_NAME}:EMR-TT-020:Temp.SEVR";
-monitor TempSevr_020;
-int TempSevr_021;
-assign TempSevr_021 to "{SECTION_NAME}:EMR-TT-021:Temp.SEVR";
-monitor TempSevr_021;
-int TempSevr_022;
-assign TempSevr_022 to "{SECTION_NAME}:EMR-TT-022:Temp.SEVR";
-monitor TempSevr_022;
-int TempSevr_023;
-assign TempSevr_023 to "{SECTION_NAME}:EMR-TT-023:Temp.SEVR";
-monitor TempSevr_023;
-int TempSevr_024;
-assign TempSevr_024 to "{SECTION_NAME}:EMR-TT-024:Temp.SEVR";
-monitor TempSevr_024;
-int TempSevr_025;
-assign TempSevr_025 to "{SECTION_NAME}:EMR-TT-025:Temp.SEVR";
-monitor TempSevr_025;
-int TempSevr_026;
-assign TempSevr_026 to "{SECTION_NAME}:EMR-TT-026:Temp.SEVR";
-monitor TempSevr_026;
-int TempSevr_027;
-assign TempSevr_027 to "{SECTION_NAME}:EMR-TT-027:Temp.SEVR";
-monitor TempSevr_027;
-int TempSevr_028;
-assign TempSevr_028 to "{SECTION_NAME}:EMR-TT-028:Temp.SEVR";
-monitor TempSevr_028;
-int TempSevr_029;
-assign TempSevr_029 to "{SECTION_NAME}:EMR-TT-029:Temp.SEVR";
-monitor TempSevr_029;
-int TempSevr_030;
-assign TempSevr_030 to "{SECTION_NAME}:EMR-TT-030:Temp.SEVR";
-monitor TempSevr_030;
-int TempSevr_031;
-assign TempSevr_031 to "{SECTION_NAME}:EMR-TT-031:Temp.SEVR";
-monitor TempSevr_031;
-int TempSevr_032;
-assign TempSevr_032 to "{SECTION_NAME}:EMR-TT-032:Temp.SEVR";
-monitor TempSevr_032;
-int TempSevr_033;
-assign TempSevr_033 to "{SECTION_NAME}:EMR-TT-033:Temp.SEVR";
-monitor TempSevr_033;
-int TempSevr_034;
-assign TempSevr_034 to "{SECTION_NAME}:EMR-TT-034:Temp.SEVR";
-monitor TempSevr_034;
-int TempSevr_035;
-assign TempSevr_035 to "{SECTION_NAME}:EMR-TT-035:Temp.SEVR";
-monitor TempSevr_035;
-int TempSevr_036;
-assign TempSevr_036 to "{SECTION_NAME}:EMR-TT-036:Temp.SEVR";
-monitor TempSevr_036;
-int TempSevr_037;
-assign TempSevr_037 to "{SECTION_NAME}:EMR-TT-037:Temp.SEVR";
-monitor TempSevr_037;
-int TempSevr_038;
-assign TempSevr_038 to "{SECTION_NAME}:EMR-TT-038:Temp.SEVR";
-monitor TempSevr_038;
-int TempSevr_039;
-assign TempSevr_039 to "{SECTION_NAME}:EMR-TT-039:Temp.SEVR";
-monitor TempSevr_039;
-int TempSevr_040;
-assign TempSevr_040 to "{SECTION_NAME}:EMR-TT-040:Temp.SEVR";
-monitor TempSevr_040;
-int TempSevr_041;
-assign TempSevr_041 to "{SECTION_NAME}:EMR-TT-041:Temp.SEVR";
-monitor TempSevr_041;
-int TempSevr_042;
-assign TempSevr_042 to "{SECTION_NAME}:EMR-TT-042:Temp.SEVR";
-monitor TempSevr_042;
-int TempSevr_043;
-assign TempSevr_043 to "{SECTION_NAME}:EMR-TT-043:Temp.SEVR";
-monitor TempSevr_043;
-int TempSevr_044;
-assign TempSevr_044 to "{SECTION_NAME}:EMR-TT-044:Temp.SEVR";
-monitor TempSevr_044;
-int TempSevr_045;
-assign TempSevr_045  to "{SECTION_NAME}:EMR-TT-045:Temp.SEVR";
-monitor TempSevr_045;
-int TempSevr_046;
-assign TempSevr_046  to "{SECTION_NAME}:EMR-TT-046:Temp.SEVR";
-monitor TempSevr_046;
-int TempSevr_047;
-assign TempSevr_047 to "{SECTION_NAME}:EMR-TT-047:Temp.SEVR";
-monitor TempSevr_047;
-int TempSevr_048;
-assign TempSevr_048 to "{SECTION_NAME}:EMR-TT-048:Temp.SEVR";
-monitor TempSevr_048;
-int TempSevr_049;
-assign TempSevr_049 to "{SECTION_NAME}:EMR-TT-049:Temp.SEVR";
-monitor TempSevr_049;
-int TempSevr_050;
-assign TempSevr_050 to "{SECTION_NAME}:EMR-TT-050:Temp.SEVR";
-monitor TempSevr_050;
-int TempSevr_051;
-assign TempSevr_051 to "{SECTION_NAME}:EMR-TT-051:Temp.SEVR";
-monitor TempSevr_051;
-int TempSevr_052;
-assign TempSevr_052 to "{SECTION_NAME}:EMR-TT-052:Temp.SEVR";
-monitor TempSevr_052;
-int TempSevr_053;
-assign TempSevr_053 to "{SECTION_NAME}:EMR-TT-053:Temp.SEVR";
-monitor TempSevr_053;
-int TempSevr_054;
-assign TempSevr_054 to "{SECTION_NAME}:EMR-TT-054:Temp.SEVR";
-monitor TempSevr_054;
-int TempSevr_055;
-assign TempSevr_055 to "{SECTION_NAME}:EMR-TT-055:Temp.SEVR";
-monitor TempSevr_055;
-int TempSevr_056;
-assign TempSevr_056 to "{SECTION_NAME}:EMR-TT-056:Temp.SEVR";
-monitor TempSevr_056;
-int TempSevr_057;
-assign TempSevr_057 to "{SECTION_NAME}:EMR-TT-057:Temp.SEVR";
-monitor TempSevr_057;
-int TempSevr_058;
-assign TempSevr_058 to "{SECTION_NAME}:EMR-TT-058:Temp.SEVR";
-monitor TempSevr_058;
-int TempSevr_059;
-assign TempSevr_059 to "{SECTION_NAME}:EMR-TT-059:Temp.SEVR";
-monitor TempSevr_059;
-int TempSevr_060;
-assign TempSevr_060 to "{SECTION_NAME}:EMR-TT-060:Temp.SEVR";
-monitor TempSevr_060;
-int TempSevr_100;
-assign TempSevr_100 to "{SECTION_NAME}:EMR-TT-100:Temp.SEVR";
-monitor TempSevr_100;
-int TempSevr_200;
-assign TempSevr_200 to "{SECTION_NAME}:EMR-TT-200:Temp.SEVR";
-monitor TempSevr_200;
-
-
 int HwErrAlrm_001;
 assign HwErrAlrm_001  to "{SECTION_NAME}:EMR-TT-001:HwErrAlrm";
 monitor HwErrAlrm_001;
@@ -1362,6 +1174,9 @@ int HwUnderLimAlrm_200;
 assign HwUnderLimAlrm_200 to "{SECTION_NAME}:EMR-TT-200:HwUnderLimAlrm";
 monitor HwUnderLimAlrm_200;
 
+int MaintenanceReset;
+assign MaintenanceReset to "DTL:EMR-TT:MaintenanceRst";
+monitor MaintenanceReset;
 
 int RfSlow_okstatus;
 assign RfSlow_okstatus to "{SECTION_NAME}:EMR-Cav-001:WrtC_OkStatS";
@@ -1385,9 +1200,10 @@ ss temperature010_interlock {
       }
 
       when (pvConnectCount()==pvAssignCount()) {
-        printf("[SEQ TEMPERATURE - TANK1] All PVs connected\n");
-        RfSlow_okstatus=1;
-        pvPut(RfSlow_okstatus);
+        printf("[SEQ TEMPERATURE  - TANK1] All PVs connected\n");
+        printf("[SEQ TEMPERATURE  - TANK1] Starting Self Check Process\n");
+        //RfSlow_okstatus=1;
+        //pvPut(RfSlow_okstatus);
       } state self_check
 	}
 
@@ -1402,18 +1218,36 @@ ss temperature010_interlock {
 
  		   RfSlow_okstatus=0;
 	     pvPut(RfSlow_okstatus);
-		   printf("[SEQ TEMPERATURE  - TANK1] Set Tank 1 Tempearture OK status to 0: INTERLOCK \n");
+       printf("[SEQ TEMPERATURE  - TANK1] Error in software interlock variable\n");
+		   printf("[SEQ TEMPERATURE  - TANK1] Set TANK 1 Temperature OK STATUS to 0: INTERLOCK \n");
 		} state failure
 
-    /* Sensor disconnected if sensor is in PMQ [code 3] or BPM [code 2] position */
+    /* Sensor error if sensor is in PMQ [code 3] or BPM [code 2] position */
 		when ( ( (HwErrAlrm_001 == 1) && (TempPos_001 == 2) ) || ( (HwErrAlrm_001 == 1) && (TempPos_001 == 3) ) || ( (HwErrAlrm_002 == 1) && (TempPos_002 == 2) ) || ( (HwErrAlrm_002 == 1) && (TempPos_002 == 3) ) || ( (HwErrAlrm_003 == 1) && (TempPos_003 == 2) ) || ( (HwErrAlrm_003 == 1) && (TempPos_003 == 3) ) ||( (HwErrAlrm_004 == 1) && (TempPos_004 == 2) ) || ( (HwErrAlrm_004 == 1) && (TempPos_004 == 3) ) ||( (HwErrAlrm_005 == 1) && (TempPos_005 == 2) ) || ( (HwErrAlrm_005 == 1) && (TempPos_005 == 3) ) || ( (HwErrAlrm_006 == 1) && (TempPos_006 == 2) ) || ( (HwErrAlrm_006 == 1) && (TempPos_006 == 3) ) || ( (HwErrAlrm_007 == 1) && (TempPos_007 == 2) ) || ( (HwErrAlrm_007 == 1) && (TempPos_007 == 3) ) || ( (HwErrAlrm_008 == 1) && (TempPos_008 == 2) ) || ( (HwErrAlrm_008 == 1) && (TempPos_008 == 3) ) || ( (HwErrAlrm_009 == 1) && (TempPos_009 == 2) ) || ( (HwErrAlrm_009 == 1) && (TempPos_009 == 3) ) || ( (HwErrAlrm_010 == 1) && (TempPos_010 == 2) ) || ( (HwErrAlrm_010 == 1) && (TempPos_010 == 3) ) || ( (HwErrAlrm_011 == 1) && (TempPos_011 == 2) ) || ( (HwErrAlrm_011 == 1) && (TempPos_011 == 3) ) || ( (HwErrAlrm_012 == 1) && (TempPos_012 == 2) ) || ( (HwErrAlrm_012 == 1) && (TempPos_012 == 3) ) || ( (HwErrAlrm_013 == 1) && (TempPos_013 == 2) ) || ( (HwErrAlrm_013 == 1) && (TempPos_013 == 3) ) ||( (HwErrAlrm_014 == 1) && (TempPos_014 == 2) ) || ( (HwErrAlrm_014 == 1) && (TempPos_014 == 3) ) ||( (HwErrAlrm_015 == 1) && (TempPos_015 == 2) ) || ( (HwErrAlrm_015 == 1) && (TempPos_015 == 3) ) || ( (HwErrAlrm_016 == 1) && (TempPos_016 == 2) ) || ( (HwErrAlrm_016 == 1) && (TempPos_016 == 3) ) || ( (HwErrAlrm_017 == 1) && (TempPos_017 == 2) ) || ( (HwErrAlrm_017 == 1) && (TempPos_017 == 3) ) || ( (HwErrAlrm_018 == 1) && (TempPos_018 == 2) ) || ( (HwErrAlrm_018 == 1) && (TempPos_018 == 3) ) || ( (HwErrAlrm_019 == 1) && (TempPos_019 == 2) ) || ( (HwErrAlrm_019 == 1) && (TempPos_019 == 3) ) || ( (HwErrAlrm_020 == 1) && (TempPos_020 == 2) ) || ( (HwErrAlrm_020 == 1) && (TempPos_020 == 3) ) || ( (HwErrAlrm_021 == 1) && (TempPos_021 == 2) ) || ( (HwErrAlrm_021 == 1) && (TempPos_021 == 3) ) || ( (HwErrAlrm_022 == 1) && (TempPos_022 == 2) ) || ( (HwErrAlrm_022 == 1) && (TempPos_022 == 3) ) || ( (HwErrAlrm_023 == 1) && (TempPos_023 == 2) ) || ( (HwErrAlrm_023 == 1) && (TempPos_023 == 3) ) ||( (HwErrAlrm_024 == 1) && (TempPos_024 == 2) ) || ( (HwErrAlrm_024 == 1) && (TempPos_024 == 3) ) ||( (HwErrAlrm_025 == 1) && (TempPos_025 == 2) ) || ( (HwErrAlrm_025 == 1) && (TempPos_025 == 3) ) || ( (HwErrAlrm_026 == 1) && (TempPos_026 == 2) ) || ( (HwErrAlrm_026 == 1) && (TempPos_026 == 3) ) || ( (HwErrAlrm_027 == 1) && (TempPos_027 == 2) ) || ( (HwErrAlrm_027 == 1) && (TempPos_027 == 3) ) || ( (HwErrAlrm_028 == 1) && (TempPos_028 == 2) ) || ( (HwErrAlrm_028 == 1) && (TempPos_028 == 3) ) || ( (HwErrAlrm_029 == 1) && (TempPos_029 == 2) ) || ( (HwErrAlrm_029 == 1) && (TempPos_029 == 3) ) || ( (HwErrAlrm_030 == 1) && (TempPos_030 == 2) ) || ( (HwErrAlrm_030 == 1) && (TempPos_030 == 3) ) || ( (HwErrAlrm_031 == 1) && (TempPos_031 == 2) ) || ( (HwErrAlrm_031 == 1) && (TempPos_031 == 3) ) || ( (HwErrAlrm_032 == 1) && (TempPos_032 == 2) ) || ( (HwErrAlrm_032 == 1) && (TempPos_032 == 3) ) || ( (HwErrAlrm_033 == 1) && (TempPos_033 == 2) ) || ( (HwErrAlrm_033 == 1) && (TempPos_033 == 3) ) ||( (HwErrAlrm_034 == 1) && (TempPos_034 == 2) ) || ( (HwErrAlrm_034 == 1) && (TempPos_034 == 3) ) ||( (HwErrAlrm_035 == 1) && (TempPos_035 == 2) ) || ( (HwErrAlrm_035 == 1) && (TempPos_035 == 3) ) || ( (HwErrAlrm_036 == 1) && (TempPos_036 == 2) ) || ( (HwErrAlrm_036 == 1) && (TempPos_036 == 3) ) || ( (HwErrAlrm_037 == 1) && (TempPos_037 == 2) ) || ( (HwErrAlrm_037 == 1) && (TempPos_037 == 3) ) || ( (HwErrAlrm_038 == 1) && (TempPos_038 == 2) ) || ( (HwErrAlrm_038 == 1) && (TempPos_038 == 3) ) || ( (HwErrAlrm_039 == 1) && (TempPos_039 == 2) ) || ( (HwErrAlrm_039 == 1) && (TempPos_039 == 3) ) || ( (HwErrAlrm_040 == 1) && (TempPos_040 == 2) ) || ( (HwErrAlrm_040 == 1) && (TempPos_040 == 3) ) || ( (HwErrAlrm_041 == 1) && (TempPos_041 == 2) ) || ( (HwErrAlrm_041 == 1) && (TempPos_041 == 3) ) || ( (HwErrAlrm_042 == 1) && (TempPos_042 == 2) ) || ( (HwErrAlrm_042 == 1) && (TempPos_042 == 3) ) || ( (HwErrAlrm_043 == 1) && (TempPos_043 == 2) ) || ( (HwErrAlrm_043 == 1) && (TempPos_043 == 3) ) ||( (HwErrAlrm_044 == 1) && (TempPos_044 == 2) ) || ( (HwErrAlrm_044 == 1) && (TempPos_044 == 3) ) ||( (HwErrAlrm_045 == 1) && (TempPos_045 == 2) ) || ( (HwErrAlrm_045 == 1) && (TempPos_045 == 3) ) || ( (HwErrAlrm_046 == 1) && (TempPos_046 == 2) ) || ( (HwErrAlrm_046 == 1) && (TempPos_046 == 3) ) || ( (HwErrAlrm_047 == 1) && (TempPos_047 == 2) ) || ( (HwErrAlrm_047 == 1) && (TempPos_047 == 3) ) || ( (HwErrAlrm_048 == 1) && (TempPos_048 == 2) ) || ( (HwErrAlrm_048 == 1) && (TempPos_048 == 3) ) || ( (HwErrAlrm_049 == 1) && (TempPos_049 == 2) ) || ( (HwErrAlrm_049 == 1) && (TempPos_049 == 3) ) || ( (HwErrAlrm_050 == 1) && (TempPos_050 == 2) ) || ( (HwErrAlrm_050 == 1) && (TempPos_050 == 3) ) || ( (HwErrAlrm_051 == 1) && (TempPos_051 == 2) ) || ( (HwErrAlrm_051 == 1) && (TempPos_051 == 3) ) || ( (HwErrAlrm_052 == 1) && (TempPos_052 == 2) ) || ( (HwErrAlrm_052 == 1) && (TempPos_052 == 3) ) || ( (HwErrAlrm_053 == 1) && (TempPos_053 == 2) ) || ( (HwErrAlrm_053 == 1) && (TempPos_053 == 3) ) ||( (HwErrAlrm_054 == 1) && (TempPos_054 == 2) ) || ( (HwErrAlrm_054 == 1) && (TempPos_054 == 3) ) ||( (HwErrAlrm_055 == 1) && (TempPos_055 == 2) ) || ( (HwErrAlrm_055 == 1) && (TempPos_055 == 3) ) || ( (HwErrAlrm_056 == 1) && (TempPos_056 == 2) ) || ( (HwErrAlrm_056 == 1) && (TempPos_056 == 3) ) || ( (HwErrAlrm_057 == 1) && (TempPos_057 == 2) ) || ( (HwErrAlrm_057 == 1) && (TempPos_057 == 3) ) || ( (HwErrAlrm_058 == 1) && (TempPos_058 == 2) ) || ( (HwErrAlrm_058 == 1) && (TempPos_058 == 3) ) || ( (HwErrAlrm_059 == 1) && (TempPos_059 == 2) ) || ( (HwErrAlrm_059 == 1) && (TempPos_059 == 3) ) || ( (HwErrAlrm_060 == 1) && (TempPos_060 == 2) ) || ( (HwErrAlrm_060 == 1) && (TempPos_060 == 3) ) || ( (HwErrAlrm_100 == 1) && (TempPos_100 == 2) ) || ( (HwErrAlrm_100 == 1) && (TempPos_100 == 3) ) || ( (HwErrAlrm_200 == 1) && (TempPos_200 == 2) ) || ( (HwErrAlrm_200 == 1) && (TempPos_200 == 3) ) ) {
 
       RfSlow_okstatus=0;
       pvPut(RfSlow_okstatus);
-      printf("[SEQ TEMPERATURE  - TANK1] Set Tank 1 Tempearture OK status to 0: INTERLOCK \n");
+      printf("[SEQ TEMPERATURE  - TANK1] MAJOR Error in hardware connection: possible broken sensor\n");
+      printf("[SEQ TEMPERATURE  - TANK1] Set TANK 1 Temperature OK STATUS to 0: INTERLOCK \n");
 		} state failure
 
+    /* Sensor error if sensor is in steerer [code 1] or empty [code 0] position */
+		when ( ( (HwErrAlrm_001 == 1) && (TempPos_001 == 0) ) || ( (HwErrAlrm_001 == 1) && (TempPos_001 == 1) ) || ( (HwErrAlrm_002 == 1) && (TempPos_002 == 0) ) || ( (HwErrAlrm_002 == 1) && (TempPos_002 == 1) ) || ( (HwErrAlrm_003 == 1) && (TempPos_003 == 0) ) || ( (HwErrAlrm_003 == 1) && (TempPos_003 == 1) ) ||( (HwErrAlrm_004 == 1) && (TempPos_004 == 0) ) || ( (HwErrAlrm_004 == 1) && (TempPos_004 == 1) ) ||( (HwErrAlrm_005 == 1) && (TempPos_005 == 0) ) || ( (HwErrAlrm_005 == 1) && (TempPos_005 == 1) ) || ( (HwErrAlrm_006 == 1) && (TempPos_006 == 0) ) || ( (HwErrAlrm_006 == 1) && (TempPos_006 == 1) ) || ( (HwErrAlrm_007 == 1) && (TempPos_007 == 0) ) || ( (HwErrAlrm_007 == 1) && (TempPos_007 == 1) ) || ( (HwErrAlrm_008 == 1) && (TempPos_008 == 0) ) || ( (HwErrAlrm_008 == 1) && (TempPos_008 == 1) ) || ( (HwErrAlrm_009 == 1) && (TempPos_009 == 0) ) || ( (HwErrAlrm_009 == 1) && (TempPos_009 == 1) ) || ( (HwErrAlrm_010 == 1) && (TempPos_010 == 0) ) || ( (HwErrAlrm_010 == 1) && (TempPos_010 == 1) ) || ( (HwErrAlrm_011 == 1) && (TempPos_011 == 0) ) || ( (HwErrAlrm_011 == 1) && (TempPos_011 == 1) ) || ( (HwErrAlrm_012 == 1) && (TempPos_012 == 0) ) || ( (HwErrAlrm_012 == 1) && (TempPos_012 == 1) ) || ( (HwErrAlrm_013 == 1) && (TempPos_013 == 0) ) || ( (HwErrAlrm_013 == 1) && (TempPos_013 == 1) ) ||( (HwErrAlrm_014 == 1) && (TempPos_014 == 0) ) || ( (HwErrAlrm_014 == 1) && (TempPos_014 == 1) ) ||( (HwErrAlrm_015 == 1) && (TempPos_015 == 0) ) || ( (HwErrAlrm_015 == 1) && (TempPos_015 == 1) ) || ( (HwErrAlrm_016 == 1) && (TempPos_016 == 0) ) || ( (HwErrAlrm_016 == 1) && (TempPos_016 == 1) ) || ( (HwErrAlrm_017 == 1) && (TempPos_017 == 0) ) || ( (HwErrAlrm_017 == 1) && (TempPos_017 == 1) ) || ( (HwErrAlrm_018 == 1) && (TempPos_018 == 0) ) || ( (HwErrAlrm_018 == 1) && (TempPos_018 == 1) ) || ( (HwErrAlrm_019 == 1) && (TempPos_019 == 0) ) || ( (HwErrAlrm_019 == 1) && (TempPos_019 == 1) ) || ( (HwErrAlrm_020 == 1) && (TempPos_020 == 0) ) || ( (HwErrAlrm_020 == 1) && (TempPos_020 == 1) ) || ( (HwErrAlrm_021 == 1) && (TempPos_021 == 0) ) || ( (HwErrAlrm_021 == 1) && (TempPos_021 == 1) ) || ( (HwErrAlrm_022 == 1) && (TempPos_022 == 0) ) || ( (HwErrAlrm_022 == 1) && (TempPos_022 == 1) ) || ( (HwErrAlrm_023 == 1) && (TempPos_023 == 0) ) || ( (HwErrAlrm_023 == 1) && (TempPos_023 == 1) ) ||( (HwErrAlrm_024 == 1) && (TempPos_024 == 0) ) || ( (HwErrAlrm_024 == 1) && (TempPos_024 == 1) ) ||( (HwErrAlrm_025 == 1) && (TempPos_025 == 0) ) || ( (HwErrAlrm_025 == 1) && (TempPos_025 == 1) ) || ( (HwErrAlrm_026 == 1) && (TempPos_026 == 0) ) || ( (HwErrAlrm_026 == 1) && (TempPos_026 == 1) ) || ( (HwErrAlrm_027 == 1) && (TempPos_027 == 0) ) || ( (HwErrAlrm_027 == 1) && (TempPos_027 == 1) ) || ( (HwErrAlrm_028 == 1) && (TempPos_028 == 0) ) || ( (HwErrAlrm_028 == 1) && (TempPos_028 == 1) ) || ( (HwErrAlrm_029 == 1) && (TempPos_029 == 0) ) || ( (HwErrAlrm_029 == 1) && (TempPos_029 == 1) ) || ( (HwErrAlrm_030 == 1) && (TempPos_030 == 0) ) || ( (HwErrAlrm_030 == 1) && (TempPos_030 == 1) ) || ( (HwErrAlrm_031 == 1) && (TempPos_031 == 0) ) || ( (HwErrAlrm_031 == 1) && (TempPos_031 == 1) ) || ( (HwErrAlrm_032 == 1) && (TempPos_032 == 0) ) || ( (HwErrAlrm_032 == 1) && (TempPos_032 == 1) ) || ( (HwErrAlrm_033 == 1) && (TempPos_033 == 0) ) || ( (HwErrAlrm_033 == 1) && (TempPos_033 == 1) ) ||( (HwErrAlrm_034 == 1) && (TempPos_034 == 0) ) || ( (HwErrAlrm_034 == 1) && (TempPos_034 == 1) ) ||( (HwErrAlrm_035 == 1) && (TempPos_035 == 0) ) || ( (HwErrAlrm_035 == 1) && (TempPos_035 == 1) ) || ( (HwErrAlrm_036 == 1) && (TempPos_036 == 0) ) || ( (HwErrAlrm_036 == 1) && (TempPos_036 == 1) ) || ( (HwErrAlrm_037 == 1) && (TempPos_037 == 0) ) || ( (HwErrAlrm_037 == 1) && (TempPos_037 == 1) ) || ( (HwErrAlrm_038 == 1) && (TempPos_038 == 0) ) || ( (HwErrAlrm_038 == 1) && (TempPos_038 == 1) ) || ( (HwErrAlrm_039 == 1) && (TempPos_039 == 0) ) || ( (HwErrAlrm_039 == 1) && (TempPos_039 == 1) ) || ( (HwErrAlrm_040 == 1) && (TempPos_040 == 0) ) || ( (HwErrAlrm_040 == 1) && (TempPos_040 == 1) ) || ( (HwErrAlrm_041 == 1) && (TempPos_041 == 0) ) || ( (HwErrAlrm_041 == 1) && (TempPos_041 == 1) ) || ( (HwErrAlrm_042 == 1) && (TempPos_042 == 0) ) || ( (HwErrAlrm_042 == 1) && (TempPos_042 == 1) ) || ( (HwErrAlrm_043 == 1) && (TempPos_043 == 0) ) || ( (HwErrAlrm_043 == 1) && (TempPos_043 == 1) ) ||( (HwErrAlrm_044 == 1) && (TempPos_044 == 0) ) || ( (HwErrAlrm_044 == 1) && (TempPos_044 == 1) ) ||( (HwErrAlrm_045 == 1) && (TempPos_045 == 0) ) || ( (HwErrAlrm_045 == 1) && (TempPos_045 == 1) ) || ( (HwErrAlrm_046 == 1) && (TempPos_046 == 0) ) || ( (HwErrAlrm_046 == 1) && (TempPos_046 == 1) ) || ( (HwErrAlrm_047 == 1) && (TempPos_047 == 0) ) || ( (HwErrAlrm_047 == 1) && (TempPos_047 == 1) ) || ( (HwErrAlrm_048 == 1) && (TempPos_048 == 0) ) || ( (HwErrAlrm_048 == 1) && (TempPos_048 == 1) ) || ( (HwErrAlrm_049 == 1) && (TempPos_049 == 0) ) || ( (HwErrAlrm_049 == 1) && (TempPos_049 == 1) ) || ( (HwErrAlrm_050 == 1) && (TempPos_050 == 0) ) || ( (HwErrAlrm_050 == 1) && (TempPos_050 == 1) ) || ( (HwErrAlrm_051 == 1) && (TempPos_051 == 0) ) || ( (HwErrAlrm_051 == 1) && (TempPos_051 == 1) ) || ( (HwErrAlrm_052 == 1) && (TempPos_052 == 0) ) || ( (HwErrAlrm_052 == 1) && (TempPos_052 == 1) ) || ( (HwErrAlrm_053 == 1) && (TempPos_053 == 0) ) || ( (HwErrAlrm_053 == 1) && (TempPos_053 == 1) ) ||( (HwErrAlrm_054 == 1) && (TempPos_054 == 0) ) || ( (HwErrAlrm_054 == 1) && (TempPos_054 == 1) ) ||( (HwErrAlrm_055 == 1) && (TempPos_055 == 0) ) || ( (HwErrAlrm_055 == 1) && (TempPos_055 == 1) ) || ( (HwErrAlrm_056 == 1) && (TempPos_056 == 0) ) || ( (HwErrAlrm_056 == 1) && (TempPos_056 == 1) ) || ( (HwErrAlrm_057 == 1) && (TempPos_057 == 0) ) || ( (HwErrAlrm_057 == 1) && (TempPos_057 == 1) ) || ( (HwErrAlrm_058 == 1) && (TempPos_058 == 0) ) || ( (HwErrAlrm_058 == 1) && (TempPos_058 == 1) ) || ( (HwErrAlrm_059 == 1) && (TempPos_059 == 0) ) || ( (HwErrAlrm_059 == 1) && (TempPos_059 == 1) ) || ( (HwErrAlrm_060 == 1) && (TempPos_060 == 0) ) || ( (HwErrAlrm_060 == 1) && (TempPos_060 == 1) ) || ( (HwErrAlrm_100 == 1) && (TempPos_100 == 0) ) || ( (HwErrAlrm_100 == 1) && (TempPos_100 == 1) ) || ( (HwErrAlrm_200 == 1) && (TempPos_200 == 0) ) || ( (HwErrAlrm_200 == 1) && (TempPos_200 == 1) ) ) {
 
+      RfSlow_okstatus=0;
+      pvPut(RfSlow_okstatus);
+      printf("[SEQ TEMPERATURE  - TANK1] MINOR Error in hardware connection: possible broken sensor\n");
+      printf("[SEQ TEMPERATURE  - TANK1] Set TANK 1 Temperature OK STATUS to 0: INTERLOCK \n");
+		} state maintenance
+
+    /* Sensor broken  */
+		when ( ( (HwErrAlrm_001 == 1) && (HwUnderLimAlrm_001 == 1) && (HwOverLimAlrm_001 == 1) ) || ( (HwErrAlrm_002 == 1) && (HwUnderLimAlrm_002 == 1) && (HwOverLimAlrm_002 == 1) ) || ( (HwErrAlrm_003 == 1) && (HwUnderLimAlrm_003 == 1) && (HwOverLimAlrm_003 == 1) ) || ( (HwErrAlrm_004 == 1) && (HwUnderLimAlrm_004 == 1) && (HwOverLimAlrm_004 == 1) ) || ( (HwErrAlrm_005 == 1) && (HwUnderLimAlrm_005 == 1) && (HwOverLimAlrm_005 == 1) ) || ( (HwErrAlrm_006 == 1) && (HwUnderLimAlrm_006 == 1) &&  (HwOverLimAlrm_006 == 1) ) || ( (HwErrAlrm_007 == 1) && (HwUnderLimAlrm_007 == 1) && (HwOverLimAlrm_007 == 1) ) || ( (HwErrAlrm_008 == 1) && (HwUnderLimAlrm_008 == 1) && (HwOverLimAlrm_008 == 1) ) || ( (HwErrAlrm_009 == 1) && (HwUnderLimAlrm_009 == 1) && (HwOverLimAlrm_009 == 1) ) || ( (HwErrAlrm_010 == 1) && (HwUnderLimAlrm_010 == 1) && (HwOverLimAlrm_010 == 1) ) || ( (HwErrAlrm_011 == 1) && (HwUnderLimAlrm_011 == 1) && (HwOverLimAlrm_011 == 1) ) || ( (HwErrAlrm_012 == 1) && (HwUnderLimAlrm_012 == 1) && (HwOverLimAlrm_012 == 1) ) || ( (HwErrAlrm_013 == 1) && (HwUnderLimAlrm_013 == 1) && (HwOverLimAlrm_013 == 1) ) || ( (HwErrAlrm_014 == 1) && (HwUnderLimAlrm_014 == 1) && (HwOverLimAlrm_014 == 1) ) || ( (HwErrAlrm_015 == 1) && (HwUnderLimAlrm_015 == 1) && (HwOverLimAlrm_015 == 1) ) || ( (HwErrAlrm_016 == 1) && (HwUnderLimAlrm_016 == 1) && (HwOverLimAlrm_016 == 1) ) || ( (HwErrAlrm_017 == 1) && (HwUnderLimAlrm_017 == 1) && (HwOverLimAlrm_017 == 1) ) || ( (HwErrAlrm_018 == 1) && (HwUnderLimAlrm_018 == 1) && (HwOverLimAlrm_018 == 1) ) || ( (HwErrAlrm_019 == 1) && (HwUnderLimAlrm_019 == 1) && (HwOverLimAlrm_019 == 1) ) || ( (HwErrAlrm_020 == 1) && (HwUnderLimAlrm_020 == 1) && (HwOverLimAlrm_020 == 1) ) || ( (HwErrAlrm_021 == 1) && (HwUnderLimAlrm_021 == 1) && (HwOverLimAlrm_021 == 1) ) || ( (HwErrAlrm_022 == 1) && (HwUnderLimAlrm_022 == 1) && (HwOverLimAlrm_022 == 1) ) || ( (HwErrAlrm_023 == 1) && (HwUnderLimAlrm_023 == 1) && (HwOverLimAlrm_023 == 1) ) || ( (HwErrAlrm_024 == 1) && (HwUnderLimAlrm_024 == 1) && (HwOverLimAlrm_024 == 1) ) || ( (HwErrAlrm_025 == 1) && (HwUnderLimAlrm_025 == 1) && (HwOverLimAlrm_025 == 1) ) || ( (HwErrAlrm_026 == 1) && (HwUnderLimAlrm_026 == 1) && (HwOverLimAlrm_026 == 1) ) || ( (HwErrAlrm_027 == 1) && (HwUnderLimAlrm_027 == 1) && (HwOverLimAlrm_027 == 1) ) || ( (HwErrAlrm_028 == 1) && (HwUnderLimAlrm_028 == 1) && (HwOverLimAlrm_028 == 1) ) || ( (HwErrAlrm_029 == 1) && (HwUnderLimAlrm_029 == 1) && (HwOverLimAlrm_029 == 1) ) || ( (HwErrAlrm_030 == 1) && (HwUnderLimAlrm_030 == 1) && (HwOverLimAlrm_030 == 1) ) || ( (HwErrAlrm_031 == 1) && (HwUnderLimAlrm_031 == 1) && (HwOverLimAlrm_031 == 1) ) || ( (HwErrAlrm_032 == 1) && (HwUnderLimAlrm_032 == 1) && (HwOverLimAlrm_032 == 1) ) || ( (HwErrAlrm_033 == 1) && (HwUnderLimAlrm_033 == 1) && (HwOverLimAlrm_033 == 1) ) || ( (HwErrAlrm_034 == 1) && (HwUnderLimAlrm_034 == 1) && (HwOverLimAlrm_034 == 1) ) || ( (HwErrAlrm_035 == 1) && (HwUnderLimAlrm_035 == 1) && (HwOverLimAlrm_035 == 1) ) || ( (HwErrAlrm_036 == 1) && (HwUnderLimAlrm_036 == 1) && (HwOverLimAlrm_036 == 1) ) || ( (HwErrAlrm_037 == 1) && (HwUnderLimAlrm_037 == 1) && (HwOverLimAlrm_037 == 1) ) || ( (HwErrAlrm_038 == 1) && (HwUnderLimAlrm_038 == 1) && (HwOverLimAlrm_038 == 1) ) || ( (HwErrAlrm_039 == 1) && (HwUnderLimAlrm_039 == 1) && (HwOverLimAlrm_039 == 1) ) || ( (HwErrAlrm_040 == 1) && (HwUnderLimAlrm_040 == 1) && (HwOverLimAlrm_040 == 1) ) || ( (HwErrAlrm_041 == 1) && (HwUnderLimAlrm_041 == 1) && (HwOverLimAlrm_041 == 1) ) || ( (HwErrAlrm_042 == 1) && (HwUnderLimAlrm_042 == 1) && (HwOverLimAlrm_042 == 1) ) || ( (HwErrAlrm_043 == 1) && (HwUnderLimAlrm_043 == 1) && (HwOverLimAlrm_043 == 1) ) || ( (HwErrAlrm_044 == 1) && (HwUnderLimAlrm_044 == 1) && (HwOverLimAlrm_044 == 1) ) || ( (HwErrAlrm_045 == 1) && (HwUnderLimAlrm_045 == 1) && (HwOverLimAlrm_045 == 1) ) || ( (HwErrAlrm_046 == 1) && (HwUnderLimAlrm_046 == 1) && (HwOverLimAlrm_046 == 1) ) || ( (HwErrAlrm_047 == 1) && (HwUnderLimAlrm_047 == 1) && (HwOverLimAlrm_047 == 1) ) || ( (HwErrAlrm_048 == 1) && (HwUnderLimAlrm_048 == 1) && (HwOverLimAlrm_048 == 1) ) || ( (HwErrAlrm_049 == 1) && (HwUnderLimAlrm_049 == 1) && (HwOverLimAlrm_049 == 1) ) || ( (HwErrAlrm_050 == 1) && (HwUnderLimAlrm_050 == 1) && (HwOverLimAlrm_050 == 1) ) || ( (HwErrAlrm_051 == 1) && (HwUnderLimAlrm_051 == 1) && (HwOverLimAlrm_051 == 1) ) || ( (HwErrAlrm_052 == 1) && (HwUnderLimAlrm_052 == 1) && (HwOverLimAlrm_052 == 1) ) || ( (HwErrAlrm_053 == 1) && (HwUnderLimAlrm_053 == 1) && (HwOverLimAlrm_053 == 1) ) || ( (HwErrAlrm_054 == 1) && (HwUnderLimAlrm_054 == 1) && (HwOverLimAlrm_054 == 1) ) || ( (HwErrAlrm_055 == 1) && (HwUnderLimAlrm_055 == 1) && (HwOverLimAlrm_055 == 1) ) || ( (HwErrAlrm_056 == 1) && (HwUnderLimAlrm_056 == 1) && (HwOverLimAlrm_056 == 1) ) || ( (HwErrAlrm_057 == 1) && (HwUnderLimAlrm_057 == 1) && (HwOverLimAlrm_057 == 1) ) || ( (HwErrAlrm_058 == 1) && (HwUnderLimAlrm_058 == 1) && (HwOverLimAlrm_058 == 1) ) || ( (HwErrAlrm_059 == 1) && (HwUnderLimAlrm_059 == 1) && (HwOverLimAlrm_059 == 1) ) || ( (HwErrAlrm_060 == 1) && (HwUnderLimAlrm_060 == 1) && (HwOverLimAlrm_060 == 1) ) || ( (HwErrAlrm_100 == 1) && (HwUnderLimAlrm_100 == 1) && (HwOverLimAlrm_100 == 1) ) || ( (HwErrAlrm_200 == 1) && (HwUnderLimAlrm_200 == 1) && (HwOverLimAlrm_200 == 1) ) ) {
+
+      RfSlow_okstatus=0;
+      pvPut(RfSlow_okstatus);
+      printf("[SEQ TEMPERATURE  - TANK1] MINOR Error in hardware connection: possible broken sensor\n");
+      printf("[SEQ TEMPERATURE  - TANK1] Set TANK 1 Temperature OK STATUS to 0: INTERLOCK \n");
+		} state maintenance
 
 
   }
@@ -1428,7 +1262,7 @@ ss temperature010_interlock {
   state failure {
 
     entry {
-        printf("\n[SEQ TEMPERATURE  - TANK1] Enter in interlock status\n");
+        printf("\n[SEQ TEMPERATURE  - TANK1] Enter in FAILURE status\n");
     }
 
     when ( (TempIlk_001 == 0) && (TempIlk_002 == 0) && (TempIlk_003 == 0) && (TempIlk_004 == 0) && (TempIlk_005 == 0) && (TempIlk_006 == 0) && (TempIlk_007 == 0) && (TempIlk_008 == 0) && (TempIlk_009 == 0) && (TempIlk_010 == 0) && (TempIlk_011 == 0) && (TempIlk_012 == 0) && (TempIlk_013 == 0) && (TempIlk_014 == 0) && (TempIlk_015 == 0) && (TempIlk_016 == 0) && (TempIlk_017 == 0) && (TempIlk_018 == 0) && (TempIlk_019 == 0) && (TempIlk_020 == 0) && (TempIlk_021 == 0) && (TempIlk_022 == 0) && (TempIlk_023 == 0) && (TempIlk_024 == 0) && (TempIlk_025 == 0) && (TempIlk_026 == 0) && (TempIlk_027 == 0) && (TempIlk_028 == 0) && (TempIlk_029 == 0) && (TempIlk_030 == 0) && (TempIlk_031 == 0) && (TempIlk_032 == 0) && (TempIlk_033 == 0) && (TempIlk_034 == 0) && (TempIlk_035 == 0) && (TempIlk_036 == 0) && (TempIlk_037 == 0) && (TempIlk_038 == 0) && (TempIlk_039 == 0) && (TempIlk_040 == 0) && (TempIlk_041 == 0) && (TempIlk_042 == 0) && (TempIlk_043 == 0) && (TempIlk_044 == 0) && (TempIlk_045 == 0) && (TempIlk_046 == 0) && (TempIlk_047 == 0) && (TempIlk_048 == 0) && (TempIlk_049 == 0) && (TempIlk_050 == 0) && (TempIlk_051 == 0) && (TempIlk_052 == 0) && (TempIlk_053 == 0) && (TempIlk_054 == 0) && (TempIlk_055 == 0) && (TempIlk_056 == 0) && (TempIlk_057 == 0) && (TempIlk_058 == 0) && (TempIlk_059 == 0) && (TempIlk_060 == 0) && (TempIlk_100 == 0) && (TempIlk_200 == 0)  ) {
@@ -1438,7 +1272,6 @@ ss temperature010_interlock {
     } state self_check
 
 
-
 /* TO MODIFY */
 
   }
@@ -1446,7 +1279,20 @@ ss temperature010_interlock {
 
 
 /* state MAINTENANCE	*/
+  state maintenance {
 
+    entry {
+        printf("\n[SEQ TEMPERATURE  - TANK1] Enter in MAINTENANCE status\n");
+    }
+
+    when ( MaintenanceReset == 1 ) {
+        printf("[SEQ TEMPERATURE  - TANK1] Reset Maintenance stage by the operator\n");
+        printf("[SEQ TEMPERATURE  - TANK1] Starting TANK 1 State Machine re-initialization\n");
+
+    } state initialization
+
+
+  }
 
 
 /* end statemachine */

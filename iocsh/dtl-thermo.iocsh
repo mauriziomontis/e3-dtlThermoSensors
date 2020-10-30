@@ -1092,6 +1092,9 @@ ${SCRIPTEXEC} "${DTL_THERMOS_ROOT}dbloadTemperatureDescription.cmd", "SECTION_NA
 ${SCRIPTEXEC} "${DTL_THERMOS_ROOT}dbloadTemperatureDescription.cmd", "SECTION_NAME=DTL-050, POS_INDEX=200, DESCRIPTION=Temp Sensor, POSITION_CODE=2"
 
 
+# Temperature System - Maintenance Reset
+dbLoadRecords(""${DTL_THERMOS_ROOT}/db/dbTemperatureResetMaintenance.db")
+
 
 ##############################################################################
 ############## Post Configuration - Record Fields Config
