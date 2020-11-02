@@ -1093,7 +1093,7 @@ ${SCRIPTEXEC} "${DTL_THERMOS_ROOT}dbloadTemperatureDescription.cmd", "SECTION_NA
 
 
 # Temperature System - Maintenance Reset
-dbLoadRecords(""${DTL_THERMOS_ROOT}/db/dbTemperatureResetMaintenance.db")
+${SCRIPTEXEC} "${DTL_THERMOS_ROOT}dbloadTemperatureResetMaintenance.cmd"
 
 
 ##############################################################################
@@ -1289,7 +1289,7 @@ ${SCRIPTEXEC} "${DTL_THERMOS_ROOT}postInitTemperatureAlarm.cmd", "SECTION_NAME=D
 ## SQL State Machine
 ##
 ${SCRIPTEXEC} "${DTL_THERMOS_ROOT}postInitStateMachine_Temperature.cmd", "SECTION_NAME=DTL-010, TANK=010"
-${SCRIPTEXEC} "${DTL_THERMOS_ROOT}postInitStateMachine_Temperature.cmd", "SECTION_NAME=DTL-020, TANK=020"
-${SCRIPTEXEC} "${DTL_THERMOS_ROOT}postInitStateMachine_Temperature.cmd", "SECTION_NAME=DTL-030, TANK=030"
-${SCRIPTEXEC} "${DTL_THERMOS_ROOT}postInitStateMachine_Temperature.cmd", "SECTION_NAME=DTL-040, TANK=040"
-${SCRIPTEXEC} "${DTL_THERMOS_ROOT}postInitStateMachine_Temperature.cmd", "SECTION_NAME=DTL-050, TANK=050"
+#${SCRIPTEXEC} "${DTL_THERMOS_ROOT}postInitStateMachine_Temperature.cmd", "SECTION_NAME=DTL-020, TANK=020"
+#${SCRIPTEXEC} "${DTL_THERMOS_ROOT}postInitStateMachine_Temperature.cmd", "SECTION_NAME=DTL-030, TANK=030"
+#${SCRIPTEXEC} "${DTL_THERMOS_ROOT}postInitStateMachine_Temperature.cmd", "SECTION_NAME=DTL-040, TANK=040"
+#${SCRIPTEXEC} "${DTL_THERMOS_ROOT}postInitStateMachine_Temperature.cmd", "SECTION_NAME=DTL-050, TANK=050"
