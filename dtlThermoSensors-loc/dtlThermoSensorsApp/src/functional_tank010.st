@@ -1182,7 +1182,7 @@ int FaultReset;
 assign FaultReset to "DTL:EMR-TT:FaultRst";
 monitor FaultReset;
 
-/
+/*
 # Stages Code:
 # 	0  -> INIT
 # 	10 -> SELF-CHECK
