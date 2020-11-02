@@ -1182,6 +1182,20 @@ int FaultReset;
 assign FaultReset to "DTL:EMR-TT:FaultRst";
 monitor FaultReset;
 
+/
+# Stages Code:
+# 	0  -> INIT
+# 	10 -> SELF-CHECK
+# 	20 -> IDLE
+# 	30 -> START-UP
+# 	40 -> READY FOR OPERATION
+# 	50 -> FAILURE
+# 	60 -> MAINTENANCE
+*/
+int StateMachineCode;
+assign StateMachineCode to "{SECTION_NAME}:EMR-TT:StateMachine";
+
+
 int RfSlow_okstatus;
 assign RfSlow_okstatus to "{SECTION_NAME}:EMR-Cav-001:WrtC_OkStatS";
 monitor RfSlow_okstatus;
@@ -1201,6 +1215,8 @@ ss temperature010_interlock {
 	state initialization {
       entry {
         printf("\n\nPreliminary controls executed due to Application Startup - Intialization\n\n");
+        StateMachineCode=0;
+        pvPut(StateMachineCode);
       }
 
       when (pvConnectCount()==pvAssignCount()) {
@@ -1216,6 +1232,8 @@ ss temperature010_interlock {
 	state self_check {
     entry {
         printf("\n[SEQ TEMPERATURE  - TANK1] Enter in SELF CHECK status\n");
+        StateMachineCode=10;
+        pvPut(StateMachineCode);
     }
 
     /* Interlock status at self-check (with sensor enabled) */
@@ -1273,6 +1291,8 @@ state ready_for_operation {
       RfSlow_okstatus=1;
       pvPut(RfSlow_okstatus);
       printf("[SEQ TEMPERATURE  - TANK1] Set TANK 1 Temperature OK STATUS to 1: OK \n");
+      StateMachineCode=40;
+      pvPut(StateMachineCode);
   }
 
   /* Interlock status at self-check (with sensor enabled) */
@@ -1319,6 +1339,8 @@ state ready_for_operation {
 
     entry {
         printf("\n[SEQ TEMPERATURE  - TANK1] Enter in FAILURE status\n");
+        StateMachineCode=50;
+        pvPut(StateMachineCode);
     }
 
     /* No error in any temperature sensor enabled */
@@ -1336,6 +1358,8 @@ state ready_for_operation {
 
     entry {
         printf("\n[SEQ TEMPERATURE  - TANK1] Enter in MAINTENANCE status\n");
+        StateMachineCode=60;
+        pvPut(StateMachineCode);
     }
 
     /* No error in any temperature sensor enabled */
