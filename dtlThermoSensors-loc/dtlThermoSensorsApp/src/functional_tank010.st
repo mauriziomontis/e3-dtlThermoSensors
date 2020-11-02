@@ -1179,7 +1179,7 @@ assign MaintenanceReset to "DTL:EMR-TT:MaintenanceRst";
 monitor MaintenanceReset;
 
 int FaultReset;
-assing FaultReset to "DTL:EMR-TT:FaultRst";
+assign FaultReset to "DTL:EMR-TT:FaultRst";
 monitor FaultReset;
 
 int RfSlow_okstatus;
