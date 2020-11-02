@@ -1,7 +1,15 @@
 record(bo, "DTL:EMR-TT:MaintenanceRst") {
-	field(DESC, "${PREFIX}-${INDEX} temp bypass")
+	field(DESC, "DTL Thermo Maintenance Reset")
 	field(PINI, "YES")
 	field(VAL, "0")
-	field(ONAM, "DISABLED")
-	field(ZNAM, "ENABLED")
+	field(ONAM, "ENABLED")
+	field(ZNAM, "DISABLED")
+}
+
+record(bo, "DTL:EMR-TT:FaultRst") {
+	field(DESC, "DTL Thermo Failure Reset")
+	field(PINI, "YES")
+	field(VAL, "0")
+	field(ONAM, "ENABLED")
+	field(ZNAM, "DISABLED")
 }
