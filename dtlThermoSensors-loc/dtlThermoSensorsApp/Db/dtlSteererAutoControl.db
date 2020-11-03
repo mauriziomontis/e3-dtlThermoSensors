@@ -1,0 +1,15 @@
+record(ao, "DTL:PwrC:ManCtrlCmd") {
+	field(DESC, "DTL steerer auto control")
+	field(ONAM, "MANUAL")
+	field(ZNAM, "AUTO")
+	field(PINI, "YES")
+	field(VAL, "1")
+}
+
+
+record(ao, "DTL:PwrC:ManCtrlCmd-RB") {
+	field(DESC, "DTL steerer auto control readback")
+	field(ONAM, "MANUAL")
+	field(ZNAM, "AUTO")
+	field(PINI, "YES")
+}
