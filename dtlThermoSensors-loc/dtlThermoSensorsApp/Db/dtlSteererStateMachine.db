@@ -16,7 +16,7 @@
 # Defined by Maurizio Montis | INFN-LNL
 # mail: maurizio.montis@lnl.infn.it
 
-record(ai, "${PREFIX}:EMR-TT:StateMachine") {
+record(ai, "DTL:PwrC:StateMachine") {
 	field(DESC, "${PREFIX} State machine code")
 	field(VAL, "0")
 	field(PINI, "YES")
