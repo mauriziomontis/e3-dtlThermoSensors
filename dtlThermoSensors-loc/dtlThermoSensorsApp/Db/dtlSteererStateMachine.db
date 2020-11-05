@@ -1,0 +1,23 @@
+# Records for Steerer State machine
+#
+# Temp-Desc: sensor description (for GUI information)
+# Temp-Pos:  sensor position (according to different critical points)
+#
+# Stages Code:
+# 	0  -> INIT
+# 	10 -> SELF-CHECK
+# 	20 -> IDLE
+# 	30 -> START-UP
+# 	40 -> READY FOR OPERATION
+# 	50 -> FAILURE
+# 	60 -> MAINTENANCE
+#
+#
+# Defined by Maurizio Montis | INFN-LNL
+# mail: maurizio.montis@lnl.infn.it
+
+record(ai, "${PREFIX}:EMR-TT:StateMachine") {
+	field(DESC, "${PREFIX} State machine code")
+	field(VAL, "0")
+	field(PINI, "YES")
+}

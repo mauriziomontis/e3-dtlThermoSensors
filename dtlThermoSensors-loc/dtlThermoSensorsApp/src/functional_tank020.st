@@ -3,9 +3,9 @@
 #
 # Principal States:
 # - Initialization:
-# 	* Initalize State Machine when EPICS application starts
+# 	* Initilize State Machine when EPICS application starts
 # - Self-Check:
-#       * Verify HW status (connetions, devices\'' health, etc.)
+#       * Verify HW status (connections, devices\'' health, etc.)
 # - Start-Up:
 #       * Prepare the sub-system to perform operations
 # - Idle:

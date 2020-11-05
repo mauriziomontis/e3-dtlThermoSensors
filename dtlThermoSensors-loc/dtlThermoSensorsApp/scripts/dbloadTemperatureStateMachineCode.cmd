@@ -3,7 +3,7 @@
 #- Arguments: SECTION_NAME
 
 #-d /**
-#-d   \brief Load Temperature Descriptin Database
+#-d   \brief Load Temperature Description Database
 #-d   \details Load temperature description records which indicate information in the GUI.
 #-d   \author Maurizio Montis (INFN-LNL)
 #-d   \file

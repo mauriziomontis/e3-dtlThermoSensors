@@ -1102,6 +1102,13 @@ ${SCRIPTEXEC} "${DTL_THERMOS_ROOT}dbloadTemperatureResetMaintenance.cmd"
  ${SCRIPTEXEC} "${DTL_THERMOS_ROOT}dbloadTemperatureStateMachineCode.cmd", "SECTION_NAME=DTL-040"
  ${SCRIPTEXEC} "${DTL_THERMOS_ROOT}dbloadTemperatureStateMachineCode.cmd", "SECTION_NAME=DTL-050"
 
+
+# Steerer System - State Machine code
+${SCRIPTEXEC} "${DTL_THERMOS_ROOT}dbloadSteererStateMachineCode.cmd"
+
+
+
+
 ##############################################################################
 ############## Post Configuration - Record Fields Config
 
