@@ -312,6 +312,102 @@ double T5_H2_Impedance;
 assign T5_H2_Impedance  to "DTL-050:BMD-CH-002:Imp";
 monitor T5_H2_Impedance;
 
+/* Delta Impedances */
+double MAX_DEVIANCE = 2;     // max impedance deviation accepted before fault [Ohm]
+
+double T1_V1_DeltaImpedance;
+assign T1_V1_DeltaImpedance  to "DTL-010:BMD-CV-001:DeltaImp";
+monitor T1_V1_DeltaImpedance;
+double T1_H1_DeltaImpedance;
+assign T1_H1_DeltaImpedance  to "DTL-010:BMD-CH-001:DeltaImp";
+monitor T1_H1_DeltaImpedance;
+double T1_V2_DeltaImpedance;
+assign T1_V2_DeltaImpedance  to "DTL-010:BMD-CV-002:DeltaImp";
+monitor T1_V2_DeltaImpedance;
+double T1_H2_DeltaImpedance;
+assign T1_H2_DeltaImpedance  to "DTL-010:BMD-CH-002:DeltaImp";
+monitor T1_H2_DeltaImpedance;
+double T1_V3_DeltaImpedance;
+assign T1_V3_DeltaImpedance  to "DTL-010:BMD-CV-003:DeltaImp";
+monitor T1_V3_DeltaImpedance;
+double T1_H3_DeltaImpedance;
+assign T1_H3_DeltaImpedance  to "DTL-010:BMD-CH-003:DeltaImp";
+monitor T1_H3_DeltaImpedance;
+double T1_V4_DeltaImpedance;
+assign T1_V4_DeltaImpedance  to "DTL-010:BMD-CV-004:DeltaImp";
+monitor T1_V4_DeltaImpedance;
+double T1_H4_DeltaImpedance;
+assign T1_H4_DeltaImpedance  to "DTL-010:BMD-CH-004:DeltaImp";
+monitor T1_H4_DeltaImpedance;
+double T1_V5_DeltaImpedance;
+assign T1_V5_DeltaImpedance  to "DTL-010:BMD-CV-005:DeltaImp";
+monitor T1_V5_DeltaImpedance;
+double T1_H5_DeltaImpedance;
+assign T1_H5_DeltaImpedance  to "DTL-010:BMD-CH-005:DeltaImp";
+monitor T1_H5_DeltaImpedance;
+double T1_V6_DeltaImpedance;
+assign T1_V6_DeltaImpedance  to "DTL-010:BMD-CV-001:DeltaImp";
+monitor T1_V6_DeltaImpedance;
+double T1_H6_DeltaImpedance;
+assign T1_H6_DeltaImpedance  to "DTL-010:BMD-CH-001:DeltaImp";
+monitor T1_H6_DeltaImpedance;
+double T2_V1_DeltaImpedance;
+assign T2_V1_DeltaImpedance  to "DTL-020:BMD-CV-001:DeltaImp";
+monitor T2_V1_DeltaImpedance;
+double T2_H1_DeltaImpedance;
+assign T2_H1_DeltaImpedance  to "DTL-020:BMD-CH-001:DeltaImp";
+monitor T2_H1_DeltaImpedance;
+double T2_V2_DeltaImpedance;
+assign T2_V2_DeltaImpedance  to "DTL-020:BMD-CV-002:DeltaImp";
+monitor T2_V2_DeltaImpedance;
+double T2_H2_DeltaImpedance;
+assign T2_H2_DeltaImpedance  to "DTL-020:BMD-CH-002:DeltaImp";
+monitor T2_H2_DeltaImpedance;
+double T2_V3_DeltaImpedance;
+assign T2_V3_DeltaImpedance  to "DTL-020:BMD-CV-003:DeltaImp";
+monitor T2_V3_DeltaImpedance;
+double T2_H3_DeltaImpedance;
+assign T2_H3_DeltaImpedance  to "DTL-020:BMD-CH-003:DeltaImp";
+monitor T2_H3_DeltaImpedance;
+double T3_V1_DeltaImpedance;
+assign T3_V1_DeltaImpedance  to "DTL-030:BMD-CV-001:DeltaImp";
+monitor T3_V1_DeltaImpedance;
+double T3_H1_DeltaImpedance;
+assign T3_H1_DeltaImpedance  to "DTL-030:BMD-CH-001:DeltaImp";
+monitor T3_H1_DeltaImpedance;
+double T3_V2_DeltaImpedance;
+assign T3_V2_DeltaImpedance  to "DTL-030:BMD-CV-002:DeltaImp";
+monitor T3_V2_DeltaImpedance;
+double T3_H2_DeltaImpedance;
+assign T3_H2_DeltaImpedance  to "DTL-030:BMD-CH-002:DeltaImp";
+monitor T3_H2_DeltaImpedance;
+double T4_V1_DeltaImpedance;
+assign T4_V1_DeltaImpedance  to "DTL-040:BMD-CV-001:DeltaImp";
+monitor T4_V1_DeltaImpedance;
+double T4_H1_DeltaImpedance;
+assign T4_H1_DeltaImpedance  to "DTL-040:BMD-CH-001:DeltaImp";
+monitor T4_H1_DeltaImpedance;
+double T4_V2_DeltaImpedance;
+assign T4_V2_DeltaImpedance  to "DTL-040:BMD-CV-002:DeltaImp";
+monitor T4_V2_DeltaImpedance;
+double T4_H2_DeltaImpedance;
+assign T4_H2_DeltaImpedance  to "DTL-040:BMD-CH-002:DeltaImp";
+monitor T4_H2_DeltaImpedance;
+double T5_V1_DeltaImpedance;
+assign T5_V1_DeltaImpedance  to "DTL-050:BMD-CV-001:DeltaImp";
+monitor T5_V1_DeltaImpedance;
+double T5_H1_DeltaImpedance;
+assign T5_H1_DeltaImpedance  to "DTL-050:BMD-CH-001:DeltaImp";
+monitor T5_H1_DeltaImpedance;
+double T5_V2_DeltaImpedance;
+assign T5_V2_DeltaImpedance  to "DTL-050:BMD-CV-002:DeltaImp";
+monitor T5_V2_DeltaImpedance;
+double T5_H2_DeltaImpedance;
+assign T5_H2_DeltaImpedance  to "DTL-050:BMD-CH-002:DeltaImp";
+monitor T5_H2_DeltaImpedance;
+
+
+
 /* PS Channel Enable Command */
 int T1_V1_ChEnableCmd;
 assign T1_V1_ChEnableCmd  to "DTL-010:BMD-CV-001:EnCmd";
@@ -1091,13 +1187,15 @@ monitor T5_H2_LineEnable_RB;
 int AutoControlCmd;
 assign AutoControlCmd to "DTL:PwrC-PSC:AutoCmd";
 monitor AutoControlCmd;
+int ExecuteControlCmd;
+assign ExecuteControlCmd to "DTL:PwrC-PSC:ExecuteCmd";
+monitor ExecuteControlCmd;
 
 
 /* Maintenance and fault control*/
 int MaintenanceReset;
 assign MaintenanceReset to "DTL:PwrC:MaintenanceRst";
 monitor MaintenanceReset;
-
 int FaultReset;
 assign FaultReset to "DTL:PwrC:FaultRst";
 monitor FaultReset;
@@ -1307,7 +1405,6 @@ ss temperature030_interlock {
         pvPut(T5_V2_ChEnableCmd);
         T5_H2_ChEnableCmd = 1;
         pvPut(T5_H2_ChEnableCmd);
-
     } state start_up
 
   }
@@ -1330,27 +1427,119 @@ state start_up {
 
   when ( (Chassis1_enable_RB == 0) || (Chassis2_enable_RB == 0) || (Chassis3_enable_RB == 0) || (Chassis4_enable_RB == 0) || (Chassis5_enable_RB == 0) ) {
       printf("[SEQ STEERER] Error in chassis enable system: one or more chassises are not available\n");
-      printf("[SEQ STEERER] System not passed self check: go to FAILURE \n");
+      printf("[SEQ STEERER] System not ok: go to FAILURE \n");
   } state failure
 
   /* Thermas Switch problem */
   when ( (T1_V1_Termal_OkStat == 0) || (T1_H1_Termal_OkStat == 0) || (T1_V2_Termal_OkStat == 0) || (T1_H2_Termal_OkStat == 0) || (T1_V3_Termal_OkStat == 0) || (T1_H3_Termal_OkStat == 0) || (T1_V4_Termal_OkStat == 0) || (T1_H4_Termal_OkStat == 0) || (T1_V5_Termal_OkStat == 0) || (T1_H5_Termal_OkStat == 0) || (T1_V6_Termal_OkStat == 0) || (T1_H6_Termal_OkStat == 0) || (T2_V1_Termal_OkStat == 0) || (T2_H1_Termal_OkStat == 0) || (T2_V2_Termal_OkStat == 0) || (T2_H2_Termal_OkStat == 0) || (T2_V3_Termal_OkStat == 0) || (T2_H3_Termal_OkStat == 0) || (T3_V1_Termal_OkStat == 0) || (T3_H1_Termal_OkStat == 0) || (T3_V2_Termal_OkStat == 0) || (T3_H2_Termal_OkStat == 0) || (T4_V1_Termal_OkStat == 0) || (T4_H1_Termal_OkStat == 0) || (T4_V2_Termal_OkStat == 0) || (T4_H2_Termal_OkStat == 0) || (T5_V1_Termal_OkStat == 0) || (T5_H1_Termal_OkStat == 0) || (T5_V2_Termal_OkStat == 0) || (T5_H2_Termal_OkStat == 0) ) {
   /* Line disconnected (HW) */
       printf("[SEQ STEERER] Error in line enable system: thermal switch problem in one or more lines \n");
-      printf("[SEQ STEERER] System not passed self check: go to FAILURE \n");
+      printf("[SEQ STEERER] System not ok: go to FAILURE \n");
   } state failure
+
+
+  /* Problems with steerers impedances */
+  when ( (T1_V1_DeltaImpedance > MAX_DEVIANCE) || (T1_H1_DeltaImpedance > MAX_DEVIANCE) || (T1_V2_DeltaImpedance > MAX_DEVIANCE) || (T1_H2_DeltaImpedance > MAX_DEVIANCE) || (T1_V3_DeltaImpedance > MAX_DEVIANCE) || (T1_H3_DeltaImpedance > MAX_DEVIANCE) || (T1_V4_DeltaImpedance > MAX_DEVIANCE) || (T1_H4_DeltaImpedance > MAX_DEVIANCE) || (T1_V5_DeltaImpedance > MAX_DEVIANCE) || (T1_H5_DeltaImpedance > MAX_DEVIANCE) || (T1_V6_DeltaImpedance > MAX_DEVIANCE) || (T1_H6_DeltaImpedance > MAX_DEVIANCE) || (T2_V1_DeltaImpedance > MAX_DEVIANCE) || (T2_H1_DeltaImpedance > MAX_DEVIANCE) || (T2_V2_DeltaImpedance > MAX_DEVIANCE) || (T2_H2_DeltaImpedance > MAX_DEVIANCE) || (T2_V3_DeltaImpedance > MAX_DEVIANCE) || (T2_H3_DeltaImpedance > MAX_DEVIANCE) || (T3_V1_DeltaImpedance > MAX_DEVIANCE) || (T3_H1_DeltaImpedance > MAX_DEVIANCE) || (T3_V2_DeltaImpedance > MAX_DEVIANCE) || (T3_H2_DeltaImpedance > MAX_DEVIANCE) || (T4_V1_DeltaImpedance > MAX_DEVIANCE) || (T4_H1_DeltaImpedance > MAX_DEVIANCE) || (T4_V2_DeltaImpedance > MAX_DEVIANCE) || (T4_H2_DeltaImpedance > MAX_DEVIANCE) || (T5_V1_DeltaImpedance > MAX_DEVIANCE) || (T5_H1_DeltaImpedance > MAX_DEVIANCE) || (T5_V2_DeltaImpedance > MAX_DEVIANCE) || (T5_H2_DeltaImpedance > MAX_DEVIANCE) ) {
+  /* Line disconnected (HW) */
+      printf("[SEQ STEERER] Error in steerer system: one or more stereres register HIGH IMPEDANCE DEVIANCE \n");
+      printf("[SEQ STEERER] System not ok: go to FAILURE \n");
+  } state failure
+
+
+  /* No problems with steerers channels */
+  when ( (T1_V1_ChEnable == 1) && (T1_H1_ChEnable == 1) && (T1_V2_ChEnable == 1) && (T1_H2_ChEnable == 1) && (T1_V3_ChEnable == 1) && (T1_H3_ChEnable == 1) && (T1_V4_ChEnable == 1) && (T1_H4_ChEnable == 1) && (T1_V5_ChEnable == 1) && (T1_H5_ChEnable == 1) && (T1_V6_ChEnable == 1) && (T1_H6_ChEnable == 1) && (T2_V1_ChEnable == 1) && (T2_H1_ChEnable == 1) && (T2_V2_ChEnable == 1) && (T2_H2_ChEnable == 1) && (T2_V3_ChEnable == 1) && (T2_H3_ChEnable == 1) && (T3_V1_ChEnable == 1) && (T3_H1_ChEnable == 1) && (T3_V2_ChEnable == 1) && (T3_H2_ChEnable == 1) && (T4_V1_ChEnable == 1) && (T4_H1_ChEnable == 1) && (T4_V2_ChEnable == 1) && (T4_H2_ChEnable == 1) && (T5_V1_ChEnable == 1) && (T5_H1_ChEnable == 1) && (T5_V2_ChEnable == 1) && (T5_H2_ChEnable == 1) ) {
+  /* Line disconnected (HW) */
+      printf("[SEQ STEERER] Channels correctly enabled. Start setpoint reset. \n");
+      T1_V1_CurrentSet = 0;
+      pvPut(T1_V1_CurrentSet);
+      T1_H1_CurrentSet = 0;
+      pvPut(T1_H1_CurrentSet);
+      T1_V2_CurrentSet = 0;
+      pvPut(T1_V2_CurrentSet);
+      T1_H2_CurrentSet = 0;
+      pvPut(T1_H2_CurrentSet);
+      T1_V3_CurrentSet = 0;
+      pvPut(T1_V3_CurrentSet);
+      T1_H3_CurrentSet = 0;
+      pvPut(T1_H3_CurrentSet);
+      T1_V4_CurrentSet = 0;
+      pvPut(T1_V4_CurrentSet);
+      T1_H4_CurrentSet = 0;
+      pvPut(T1_H4_CurrentSet);
+      T1_V5_CurrentSet = 0;
+      pvPut(T1_V5_CurrentSet);
+      T1_H5_CurrentSet = 0;
+      pvPut(T1_H5_CurrentSet);
+      T1_V6_CurrentSet = 0;
+      pvPut(T1_V6_CurrentSet);
+      T1_H6_CurrentSet = 0;
+      pvPut(T1_H6_CurrentSet);
+      T2_V1_CurrentSet = 0;
+      pvPut(T2_V1_CurrentSet);
+      T2_H1_CurrentSet = 0;
+      pvPut(T2_H1_CurrentSet);
+      T2_V2_CurrentSet = 0;
+      pvPut(T2_V2_CurrentSet);
+      T2_H2_CurrentSet = 0;
+      pvPut(T2_H2_CurrentSet);
+      T2_V3_CurrentSet = 0;
+      pvPut(T2_V3_CurrentSet);
+      T2_H3_CurrentSet = 0;
+      pvPut(T2_H3_CurrentSet);
+      T3_V1_CurrentSet = 0;
+      pvPut(T3_V1_CurrentSet);
+      T3_H1_CurrentSet = 0;
+      pvPut(T3_H1_CurrentSet);
+      T3_V2_CurrentSet = 0;
+      pvPut(T3_V2_CurrentSet);
+      T3_H2_CurrentSet = 0;
+      pvPut(T3_H2_CurrentSet);
+      T4_V1_CurrentSet = 0;
+      pvPut(T4_V1_CurrentSet);
+      T4_H1_CurrentSet = 0;
+      pvPut(T4_H1_CurrentSet);
+      T4_V2_CurrentSet = 0;
+      pvPut(T4_V2_CurrentSet);
+      T4_H2_CurrentSet = 0;
+      pvPut(T4_H2_CurrentSet);
+      T5_V1_CurrentSet = 0;
+      pvPut(T5_V1_CurrentSet);
+      T5_H1_CurrentSet = 0;
+      pvPut(T5_H1_CurrentSet);
+      T5_V2_CurrentSet = 0;
+      pvPut(T5_V2_CurrentSet);
+      T5_H2_CurrentSet = 0;
+      pvPut(T5_H2_CurrentSet);
+  } state idle
 
 }
 
 
 
-
-
-
-
-
-
 /* state IDLE   	*/
+state idle {
+  entry {
+    printf("\n[SEQ STEERER] Enter in IDLE status\n");
+    StateMachineCode=20;
+    pvPut(StateMachineCode);
+  }
+
+  /* Execute chosen configuration [man|auto] */
+  when ( (ExecuteControlCmd == 1) ) {
+      if (AutoControlCmd == 0 ) then {
+        printf("[SEQ STEERER] Execute Control in Manual Mode\n");
+      }
+      else if (AutoControlCmd == 1 ) {
+        printf("[SEQ STEERER] Execute Control in Automatic Mode\n");
+      }
+      else {
+        printf("[SEQ STEERER] This message should not appear :)\n");
+      }
+  } state self_check
+
+
+
+
 /* state READY_FOR_OPERATION 	*/
 
 /* state FAILURE	*/
@@ -1362,12 +1551,7 @@ state start_up {
         pvPut(StateMachineCode);
     }
 
-    /* No error in any temperature sensor enabled */
-    when ( ( FaultReset == 1 ) && ( (HwErrAlrm_001 == 0) && (TempIlk_001 == 0) && (TempDisable_001 == 0) ) && ( (HwErrAlrm_002 == 0) && (TempIlk_002 == 0) && (TempDisable_002 == 0) ) && ( (HwErrAlrm_003 == 0) && (TempIlk_003 == 0) && (TempDisable_003 == 0) ) && ( (HwErrAlrm_004 == 0) && (TempIlk_004 == 0) && (TempDisable_004 == 0) ) && ( (HwErrAlrm_005 == 0) && (TempIlk_005 == 0) && (TempDisable_005 == 0) ) && ( (HwErrAlrm_006 == 0) && (TempIlk_006 == 0) && (TempDisable_006 == 0) ) && ( (HwErrAlrm_007 == 0) && (TempIlk_007 == 0) && (TempDisable_007 == 0) ) && ( (HwErrAlrm_008 == 0) && (TempIlk_008 == 0) && (TempDisable_008 == 0) ) && ( (HwErrAlrm_009 == 0) && (TempIlk_009 == 0) && (TempDisable_009 == 0) ) && ( (HwErrAlrm_010 == 0) && (TempIlk_010 == 0) && (TempDisable_010 == 0) ) && ( (HwErrAlrm_011 == 0) && (TempIlk_011 == 0) && (TempDisable_011 == 0) ) && ( (HwErrAlrm_012 == 0) && (TempIlk_012 == 0) && (TempDisable_012 == 0) ) && ( (HwErrAlrm_013 == 0) && (TempIlk_013 == 0) && (TempDisable_013 == 0) ) && ( (HwErrAlrm_014 == 0) && (TempIlk_014 == 0) && (TempDisable_014 == 0) ) && ( (HwErrAlrm_015 == 0) && (TempIlk_015 == 0) && (TempDisable_015 == 0) ) && ( (HwErrAlrm_016 == 0) && (TempIlk_016 == 0) && (TempDisable_016 == 0) ) && ( (HwErrAlrm_017 == 0) && (TempIlk_017 == 0) && (TempDisable_017 == 0) ) && ( (HwErrAlrm_018 == 0) && (TempIlk_018 == 0) && (TempDisable_018 == 0) ) && ( (HwErrAlrm_019 == 0) && (TempIlk_019 == 0) && (TempDisable_019 == 0) ) && ( (HwErrAlrm_020 == 0) && (TempIlk_020 == 0) && (TempDisable_020 == 0) ) && ( (HwErrAlrm_021 == 0) && (TempIlk_021 == 0) && (TempDisable_021 == 0) ) && ( (HwErrAlrm_022 == 0) && (TempIlk_022 == 0) && (TempDisable_022 == 0) ) && ( (HwErrAlrm_100 == 0) && (TempIlk_100 == 0) && (TempDisable_100 == 0) ) && ( (HwErrAlrm_200 == 0) && (TempIlk_200 == 0) && (TempDisable_200 == 0) ) ) {
 
-        printf("[SEQ TEMPERATURE  - TANK5] Failure Stage reset by Operator. \n");
-        printf("[SEQ TEMPERATURE  - TANK5] Reset conditions satisfied.\n");
-    } state maintenance
 
   }
 
@@ -1381,13 +1565,7 @@ state start_up {
         pvPut(StateMachineCode);
     }
 
-    /* No error in any temperature sensor enabled */
-    when ( ( MaintenanceReset == 1 ) && ( (HwErrAlrm_001 == 0) && (TempIlk_001 == 0) && (TempDisable_001 == 0) ) && ( (HwErrAlrm_002 == 0) && (TempIlk_002 == 0) && (TempDisable_002 == 0) ) && ( (HwErrAlrm_003 == 0) && (TempIlk_003 == 0) && (TempDisable_003 == 0) ) && ( (HwErrAlrm_004 == 0) && (TempIlk_004 == 0) && (TempDisable_004 == 0) ) && ( (HwErrAlrm_005 == 0) && (TempIlk_005 == 0) && (TempDisable_005 == 0) ) && ( (HwErrAlrm_006 == 0) && (TempIlk_006 == 0) && (TempDisable_006 == 0) ) && ( (HwErrAlrm_007 == 0) && (TempIlk_007 == 0) && (TempDisable_007 == 0) ) && ( (HwErrAlrm_008 == 0) && (TempIlk_008 == 0) && (TempDisable_008 == 0) ) && ( (HwErrAlrm_009 == 0) && (TempIlk_009 == 0) && (TempDisable_009 == 0) ) && ( (HwErrAlrm_010 == 0) && (TempIlk_010 == 0) && (TempDisable_010 == 0) ) && ( (HwErrAlrm_011 == 0) && (TempIlk_011 == 0) && (TempDisable_011 == 0) ) && ( (HwErrAlrm_012 == 0) && (TempIlk_012 == 0) && (TempDisable_012 == 0) ) && ( (HwErrAlrm_013 == 0) && (TempIlk_013 == 0) && (TempDisable_013 == 0) ) && ( (HwErrAlrm_014 == 0) && (TempIlk_014 == 0) && (TempDisable_014 == 0) ) && ( (HwErrAlrm_015 == 0) && (TempIlk_015 == 0) && (TempDisable_015 == 0) ) && ( (HwErrAlrm_016 == 0) && (TempIlk_016 == 0) && (TempDisable_016 == 0) ) && ( (HwErrAlrm_017 == 0) && (TempIlk_017 == 0) && (TempDisable_017 == 0) ) && ( (HwErrAlrm_018 == 0) && (TempIlk_018 == 0) && (TempDisable_018 == 0) ) && ( (HwErrAlrm_019 == 0) && (TempIlk_019 == 0) && (TempDisable_019 == 0) ) && ( (HwErrAlrm_020 == 0) && (TempIlk_020 == 0) && (TempDisable_020 == 0) ) && ( (HwErrAlrm_021 == 0) && (TempIlk_021 == 0) && (TempDisable_021 == 0) ) && ( (HwErrAlrm_022 == 0) && (TempIlk_022 == 0) && (TempDisable_022 == 0) ) && ( (HwErrAlrm_100 == 0) && (TempIlk_100 == 0) && (TempDisable_100 == 0) ) && ( (HwErrAlrm_200 == 0) && (TempIlk_200 == 0) && (TempDisable_200 == 0) ) ) {
 
-        printf("[SEQ TEMPERATURE  - TANK5] Maintenance Stage reset by Operator\n");
-        printf("[SEQ TEMPERATURE  - TANK5] Starting TANK 5 State Machine re-initialization\n");
-
-    } state initialization
 
 
   }
