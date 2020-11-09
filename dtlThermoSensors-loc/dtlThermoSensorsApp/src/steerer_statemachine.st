@@ -773,7 +773,7 @@ double T5_H2_Current;
 assign T5_H2_Current  to "DTL-050:BMD-CH-002:Cur";
 monitor T5_H2_Current;
 
-/* PS Channel Current Measured*/
+/* PS Channel Voltage Measured*/
 double T1_V1_Voltage;
 assign T1_V1_Voltage  to "DTL-010:BMD-CV-001:Vol";
 monitor T1_V1_Voltage;
@@ -976,8 +976,6 @@ assign T5_H2_LineEnable  to "DTL-050:PwrC-PSCH-002:OnEnCmd";
 monitor T5_H2_LineEnable;
 
 
-
-
 /* Manual/Auto Control  */
 int AutoControlCmd;
 assign AutoControlCmd to "DTL:PwrC-PSC:AutoCmd";
@@ -988,15 +986,12 @@ monitor AutoControlCmd;
 
 
 
-
-
-
 int MaintenanceReset;
-assign MaintenanceReset to "DTL:EMR-TT:MaintenanceRst";
+assign MaintenanceReset to "DTL:PwrC:MaintenanceRst";
 monitor MaintenanceReset;
 
 int FaultReset;
-assign FaultReset to "DTL:EMR-TT:FaultRst";
+assign FaultReset to "DTL:PwrC:FaultRst";
 monitor FaultReset;
 
 /*
@@ -1013,9 +1008,11 @@ int StateMachineCode;
 assign StateMachineCode to "DTL:PwrC:StateMachine";
 
 
+/*  check
 int RfSlow_okstatus;
 assign RfSlow_okstatus to "{SECTION_NAME}:EMR-Cav-001:WrtC_OkStatS";
 monitor RfSlow_okstatus;
+*/
 
 /* Debug Mode: */
 double DEBUG=1;

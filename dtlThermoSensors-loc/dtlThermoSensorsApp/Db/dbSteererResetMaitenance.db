@@ -1,0 +1,15 @@
+record(bo, "DTL:PwrC:MaintenanceRst") {
+	field(DESC, "DTL Thermo Maintenance Reset")
+	field(PINI, "YES")
+	field(VAL, "0")
+	field(ONAM, "ENABLED")
+	field(ZNAM, "DISABLED")
+}
+
+record(bo, "DTL:PwrC:FaultRst") {
+	field(DESC, "DTL Thermo Failure Reset")
+	field(PINI, "YES")
+	field(VAL, "0")
+	field(ONAM, "ENABLED")
+	field(ZNAM, "DISABLED")
+}

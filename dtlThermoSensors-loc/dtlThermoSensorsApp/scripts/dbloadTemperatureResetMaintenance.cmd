@@ -1,6 +1,6 @@
 #==============================================================================
 # dbloadTemperatureResetMaintenance.cmd
-#- Arguments: SECTION_NAME, POS_INDEX, DESCRIPTION, POSITION_CODE
+#- Arguments: 
 
 #-d /**
 #-d   \brief Load Temperature Maintenance Database
