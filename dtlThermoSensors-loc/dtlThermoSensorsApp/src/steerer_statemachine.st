@@ -1535,23 +1535,83 @@ state idle {
       else {
         printf("[SEQ STEERER] This message should not appear :)\n");
       }
-  } state self_check
-
+  } state ready_for_operation
 
 
 
 /* state READY_FOR_OPERATION 	*/
+  state ready_for_operation {
+
+    entry {
+      printf("\n[SEQ STEERER] Enter in READY FOR OPERATION status\n");
+      StateMachineCode=40;
+      pvPut(StateMachineCode);
+      }
+
+    /* Chassis problem */
+    when ( (Chassis1_enable_RB == 0) || (Chassis2_enable_RB == 0) || (Chassis3_enable_RB == 0) || (Chassis4_enable_RB == 0) || (Chassis5_enable_RB == 0) ) {
+      printf("[SEQ STEERER] Error in chassis enable system: one or more chassises are not available\n");
+      printf("[SEQ STEERER] System not passed self check: go to FAILURE \n");
+    } state failure
+
+    /* Thermas Switch problem */
+    when ( (T1_V1_Termal_OkStat == 0) || (T1_H1_Termal_OkStat == 0) || (T1_V2_Termal_OkStat == 0) || (T1_H2_Termal_OkStat == 0) || (T1_V3_Termal_OkStat == 0) || (T1_H3_Termal_OkStat == 0) || (T1_V4_Termal_OkStat == 0) || (T1_H4_Termal_OkStat == 0) || (T1_V5_Termal_OkStat == 0) || (T1_H5_Termal_OkStat == 0) || (T1_V6_Termal_OkStat == 0) || (T1_H6_Termal_OkStat == 0) || (T2_V1_Termal_OkStat == 0) || (T2_H1_Termal_OkStat == 0) || (T2_V2_Termal_OkStat == 0) || (T2_H2_Termal_OkStat == 0) || (T2_V3_Termal_OkStat == 0) || (T2_H3_Termal_OkStat == 0) || (T3_V1_Termal_OkStat == 0) || (T3_H1_Termal_OkStat == 0) || (T3_V2_Termal_OkStat == 0) || (T3_H2_Termal_OkStat == 0) || (T4_V1_Termal_OkStat == 0) || (T4_H1_Termal_OkStat == 0) || (T4_V2_Termal_OkStat == 0) || (T4_H2_Termal_OkStat == 0) || (T5_V1_Termal_OkStat == 0) || (T5_H1_Termal_OkStat == 0) || (T5_V2_Termal_OkStat == 0) || (T5_H2_Termal_OkStat == 0) ) {
+    /* Line disconnected (HW) */
+        printf("[SEQ STEERER] Error in line enable system: thermal switch problem in one or more lines \n");
+        printf("[SEQ STEERER] System not passed self check: go to FAILURE \n");
+    } state failure
+
+    when ( (T1_V1_DeltaImpedance > MAX_DEVIANCE) || (T1_H1_DeltaImpedance > MAX_DEVIANCE) || (T1_V2_DeltaImpedance > MAX_DEVIANCE) || (T1_H2_DeltaImpedance > MAX_DEVIANCE) || (T1_V3_DeltaImpedance > MAX_DEVIANCE) || (T1_H3_DeltaImpedance > MAX_DEVIANCE) || (T1_V4_DeltaImpedance > MAX_DEVIANCE) || (T1_H4_DeltaImpedance > MAX_DEVIANCE) || (T1_V5_DeltaImpedance > MAX_DEVIANCE) || (T1_H5_DeltaImpedance > MAX_DEVIANCE) || (T1_V6_DeltaImpedance > MAX_DEVIANCE) || (T1_H6_DeltaImpedance > MAX_DEVIANCE) || (T2_V1_DeltaImpedance > MAX_DEVIANCE) || (T2_H1_DeltaImpedance > MAX_DEVIANCE) || (T2_V2_DeltaImpedance > MAX_DEVIANCE) || (T2_H2_DeltaImpedance > MAX_DEVIANCE) || (T2_V3_DeltaImpedance > MAX_DEVIANCE) || (T2_H3_DeltaImpedance > MAX_DEVIANCE) || (T3_V1_DeltaImpedance > MAX_DEVIANCE) || (T3_H1_DeltaImpedance > MAX_DEVIANCE) || (T3_V2_DeltaImpedance > MAX_DEVIANCE) || (T3_H2_DeltaImpedance > MAX_DEVIANCE) || (T4_V1_DeltaImpedance > MAX_DEVIANCE) || (T4_H1_DeltaImpedance > MAX_DEVIANCE) || (T4_V2_DeltaImpedance > MAX_DEVIANCE) || (T4_H2_DeltaImpedance > MAX_DEVIANCE) || (T5_V1_DeltaImpedance > MAX_DEVIANCE) || (T5_H1_DeltaImpedance > MAX_DEVIANCE) || (T5_V2_DeltaImpedance > MAX_DEVIANCE) || (T5_H2_DeltaImpedance > MAX_DEVIANCE) ) {
+    /* Line disconnected (HW) */
+        printf("[SEQ STEERER] Error in steerer system: one or more stereres register HIGH IMPEDANCE DEVIANCE \n");
+        printf("[SEQ STEERER] System not ok: go to FAILURE \n");
+    } state failure
+
+    /* Case of Operation: RF Conditioning */
+    /*
+    Conditions:
+     - Steerers are OFF
+     - Setpoints are at 0A
+    */
+
+  /*  # Stages Code:
+    # 	0   -> INIT
+    # 	101 -> STAND-BY
+    # 	202 -> RF CONDITIONING
+    # 	303 -> RF START-UP
+    # 	404 -> READY FOR OPERATION
+    # 	505 -> NO ACCELERATED BEAM
+    # 	606 -> MAINTENANCE
+    # */
+
+    /* Case of Operation: RF Conditioning */
+    /*
+    Conditions:
+     - Steerers are OFF
+     - Setpoints are at 0A
+    */
+
+
+
+     /* TBC */
+  }
+
+
 
 /* state FAILURE	*/
   state failure {
 
     entry {
-        printf("\n[SEQ TEMPERATURE  - TANK5] Enter in FAILURE status\n");
+        printf("\n[SEQ STEERER] Enter in FAILURE status\n");
         StateMachineCode=50;
         pvPut(StateMachineCode);
     }
 
+    when ( ( FaultReset == 1 ) && (BOH == 0) ) {
 
+        printf("[SEQ STEERER] Failure Stage reset by Operator. \n");
+        printf("[SEQ STEERER] Reset conditions satisfied.\n");
+    } state maintenance
 
   }
 
@@ -1560,7 +1620,7 @@ state idle {
   state maintenance {
 
     entry {
-        printf("\n[SEQ TEMPERATURE  - TANK5] Enter in MAINTENANCE status\n");
+        printf("\n[SEQ STEERER] Enter in MAINTENANCE status\n");
         StateMachineCode=60;
         pvPut(StateMachineCode);
     }
