@@ -1214,6 +1214,20 @@ monitor FaultReset;
 int StateMachineCode;
 assign StateMachineCode to "DTL:PwrC:StateMachine";
 
+/*
+# DTL Operational State Machine Code:
+# 	0   -> INIT
+# 	101 -> STAND-BY
+# 	202 -> RF CONDITIONING
+# 	303 -> RF START-UP
+# 	404 -> READY FOR OPERATION
+# 	505 -> NO ACCELERATED BEAM
+# 	606 -> MAINTENANCE
+*/
+int dtlOperationalCode;
+assign dtlOperationalCode to "DTL::StateMachine";
+monitor dtlOperationalCode;
+
 
 /* Debug Mode: */
 double DEBUG=1;
@@ -1574,15 +1588,7 @@ state idle {
      - Setpoints are at 0A
     */
 
-  /*  # Stages Code:
-    # 	0   -> INIT
-    # 	101 -> STAND-BY
-    # 	202 -> RF CONDITIONING
-    # 	303 -> RF START-UP
-    # 	404 -> READY FOR OPERATION
-    # 	505 -> NO ACCELERATED BEAM
-    # 	606 -> MAINTENANCE
-    # */
+
 
     /* Case of Operation: RF Conditioning */
     /*
