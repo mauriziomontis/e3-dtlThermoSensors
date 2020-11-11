@@ -138,7 +138,7 @@ monitor T1_H1_Termal_OkStat;
 int T1_V2_Termal_OkStat;
 assign T1_V2_Termal_OkStat  to "DTL-010:PwrC-PSCV-002:TS_OkStat";
 monitor T1_V2_Termal_OkStat;
-int T1_H1_Termal_OkStat;
+int T1_H2_Termal_OkStat;
 assign T1_H2_Termal_OkStat  to "DTL-010:PwrC-PSCH-002:TS_OkStat";
 monitor T1_H2_Termal_OkStat;
 int T1_V3_Termal_OkStat;
