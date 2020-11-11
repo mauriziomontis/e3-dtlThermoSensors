@@ -96,6 +96,7 @@ SOURCES += $(APPSRC)/functional_tank020.st
 SOURCES += $(APPSRC)/functional_tank030.st
 SOURCES += $(APPSRC)/functional_tank040.st
 SOURCES += $(APPSRC)/functional_tank050.st
+SOURCES += $(APPSRC)/steerer_statemachine.st
 # SOURCES += $(APPSRC)/calcUtil.c
 # SOURCES += $(APPSRC)/myFreeListLib.c
 # SOURCES += $(APPSRC)/devsCalcoutSoft.c
