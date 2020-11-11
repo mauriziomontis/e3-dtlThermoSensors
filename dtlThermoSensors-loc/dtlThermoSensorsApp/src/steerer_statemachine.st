@@ -204,7 +204,7 @@ monitor T4_H1_Termal_OkStat;
 int T4_V2_Termal_OkStat;
 assign T4_V2_Termal_OkStat  to "DTL-040:PwrC-PSCV-002:TS_OkStat";
 monitor T4_V2_Termal_OkStat;
-int T4_H1_Termal_OkStat;
+int T4_H2_Termal_OkStat;
 assign T4_H2_Termal_OkStat  to "DTL-040:PwrC-PSCH-002:TS_OkStat";
 monitor T4_H2_Termal_OkStat;
 int T5_V1_Termal_OkStat;
@@ -219,6 +219,15 @@ monitor T5_V2_Termal_OkStat;
 int T5_H1_Termal_OkStat;
 assign T5_H2_Termal_OkStat  to "DTL-050:PwrC-PSCH-002:TS_OkStat";
 monitor T5_H2_Termal_OkStat;
+
+/* 24V Ok Status */
+int Rack010_24V;
+assign Rack010_24V to "DTL-010Row:CnPw-U-003:24VPS_OKStat";
+monitor Rack010_24V;
+int Rack030_24V;
+assign Rack030_24V to "DTL-030Row:CnPw-U-003:24VPS_OKStat";
+monitor Rack030_24V;
+
 
 /* Impedances */
 double T1_V1_Impedance;
@@ -1187,10 +1196,19 @@ monitor T5_H2_LineEnable_RB;
 int AutoControlCmd;
 assign AutoControlCmd to "DTL:PwrC-PSC:AutoCmd";
 monitor AutoControlCmd;
-int ExecuteControlCmd;
-assign ExecuteControlCmd to "DTL:PwrC-PSC:ExecuteCmd";
-monitor ExecuteControlCmd;
 
+int AutoControl_ActualStatus;
+assign AutoControl_ActualStatus to "DTL:PwrC-PSC:AutoCmd-RB";
+monitor AutoControl_ActualStatus;
+
+
+/* Start and Stop Operations */
+int StartOperationCmd;
+assign StartOperationCmd to "DTL:PwrC-PSC:OpRun";
+monitor StartOperationCmd;
+int StopOperationCmd;
+assign StopOperationCmd to "DTL:PwrC-PSC:OpStop";
+monitor StopOperationCmd;
 
 /* Maintenance and fault control*/
 int MaintenanceReset;
@@ -1327,6 +1345,16 @@ ss temperature030_interlock {
         pvPut(T5_V2_Termal_OkStat);
         T5_H2_Termal_OkStat=1;
         pvPut(T5_H2_Termal_OkStat);
+
+        /* [Man|Auto] Control Actual Value initialization */
+        AutoControl_ActualStatus = AutoControlCmd;
+        if ( AutoControl_ActualStatus == 0 ) then {
+          printf("[SEQ STEERER] Manual|Auto Steerers Control readback initialized to: MANUAL\n");
+        }
+        else if ( AutoControl_ActualStatus == 1 ) then {
+          printf("[SEQ STEERER] Manual|Auto Steerers Control readback initialized to: AUTO\n");
+        }
+        pvPut(AutoControl_ActualStatus);
       } state self_check
 	}
 
@@ -1341,7 +1369,7 @@ ss temperature030_interlock {
 
     /* Chassis disconnected (HW) */
     when ( (Chassis1_enable_RB == 0) || (Chassis2_enable_RB == 0) || (Chassis3_enable_RB == 0) || (Chassis4_enable_RB == 0) || (Chassis5_enable_RB == 0) ) {
-        printf("[SEQ STEERER] Error in chassis enable system: one or more chassises are not available\n");
+        printf("[SEQ STEERER] Error in chassis enable system: one or more chassis are not available\n");
         printf("[SEQ STEERER] System not passed self check: go to FAILURE \n");
     } state failure
 
@@ -1352,13 +1380,19 @@ ss temperature030_interlock {
         printf("[SEQ STEERER] System not passed self check: go to FAILURE \n");
     } state failure
 
+    /* 24V Error */
+    when ( (Rack010_24V == 0) || (Rack030_24V == 0) ) {
+        printf("[SEQ STEERER] Error in 24V power racks. \n");
+        printf("[SEQ STEERER] System not passed self check: go to FAILURE \n");
+    } state failure
 
     /* no error in any line */
     when ( (T1_V1_Termal_OkStat == 1) && (T1_H1_Termal_OkStat == 1) && (T1_V2_Termal_OkStat == 1) && (T1_H2_Termal_OkStat == 1) && (T1_V3_Termal_OkStat == 1) && (T1_H3_Termal_OkStat == 1) && (T1_V4_Termal_OkStat == 1) && (T1_H4_Termal_OkStat == 1) && (T1_V5_Termal_OkStat == 1) && (T1_H5_Termal_OkStat == 1) && (T1_V6_Termal_OkStat == 1) && (T1_H6_Termal_OkStat == 1) && (T2_V1_Termal_OkStat == 1) && (T2_H1_Termal_OkStat == 1) && (T2_V2_Termal_OkStat == 1) && (T2_H2_Termal_OkStat == 1) && (T2_V3_Termal_OkStat == 1) && (T2_H3_Termal_OkStat == 1) && (T3_V1_Termal_OkStat == 1) && (T3_H1_Termal_OkStat == 1) && (T3_V2_Termal_OkStat == 1) && (T3_H2_Termal_OkStat == 1) && (T4_V1_Termal_OkStat == 1) && (T4_H1_Termal_OkStat == 1) && (T4_V2_Termal_OkStat == 1) && (T4_H2_Termal_OkStat == 1) && (T5_V1_Termal_OkStat == 1) && (T5_H1_Termal_OkStat == 1) && (T5_V2_Termal_OkStat == 1) && (T5_H2_Termal_OkStat == 1) ) {
-    /* Line disconnected (HW) */
-
         printf("[SEQ STEERER] Self Check Passed. \n");
         printf("[SEQ STEERER] Enable steerers channels. \n");
+
+        /* NOTE: when steerer is swithced ON, the device goes to the last setpoint set. */
+        /*       pay attention if the behavior is correct according to the general operations */
         T1_V1_ChEnableCmd = 1;
         pvPut(T1_V1_ChEnableCmd);
         T1_H1_ChEnableCmd = 1;
@@ -1440,7 +1474,7 @@ state start_up {
   } state self_check
 
   when ( (Chassis1_enable_RB == 0) || (Chassis2_enable_RB == 0) || (Chassis3_enable_RB == 0) || (Chassis4_enable_RB == 0) || (Chassis5_enable_RB == 0) ) {
-      printf("[SEQ STEERER] Error in chassis enable system: one or more chassises are not available\n");
+      printf("[SEQ STEERER] Error in chassis enable system: one or more chassis are not available\n");
       printf("[SEQ STEERER] System not ok: go to FAILURE \n");
   } state failure
 
@@ -1451,6 +1485,11 @@ state start_up {
       printf("[SEQ STEERER] System not ok: go to FAILURE \n");
   } state failure
 
+  /* 24V Error */
+  when ( (Rack010_24V == 0) || (Rack030_24V == 0) ) {
+      printf("[SEQ STEERER] Error in 24V power racks. \n");
+      printf("[SEQ STEERER] System not ok: go to FAILURE \n");
+  } state failure
 
   /* Problems with steerers impedances */
   when ( (T1_V1_DeltaImpedance > MAX_DEVIANCE) || (T1_H1_DeltaImpedance > MAX_DEVIANCE) || (T1_V2_DeltaImpedance > MAX_DEVIANCE) || (T1_H2_DeltaImpedance > MAX_DEVIANCE) || (T1_V3_DeltaImpedance > MAX_DEVIANCE) || (T1_H3_DeltaImpedance > MAX_DEVIANCE) || (T1_V4_DeltaImpedance > MAX_DEVIANCE) || (T1_H4_DeltaImpedance > MAX_DEVIANCE) || (T1_V5_DeltaImpedance > MAX_DEVIANCE) || (T1_H5_DeltaImpedance > MAX_DEVIANCE) || (T1_V6_DeltaImpedance > MAX_DEVIANCE) || (T1_H6_DeltaImpedance > MAX_DEVIANCE) || (T2_V1_DeltaImpedance > MAX_DEVIANCE) || (T2_H1_DeltaImpedance > MAX_DEVIANCE) || (T2_V2_DeltaImpedance > MAX_DEVIANCE) || (T2_H2_DeltaImpedance > MAX_DEVIANCE) || (T2_V3_DeltaImpedance > MAX_DEVIANCE) || (T2_H3_DeltaImpedance > MAX_DEVIANCE) || (T3_V1_DeltaImpedance > MAX_DEVIANCE) || (T3_H1_DeltaImpedance > MAX_DEVIANCE) || (T3_V2_DeltaImpedance > MAX_DEVIANCE) || (T3_H2_DeltaImpedance > MAX_DEVIANCE) || (T4_V1_DeltaImpedance > MAX_DEVIANCE) || (T4_H1_DeltaImpedance > MAX_DEVIANCE) || (T4_V2_DeltaImpedance > MAX_DEVIANCE) || (T4_H2_DeltaImpedance > MAX_DEVIANCE) || (T5_V1_DeltaImpedance > MAX_DEVIANCE) || (T5_H1_DeltaImpedance > MAX_DEVIANCE) || (T5_V2_DeltaImpedance > MAX_DEVIANCE) || (T5_H2_DeltaImpedance > MAX_DEVIANCE) ) {
@@ -1529,7 +1568,6 @@ state start_up {
 }
 
 
-
 /* state IDLE   	*/
 state idle {
   entry {
@@ -1538,17 +1576,62 @@ state idle {
     pvPut(StateMachineCode);
   }
 
+  /* Channels are not enabled */
+  when ( (T1_V1_ChEnable == 0) || (T1_H1_ChEnable == 0) || (T1_V2_ChEnable == 0) || (T1_H2_ChEnable == 0) || (T1_V3_ChEnable == 0) || (T1_H3_ChEnable == 0) || (T1_V4_ChEnable == 0) || (T1_H4_ChEnable == 0) || (T1_V5_ChEnable == 0) || (T1_H5_ChEnable == 0) || (T1_V6_ChEnable == 0) || (T1_H6_ChEnable == 0) || (T2_V1_ChEnable == 0) || (T2_H1_ChEnable == 0) || (T2_V2_ChEnable == 0) || (T2_H2_ChEnable == 0) || (T2_V3_ChEnable == 0) || (T2_H3_ChEnable == 0) || (T3_V1_ChEnable == 0) || (T3_H1_ChEnable == 0) || (T3_V2_ChEnable == 0) || (T3_H2_ChEnable == 0) || (T4_V1_ChEnable == 0) || (T4_H1_ChEnable == 0) || (T4_V2_ChEnable == 0) || (T4_H2_ChEnable == 0) || (T5_V1_ChEnable == 0) || (T5_H1_ChEnable == 0) || (T5_V2_ChEnable == 0) || (T5_H2_ChEnable == 0) ) {
+  /* Line disconnected (HW) */
+      printf("[SEQ STEERER] One or more channels are not enabled \n");
+      printf("[SEQ STEERER] Try to rescan the system status \n");
+  } state self_check
+
+  when ( (Chassis1_enable_RB == 0) || (Chassis2_enable_RB == 0) || (Chassis3_enable_RB == 0) || (Chassis4_enable_RB == 0) || (Chassis5_enable_RB == 0) ) {
+      printf("[SEQ STEERER] Error in chassis enable system: one or more chassis are not available\n");
+      printf("[SEQ STEERER] System not ok: go to FAILURE \n");
+  } state failure
+
+  /* Thermas Switch problem */
+  when ( (T1_V1_Termal_OkStat == 0) || (T1_H1_Termal_OkStat == 0) || (T1_V2_Termal_OkStat == 0) || (T1_H2_Termal_OkStat == 0) || (T1_V3_Termal_OkStat == 0) || (T1_H3_Termal_OkStat == 0) || (T1_V4_Termal_OkStat == 0) || (T1_H4_Termal_OkStat == 0) || (T1_V5_Termal_OkStat == 0) || (T1_H5_Termal_OkStat == 0) || (T1_V6_Termal_OkStat == 0) || (T1_H6_Termal_OkStat == 0) || (T2_V1_Termal_OkStat == 0) || (T2_H1_Termal_OkStat == 0) || (T2_V2_Termal_OkStat == 0) || (T2_H2_Termal_OkStat == 0) || (T2_V3_Termal_OkStat == 0) || (T2_H3_Termal_OkStat == 0) || (T3_V1_Termal_OkStat == 0) || (T3_H1_Termal_OkStat == 0) || (T3_V2_Termal_OkStat == 0) || (T3_H2_Termal_OkStat == 0) || (T4_V1_Termal_OkStat == 0) || (T4_H1_Termal_OkStat == 0) || (T4_V2_Termal_OkStat == 0) || (T4_H2_Termal_OkStat == 0) || (T5_V1_Termal_OkStat == 0) || (T5_H1_Termal_OkStat == 0) || (T5_V2_Termal_OkStat == 0) || (T5_H2_Termal_OkStat == 0) ) {
+  /* Line disconnected (HW) */
+      printf("[SEQ STEERER] Error in line enable system: thermal switch problem in one or more lines \n");
+      printf("[SEQ STEERER] System not ok: go to FAILURE \n");
+  } state failure
+
+  /* 24V Error */
+  when ( (Rack010_24V == 0) || (Rack030_24V == 0) ) {
+      printf("[SEQ STEERER] Error in 24V power racks. \n");
+      printf("[SEQ STEERER] System not ok: go to FAILURE \n");
+  } state failure
+
+
+  /* Some PVs are disconnected */
+  when (pvConnectCount() != pvAssignCount()) {
+    printf("[SEQ STEERER] Error in steerer system: one or more PVs are not available for the state machine. \n");
+    printf("[SEQ STEERER] System not ok: go to FAILURE \n");
+  } state failure
+
   /* Execute chosen configuration [man|auto] */
-  when ( (ExecuteControlCmd == 1) ) {
-      if (AutoControlCmd == 0 ) then {
-        printf("[SEQ STEERER] Execute Control in Manual Mode\n");
+  when ( (StartOperationCmd == 1) ) {
+      if ( (AutoControl_ActualStatus == 0) && (AutoControl_ActualStatus == AutoControlCmd) ) then {
+        printf("[SEQ STEERER] Start Control Operations in MANUAL Mode\n");
       }
-      else if (AutoControlCmd == 1 ) {
-        printf("[SEQ STEERER] Execute Control in Automatic Mode\n");
+      else if ( (AutoControl_ActualStatus == 1) && (AutoControl_ActualStatus == AutoControlCmd) ) {
+        printf("[SEQ STEERER] Start Control Operations in AUTOMATIC Mode\n");
+      }
+      else if ( (AutoControl_ActualStatus == 1) && (AutoControl_ActualStatus != AutoControlCmd) ) {
+        printf("[SEQ STEERER] Updated control configuration\n");
+        printf("[SEQ STEERER] Start Control Operations in MANUAL Mode\n");
+        AutoControl_ActualStatus = AutoControlCmd;
+        pvPut(AutoControl_ActualStatus);
+      }
+      else if ( (AutoControl_ActualStatus == 0) && (AutoControl_ActualStatus != AutoControlCmd) ) {
+        printf("[SEQ STEERER] Updated control configuration\n");
+        printf("[SEQ STEERER] Start Control Operations in AUTOMATIC Mode\n");
+        AutoControl_ActualStatus = AutoControlCmd;
+        pvPut(AutoControl_ActualStatus);
       }
       else {
         printf("[SEQ STEERER] This message should not appear :)\n");
       }
+
   } state ready_for_operation
 
 
@@ -1564,42 +1647,61 @@ state idle {
 
     /* Chassis problem */
     when ( (Chassis1_enable_RB == 0) || (Chassis2_enable_RB == 0) || (Chassis3_enable_RB == 0) || (Chassis4_enable_RB == 0) || (Chassis5_enable_RB == 0) ) {
-      printf("[SEQ STEERER] Error in chassis enable system: one or more chassises are not available\n");
-      printf("[SEQ STEERER] System not passed self check: go to FAILURE \n");
+      printf("[SEQ STEERER] Error in chassis enable system: one or more chassis are not available\n");
+      printf("[SEQ STEERER] System not ok: go to FAILURE \n");
     } state failure
 
     /* Thermas Switch problem */
     when ( (T1_V1_Termal_OkStat == 0) || (T1_H1_Termal_OkStat == 0) || (T1_V2_Termal_OkStat == 0) || (T1_H2_Termal_OkStat == 0) || (T1_V3_Termal_OkStat == 0) || (T1_H3_Termal_OkStat == 0) || (T1_V4_Termal_OkStat == 0) || (T1_H4_Termal_OkStat == 0) || (T1_V5_Termal_OkStat == 0) || (T1_H5_Termal_OkStat == 0) || (T1_V6_Termal_OkStat == 0) || (T1_H6_Termal_OkStat == 0) || (T2_V1_Termal_OkStat == 0) || (T2_H1_Termal_OkStat == 0) || (T2_V2_Termal_OkStat == 0) || (T2_H2_Termal_OkStat == 0) || (T2_V3_Termal_OkStat == 0) || (T2_H3_Termal_OkStat == 0) || (T3_V1_Termal_OkStat == 0) || (T3_H1_Termal_OkStat == 0) || (T3_V2_Termal_OkStat == 0) || (T3_H2_Termal_OkStat == 0) || (T4_V1_Termal_OkStat == 0) || (T4_H1_Termal_OkStat == 0) || (T4_V2_Termal_OkStat == 0) || (T4_H2_Termal_OkStat == 0) || (T5_V1_Termal_OkStat == 0) || (T5_H1_Termal_OkStat == 0) || (T5_V2_Termal_OkStat == 0) || (T5_H2_Termal_OkStat == 0) ) {
     /* Line disconnected (HW) */
         printf("[SEQ STEERER] Error in line enable system: thermal switch problem in one or more lines \n");
-        printf("[SEQ STEERER] System not passed self check: go to FAILURE \n");
+        printf("[SEQ STEERER] System not ok: go to FAILURE \n");
     } state failure
 
+    /* 24V Error */
+    when ( (Rack010_24V == 0) || (Rack030_24V == 0) ) {
+        printf("[SEQ STEERER] Error in 24V power racks. \n");
+        printf("[SEQ STEERER] System not ok: go to FAILURE \n");
+    } state failure
+
+    /* Error with Impedance deviance */
     when ( (T1_V1_DeltaImpedance > MAX_DEVIANCE) || (T1_H1_DeltaImpedance > MAX_DEVIANCE) || (T1_V2_DeltaImpedance > MAX_DEVIANCE) || (T1_H2_DeltaImpedance > MAX_DEVIANCE) || (T1_V3_DeltaImpedance > MAX_DEVIANCE) || (T1_H3_DeltaImpedance > MAX_DEVIANCE) || (T1_V4_DeltaImpedance > MAX_DEVIANCE) || (T1_H4_DeltaImpedance > MAX_DEVIANCE) || (T1_V5_DeltaImpedance > MAX_DEVIANCE) || (T1_H5_DeltaImpedance > MAX_DEVIANCE) || (T1_V6_DeltaImpedance > MAX_DEVIANCE) || (T1_H6_DeltaImpedance > MAX_DEVIANCE) || (T2_V1_DeltaImpedance > MAX_DEVIANCE) || (T2_H1_DeltaImpedance > MAX_DEVIANCE) || (T2_V2_DeltaImpedance > MAX_DEVIANCE) || (T2_H2_DeltaImpedance > MAX_DEVIANCE) || (T2_V3_DeltaImpedance > MAX_DEVIANCE) || (T2_H3_DeltaImpedance > MAX_DEVIANCE) || (T3_V1_DeltaImpedance > MAX_DEVIANCE) || (T3_H1_DeltaImpedance > MAX_DEVIANCE) || (T3_V2_DeltaImpedance > MAX_DEVIANCE) || (T3_H2_DeltaImpedance > MAX_DEVIANCE) || (T4_V1_DeltaImpedance > MAX_DEVIANCE) || (T4_H1_DeltaImpedance > MAX_DEVIANCE) || (T4_V2_DeltaImpedance > MAX_DEVIANCE) || (T4_H2_DeltaImpedance > MAX_DEVIANCE) || (T5_V1_DeltaImpedance > MAX_DEVIANCE) || (T5_H1_DeltaImpedance > MAX_DEVIANCE) || (T5_V2_DeltaImpedance > MAX_DEVIANCE) || (T5_H2_DeltaImpedance > MAX_DEVIANCE) ) {
     /* Line disconnected (HW) */
         printf("[SEQ STEERER] Error in steerer system: one or more stereres register HIGH IMPEDANCE DEVIANCE \n");
         printf("[SEQ STEERER] System not ok: go to FAILURE \n");
     } state failure
 
+    /* Stop Operation (for every mode of operation) */
+    when ( StopOperationCmd == 1 ) {
+        printf("[SEQ STEERER] Stop Control Operations. System goes back to Idle Status.\n");
+    } state idle
+
+    /* Possibility to modify [MAN|AUTO] control during operations without changing state*/
+    when ( AutoControl_ActualStatus != AutoControlCmd ) {
+        AutoControl_ActualStatus = AutoControlCmd;
+        pvPut(AutoControl_ActualStatus);
+        if ( AutoControl_ActualStatus == 0 ) then {
+          printf("[SEQ STEERER] Control Configuration changed to MANUAL .\n");
+        }
+        else if ( AutoControl_ActualStatus == 1 ) then {
+          printf("[SEQ STEERER] Control Configuration changed to AUTOMATIC.\n");
+        }
+    } state ready_for_operation
+
+    /* NOTES: */
     /* Case of Operation: RF Conditioning */
     /*
     Conditions:
      - Steerers are OFF
      - Setpoints are at 0A
     */
-
-
-
     /* Case of Operation: RF Conditioning */
     /*
     Conditions:
-     - Steerers are OFF
-     - Setpoints are at 0A
+     - Steerers are ON
+     - Setpoints are set at "operative" value
     */
 
-
-
-     /* TBC */
   }
 
 
@@ -1611,9 +1713,73 @@ state idle {
         printf("\n[SEQ STEERER] Enter in FAILURE status\n");
         StateMachineCode=50;
         pvPut(StateMachineCode);
+
+        /* Switch off each steerer channel */
+        T1_V1_ChEnableCmd = 0;
+        pvPut(T1_V1_ChEnableCmd);
+        T1_H1_ChEnableCmd = 0;
+        pvPut(T1_H1_ChEnableCmd);
+        T1_V2_ChEnableCmd = 0;
+        pvPut(T1_V2_ChEnableCmd);
+        T1_H2_ChEnableCmd = 0;
+        pvPut(T1_H2_ChEnableCmd);
+        T1_V3_ChEnableCmd = 0;
+        pvPut(T1_V3_ChEnableCmd);
+        T1_H3_ChEnableCmd = 0;
+        pvPut(T1_H3_ChEnableCmd);
+        T1_V4_ChEnableCmd = 0;
+        pvPut(T1_V4_ChEnableCmd);
+        T1_H4_ChEnableCmd = 0;
+        pvPut(T1_H4_ChEnableCmd);
+        T1_V5_ChEnableCmd = 0;
+        pvPut(T1_V5_ChEnableCmd);
+        T1_H5_ChEnableCmd = 0;
+        pvPut(T1_H5_ChEnableCmd);
+        T1_V6_ChEnableCmd = 0;
+        pvPut(T1_V6_ChEnableCmd);
+        T1_H6_ChEnableCmd = 0;
+        pvPut(T1_H6_ChEnableCmd);
+        T2_V1_ChEnableCmd = 0;
+        pvPut(T2_V1_ChEnableCmd);
+        T2_H1_ChEnableCmd = 0;
+        pvPut(T2_H1_ChEnableCmd);
+        T2_V2_ChEnableCmd = 0;
+        pvPut(T2_V2_ChEnableCmd);
+        T2_H2_ChEnableCmd = 0;
+        pvPut(T2_H2_ChEnableCmd);
+        T2_V3_ChEnableCmd = 0;
+        pvPut(T2_V3_ChEnableCmd);
+        T2_H3_ChEnableCmd = 0;
+        pvPut(T2_H3_ChEnableCmd);
+        T3_V1_ChEnableCmd = 0;
+        pvPut(T3_V1_ChEnableCmd);
+        T3_H1_ChEnableCmd = 0;
+        pvPut(T3_H1_ChEnableCmd);
+        T3_V2_ChEnableCmd = 0;
+        pvPut(T3_V2_ChEnableCmd);
+        T3_H2_ChEnableCmd = 0;
+        pvPut(T3_H2_ChEnableCmd);
+        T4_V1_ChEnableCmd = 0;
+        pvPut(T4_V1_ChEnableCmd);
+        T4_H1_ChEnableCmd = 0;
+        pvPut(T4_H1_ChEnableCmd);
+        T4_V2_ChEnableCmd = 0;
+        pvPut(T4_V2_ChEnableCmd);
+        T4_H2_ChEnableCmd = 0;
+        pvPut(T4_H2_ChEnableCmd);
+        T5_V1_ChEnableCmd = 0;
+        pvPut(T5_V1_ChEnableCmd);
+        T5_H1_ChEnableCmd = 0;
+        pvPut(T5_H1_ChEnableCmd);
+        T5_V2_ChEnableCmd = 0;
+        pvPut(T5_V2_ChEnableCmd);
+        T5_H2_ChEnableCmd = 0;
+        pvPut(T5_H2_ChEnableCmd);
     }
 
-    when ( ( FaultReset == 1 ) && (BOH == 0) ) {
+    /* System should provide an healthy status to confirm failure reset */
+    /* Check on: Chassis, Thermal Switches, 24V Rack Power */
+    when ( (FaultReset == 1) &&  (Chassis1_enable_RB == 1) && (Chassis2_enable_RB == 1) && (Chassis3_enable_RB == 1) && (Chassis4_enable_RB == 1) && (Chassis5_enable_RB == 1) && (T1_V1_Termal_OkStat == 1) && (T1_H1_Termal_OkStat == 1) && (T1_V2_Termal_OkStat == 1) && (T1_H2_Termal_OkStat == 1) && (T1_V3_Termal_OkStat == 1) && (T1_H3_Termal_OkStat == 1) && (T1_V4_Termal_OkStat == 1) && (T1_H4_Termal_OkStat == 1) && (T1_V5_Termal_OkStat == 1) && (T1_H5_Termal_OkStat == 1) && (T1_V6_Termal_OkStat == 1) && (T1_H6_Termal_OkStat == 1) && (T2_V1_Termal_OkStat == 1) && (T2_H1_Termal_OkStat == 1) && (T2_V2_Termal_OkStat == 1) && (T2_H2_Termal_OkStat == 1) && (T2_V3_Termal_OkStat == 1) && (T2_H3_Termal_OkStat == 1) && (T3_V1_Termal_OkStat == 1) && (T3_H1_Termal_OkStat == 1) && (T3_V2_Termal_OkStat == 1) && (T3_H2_Termal_OkStat == 1) && (T4_V1_Termal_OkStat == 1) && (T4_H1_Termal_OkStat == 1) && (T4_V2_Termal_OkStat == 1) && (T4_H2_Termal_OkStat == 1) && (T5_V1_Termal_OkStat == 1) && (T5_H1_Termal_OkStat == 1) && (T5_V2_Termal_OkStat == 1) && (T5_H2_Termal_OkStat == 1) && (Rack010_24V == 1) && (Rack030_24V == 1) ) {
 
         printf("[SEQ STEERER] Failure Stage reset by Operator. \n");
         printf("[SEQ STEERER] Reset conditions satisfied.\n");
@@ -1631,7 +1797,13 @@ state idle {
         pvPut(StateMachineCode);
     }
 
+    /* System should provide an healthy status to confirm failure reset */
+    /* Check on: Chassis, Thermal Switches, 24V Rack Power */
+    when ( (MaintenanceReset == 1) &&  (Chassis1_enable_RB == 1) && (Chassis2_enable_RB == 1) && (Chassis3_enable_RB == 1) && (Chassis4_enable_RB == 1) && (Chassis5_enable_RB == 1) && (T1_V1_Termal_OkStat == 1) && (T1_H1_Termal_OkStat == 1) && (T1_V2_Termal_OkStat == 1) && (T1_H2_Termal_OkStat == 1) && (T1_V3_Termal_OkStat == 1) && (T1_H3_Termal_OkStat == 1) && (T1_V4_Termal_OkStat == 1) && (T1_H4_Termal_OkStat == 1) && (T1_V5_Termal_OkStat == 1) && (T1_H5_Termal_OkStat == 1) && (T1_V6_Termal_OkStat == 1) && (T1_H6_Termal_OkStat == 1) && (T2_V1_Termal_OkStat == 1) && (T2_H1_Termal_OkStat == 1) && (T2_V2_Termal_OkStat == 1) && (T2_H2_Termal_OkStat == 1) && (T2_V3_Termal_OkStat == 1) && (T2_H3_Termal_OkStat == 1) && (T3_V1_Termal_OkStat == 1) && (T3_H1_Termal_OkStat == 1) && (T3_V2_Termal_OkStat == 1) && (T3_H2_Termal_OkStat == 1) && (T4_V1_Termal_OkStat == 1) && (T4_H1_Termal_OkStat == 1) && (T4_V2_Termal_OkStat == 1) && (T4_H2_Termal_OkStat == 1) && (T5_V1_Termal_OkStat == 1) && (T5_H1_Termal_OkStat == 1) && (T5_V2_Termal_OkStat == 1) && (T5_H2_Termal_OkStat == 1) && (Rack010_24V == 1) && (Rack030_24V == 1) ) {
 
+        printf("[SEQ STEERER] Failure Stage reset by Operator. \n");
+        printf("[SEQ STEERER] Reset conditions satisfied.\n");
+    } state initialization
 
 
   }
