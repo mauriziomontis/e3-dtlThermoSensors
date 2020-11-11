@@ -1633,7 +1633,7 @@ state idle {
       }
 
   } state ready_for_operation
-
+}
 
 
 /* state READY_FOR_OPERATION 	*/
