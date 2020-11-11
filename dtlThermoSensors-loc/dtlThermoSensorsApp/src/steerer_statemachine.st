@@ -1266,7 +1266,7 @@ ss temperature030_interlock {
         pvPut(StateMachineCode);
       }
 
-      when (pvConnectCount()==pvAssignCount()) {
+      when ( pvConnectCount()==pvAssignCount() ) {
         printf("[SEQ STEERERS] All PVs connected\n");
         printf("[SEQ STEERERS] Starting Self Check Process\n");
         printf("[SEQ STEERERS] 1. Enable Chassis \n");
@@ -1348,10 +1348,10 @@ ss temperature030_interlock {
 
         /* [Man|Auto] Control Actual Value initialization */
         AutoControl_ActualStatus = AutoControlCmd;
-        if ( AutoControl_ActualStatus == 0 ) then {
+        if ( AutoControl_ActualStatus == 0 ) {
           printf("[SEQ STEERER] Manual|Auto Steerers Control readback initialized to: MANUAL\n");
         }
-        else if ( AutoControl_ActualStatus == 1 ) then {
+        else if ( AutoControl_ActualStatus == 1 ) {
           printf("[SEQ STEERER] Manual|Auto Steerers Control readback initialized to: AUTO\n");
         }
         pvPut(AutoControl_ActualStatus);
@@ -1610,7 +1610,7 @@ state idle {
 
   /* Execute chosen configuration [man|auto] */
   when ( (StartOperationCmd == 1) ) {
-      if ( (AutoControl_ActualStatus == 0) && (AutoControl_ActualStatus == AutoControlCmd) ) then {
+      if ( (AutoControl_ActualStatus == 0) && (AutoControl_ActualStatus == AutoControlCmd) ) {
         printf("[SEQ STEERER] Start Control Operations in MANUAL Mode\n");
       }
       else if ( (AutoControl_ActualStatus == 1) && (AutoControl_ActualStatus == AutoControlCmd) ) {
@@ -1680,10 +1680,10 @@ state idle {
     when ( AutoControl_ActualStatus != AutoControlCmd ) {
         AutoControl_ActualStatus = AutoControlCmd;
         pvPut(AutoControl_ActualStatus);
-        if ( AutoControl_ActualStatus == 0 ) then {
+        if ( AutoControl_ActualStatus == 0 ) {
           printf("[SEQ STEERER] Control Configuration changed to MANUAL .\n");
         }
-        else if ( AutoControl_ActualStatus == 1 ) then {
+        else if ( AutoControl_ActualStatus == 1 ) {
           printf("[SEQ STEERER] Control Configuration changed to AUTOMATIC.\n");
         }
     } state ready_for_operation
