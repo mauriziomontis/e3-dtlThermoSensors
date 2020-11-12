@@ -1325,10 +1325,6 @@ ss temperature030_interlock {
         pvPut(T3_V2_Termal_OkStat);
         T3_H2_Termal_OkStat=1;
         pvPut(T3_H2_Termal_OkStat);
-        T3_V3_Termal_OkStat=1;
-        pvPut(T3_V3_Termal_OkStat);
-        T3_H3_Termal_OkStat=1;
-        pvPut(T3_H3_Termal_OkStat);
         T4_V1_Termal_OkStat=1;
         pvPut(T4_V1_Termal_OkStat);
         T4_H1_Termal_OkStat=1;
