@@ -1256,7 +1256,7 @@ double DEBUG=1;
 # State Machine Definition
 */
 
-ss temperature030_interlock {
+ss  steerer_statemachine {
 
 /* state INITIALIZATION	*/
 	state initialization {
