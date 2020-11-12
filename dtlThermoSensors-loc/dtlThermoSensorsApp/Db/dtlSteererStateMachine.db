@@ -1,7 +1,5 @@
 # Records for Steerer State machine
 #
-# Temp-Desc: sensor description (for GUI information)
-# Temp-Pos:  sensor position (according to different critical points)
 #
 # Stages Code:
 # 	0  -> INIT
@@ -17,7 +15,7 @@
 # mail: maurizio.montis@lnl.infn.it
 
 record(ai, "DTL:PwrC:StateMachine") {
-	field(DESC, "${PREFIX} State machine code")
+	field(DESC, "Steerers State machine code")
 	field(VAL, "0")
 	field(PINI, "YES")
 }
