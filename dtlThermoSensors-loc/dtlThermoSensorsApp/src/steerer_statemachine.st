@@ -225,7 +225,7 @@ int Rack010_24V;
 assign Rack010_24V to "DTL-010ROW:CnPw-U-003:24VPS_OKStat";
 monitor Rack010_24V;
 int Rack030_24V;
-assign Rack030_24V to "DTL-030ROW:CnPw-U-003:24VPS_OKStat";
+assign Rack030_24V to "DTL-010ROW:CnPw-U-003:24VPS_OKStat";
 monitor Rack030_24V;
 
 
