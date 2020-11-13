@@ -1309,3 +1309,5 @@ ${SCRIPTEXEC} "${DTL_THERMOS_ROOT}postInitStateMachine_Temperature.cmd", "SECTIO
 ${SCRIPTEXEC} "${DTL_THERMOS_ROOT}postInitStateMachine_Temperature.cmd", "SECTION_NAME=DTL-030, TANK=030"
 ${SCRIPTEXEC} "${DTL_THERMOS_ROOT}postInitStateMachine_Temperature.cmd", "SECTION_NAME=DTL-040, TANK=040"
 ${SCRIPTEXEC} "${DTL_THERMOS_ROOT}postInitStateMachine_Temperature.cmd", "SECTION_NAME=DTL-050, TANK=050"
+
+${SCRIPTEXEC} "${DTL_THERMOS_ROOT}postInitStateMachine_Steerer.cmd"
