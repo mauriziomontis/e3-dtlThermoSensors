@@ -1,4 +1,4 @@
-OnEnCmd-RB"/* DTL Steerer State Machine
+/* DTL Steerer State Machine
 # State Machine devoted to control the status and the health of DTL steerer sub-system :
 #
 # Principal States:
