@@ -1691,7 +1691,7 @@ state idle {
      - Steerers are OFF
      - Setpoints are at 0A
     */
-    /* Case of Operation: RF Conditioning */
+    /* Case of Operation: Ready for Beam */
     /*
     Conditions:
      - Steerers are ON
