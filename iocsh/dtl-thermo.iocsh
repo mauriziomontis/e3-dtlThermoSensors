@@ -28,10 +28,16 @@ epicsEnvSet("IOC", "DTL-000")
 epicsEnvSet("ECMCCFG_VERSION", "6.2.0")
 epicsEnvSet("ECMC_VERSION", "6.2.1")
 epicsEnvSet("STREAM_VERSION", "2.8.10")
+epicsEnvSet("AUTOSAVE_VERSION", "5.10.0")
+epicsEnvSet("IOCSTATS_VERSION", "3.1.16")
+epicsEnvSet("RECSYNC_VERSION", "1.3.0-9705e52")
 epicsEnvSet("DTLTHERMOS_VERSION", "master")
-# Axis configuration
-#epicsEnvSet("DTL_AXIS_PATH", "/home/iocuser/e3/e3-dtlTuners/cfg")
-
+# Autosave path Configuration
+epicsEnvSet("AUTOSAVE_TOP", "/iocs/dtl-thermoSensors/autosave/")
+# Axis configuration - NOT USED
+#epicsEnvSet("DTL_AXIS_PATH", "/home/iocuser/e3/e3-dtlThermoSensors/cfg")
+# IOC Name Configuration
+epicsEnvSet("IOCNAME", "dtl-ctrl-ioc-001")
 
 #
 ############ End of Configuration part
@@ -54,6 +60,9 @@ epicsEnvSet("SM_PREFIX",            "${IOC}:")
 require ecmccfg, ${ECMCCFG_VERSION}
 require ecmc, ${ECMC_VERSION}
 require stream, ${STREAM_VERSION}
+require autosave, ${AUTOSAVE_VERSION}
+require iocStats, ${IOCSTATS_VERSION}
+require recsync, ${RECSYNC_VERSION}
 
 
 ##############################################################################
@@ -253,6 +262,27 @@ ${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}applyConfig.cmd"
 ############ Go Active
 
 ${SCRIPTEXEC} "${ECMC_CONFIG_ROOT}setAppMode.cmd"
+
+
+
+##############################################################################
+############ Autosave Module Initialization
+
+loadIocsh("autosave.iocsh", "AS_TOP=$(AUTOSAVE_TOP),IOCNAME=$(IOCNAME)")
+
+
+
+##############################################################################
+############ iocStats Module Initialization
+
+loadIocsh("iocStats.iocsh", "IOCNAME=$(IOCNAME)")
+
+
+
+##############################################################################
+############ iocStats Module Initialization
+
+loadIocsh("recsync.iocsh", "IOCNAME=$(IOCNAME)")
 
 
 
