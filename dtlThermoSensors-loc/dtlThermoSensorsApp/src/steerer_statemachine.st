@@ -1269,6 +1269,11 @@ ss  steerer_statemachine {
       when ( pvConnectCount()==pvAssignCount() ) {
         printf("[SEQ STEERERS] All PVs connected\n");
         printf("[SEQ STEERERS] Starting Self Check Process\n");
+
+        /* Actual man|auto control initialization */
+        AutoControl_ActualStatus = AutoControlCmd;
+        pvPut(AutoControl_ActualStatus);
+
         printf("[SEQ STEERERS] 1. Enable Chassis \n");
         Chassis1_enable=1;
         pvPut(Chassis1_enable);
