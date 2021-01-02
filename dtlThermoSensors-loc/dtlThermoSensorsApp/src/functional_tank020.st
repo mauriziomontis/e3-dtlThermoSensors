@@ -862,6 +862,11 @@ state ready_for_operation {
 
         printf("[SEQ TEMPERATURE  - TANK2] Failure Stage reset by Operator. \n");
         printf("[SEQ TEMPERATURE  - TANK2] Reset conditions satisfied.\n");
+
+				/* Reset FaultReset command */
+        FaultReset=0;
+        pvPut(FaultReset);
+
     } state maintenance
 
   }
@@ -882,6 +887,10 @@ state ready_for_operation {
         printf("[SEQ TEMPERATURE  - TANK2] Maintenance Stage reset by Operator\n");
         printf("[SEQ TEMPERATURE  - TANK2] Starting TANK 2 State Machine re-initialization\n");
 
+				/* Reset MaintenanceReset command */
+        MaintenanceReset=0;
+        pvPut(MaintenanceReset);
+				
     } state initialization
 
 

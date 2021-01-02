@@ -1784,6 +1784,11 @@ state idle {
 
         printf("[SEQ STEERER] Failure Stage reset by Operator. \n");
         printf("[SEQ STEERER] Reset conditions satisfied.\n");
+
+        /* Reset FaultReset command */
+        FaultReset=0;
+        pvPut(FaultReset);
+
     } state maintenance
 
   }
@@ -1804,6 +1809,11 @@ state idle {
 
         printf("[SEQ STEERER] Failure Stage reset by Operator. \n");
         printf("[SEQ STEERER] Reset conditions satisfied.\n");
+
+        /* Reset MaintenanceReset command */
+        MaintenanceReset=0;
+        pvPut(MaintenanceReset);
+        
     } state initialization
 
 
