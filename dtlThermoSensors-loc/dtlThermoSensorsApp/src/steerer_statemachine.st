@@ -229,7 +229,7 @@ assign Rack030_24V to "DTL-010ROW:CnPw-U-003:24VPS_OKStat";
 monitor Rack030_24V;
 
 
-/* Impedances */
+/* Impedance */
 double T1_V1_Impedance;
 assign T1_V1_Impedance  to "DTL-010:BMD-CV-001:Imp";
 monitor T1_V1_Impedance;
@@ -1575,6 +1575,9 @@ state idle {
     printf("\n[SEQ STEERER] Enter in IDLE status\n");
     StateMachineCode=20;
     pvPut(StateMachineCode);
+
+    StopOperationCmd=0;
+    pvPut(StopOperationCmd);
   }
 
   /* Channels are not enabled */
@@ -1675,6 +1678,8 @@ state idle {
     /* Stop Operation (for every mode of operation) */
     when ( StopOperationCmd == 1 ) {
         printf("[SEQ STEERER] Stop Control Operations. System goes back to Idle Status.\n");
+        StartOperationCmd=0;
+        pvPut(StartOperationCmd);
     } state idle
 
     /* Possibility to modify [MAN|AUTO] control during operations without changing state*/
@@ -1703,6 +1708,7 @@ state idle {
      - Setpoints are set at "operative" value
     */
 
+    /* Configurations done in DTL Orchestration State Machine  */
   }
 
 
@@ -1813,7 +1819,7 @@ state idle {
         /* Reset MaintenanceReset command */
         MaintenanceReset=0;
         pvPut(MaintenanceReset);
-        
+
     } state initialization
 
 
