@@ -667,7 +667,7 @@ state ready_for_operation {
 				/* Reset FaultReset command */
         FaultReset=0;
         pvPut(FaultReset);
-				
+
     } state maintenance
 
   }
