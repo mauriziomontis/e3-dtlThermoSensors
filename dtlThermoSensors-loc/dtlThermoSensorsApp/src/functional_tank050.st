@@ -525,7 +525,7 @@ double DEBUG=1;
 # State Machine Definition
 */
 
-ss temperature030_interlock {
+ss temperature050_interlock {
 
 /* state INITIALIZATION	*/
 	state initialization {

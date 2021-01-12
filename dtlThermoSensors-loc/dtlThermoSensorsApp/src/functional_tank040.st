@@ -579,7 +579,7 @@ double DEBUG=1;
 # State Machine Definition
 */
 
-ss temperature030_interlock {
+ss temperature040_interlock {
 
 /* state INITIALIZATION	*/
 	state initialization {
@@ -746,7 +746,7 @@ state ready_for_operation {
 				/* Reset MaintenanceReset command */
         MaintenanceReset=0;
         pvPut(MaintenanceReset);
-				
+
     } state initialization
 
 
