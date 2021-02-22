@@ -1126,18 +1126,26 @@ ${SCRIPTEXEC} "${DTL_THERMOS_ROOT}dbloadTemperatureDescription.cmd", "SECTION_NA
 ${SCRIPTEXEC} "${DTL_THERMOS_ROOT}dbloadTemperatureResetMaintenance.cmd"
 
 # Temperature System - State Machine Code
- ${SCRIPTEXEC} "${DTL_THERMOS_ROOT}dbloadTemperatureStateMachineCode.cmd", "SECTION_NAME=DTL-010"
- ${SCRIPTEXEC} "${DTL_THERMOS_ROOT}dbloadTemperatureStateMachineCode.cmd", "SECTION_NAME=DTL-020"
- ${SCRIPTEXEC} "${DTL_THERMOS_ROOT}dbloadTemperatureStateMachineCode.cmd", "SECTION_NAME=DTL-030"
- ${SCRIPTEXEC} "${DTL_THERMOS_ROOT}dbloadTemperatureStateMachineCode.cmd", "SECTION_NAME=DTL-040"
- ${SCRIPTEXEC} "${DTL_THERMOS_ROOT}dbloadTemperatureStateMachineCode.cmd", "SECTION_NAME=DTL-050"
+${SCRIPTEXEC} "${DTL_THERMOS_ROOT}dbloadTemperatureStateMachineCode.cmd", "SECTION_NAME=DTL-010"
+${SCRIPTEXEC} "${DTL_THERMOS_ROOT}dbloadTemperatureStateMachineCode.cmd", "SECTION_NAME=DTL-020"
+${SCRIPTEXEC} "${DTL_THERMOS_ROOT}dbloadTemperatureStateMachineCode.cmd", "SECTION_NAME=DTL-030"
+${SCRIPTEXEC} "${DTL_THERMOS_ROOT}dbloadTemperatureStateMachineCode.cmd", "SECTION_NAME=DTL-040"
+${SCRIPTEXEC} "${DTL_THERMOS_ROOT}dbloadTemperatureStateMachineCode.cmd", "SECTION_NAME=DTL-050"
 
 
- # Steerer System - Maintenance Reset
- ${SCRIPTEXEC} "${DTL_THERMOS_ROOT}dbloadSteererResetMaintenance.cmd"
+# Steerer System - Total Ok Status
+${SCRIPTEXEC} "${DTL_THERMOS_ROOT}dbLoadDatabase.cmd, "DB_NAME=dtlSteererTotalOkStatus.db"
+
+
+# Steerer System - Maintenance Reset
+${SCRIPTEXEC} "${DTL_THERMOS_ROOT}dbloadSteererResetMaintenance.cmd"
 
 # Steerer System - State Machine code
-${SCRIPTEXEC} "${DTL_THERMOS_ROOT}dbloadSteererStateMachineCode.cmd"
+${SCRIPTEXEC} "${DTL_THERMOS_ROOT}dbloadSteererStateMachineCode.cmd", "SECTION_NAME=DTL-010"
+${SCRIPTEXEC} "${DTL_THERMOS_ROOT}dbloadSteererStateMachineCode.cmd", "SECTION_NAME=DTL-020"
+${SCRIPTEXEC} "${DTL_THERMOS_ROOT}dbloadSteererStateMachineCode.cmd", "SECTION_NAME=DTL-030"
+${SCRIPTEXEC} "${DTL_THERMOS_ROOT}dbloadSteererStateMachineCode.cmd", "SECTION_NAME=DTL-040"
+${SCRIPTEXEC} "${DTL_THERMOS_ROOT}dbloadSteererStateMachineCode.cmd", "SECTION_NAME=DTL-050"
 
 
 
