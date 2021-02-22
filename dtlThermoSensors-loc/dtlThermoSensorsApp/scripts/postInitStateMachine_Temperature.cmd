@@ -11,15 +11,8 @@
 #-d   \param TANK Section name, i.e. 010
 #-d   \note Example call:
 #-d   \code
-#-d    ${SCRIPTEXEC} "${dtlTuner_DIR}postInitStateMachine_Temperature.cmd", "SECTION_NAME=DTL-010, TANK=010"
+#-d    ${SCRIPTEXEC} "${dtlThermo_DIR}postInitStateMachine_Temperature.cmd", "SECTION_NAME=DTL-010, TANK=010"
 #-d   \endcode
 #-d */
 
 afterInit(seq functional_tank${TANK}  "SECTION_NAME=${SECTION_NAME}")
-
-
-
-
-
-
-
