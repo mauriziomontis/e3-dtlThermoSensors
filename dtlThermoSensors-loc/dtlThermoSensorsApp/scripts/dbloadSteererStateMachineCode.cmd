@@ -1,6 +1,6 @@
 #==============================================================================
 # dbloadSteererStateMachineCode.cmd
-#- Arguments:
+#- Arguments: SECTION_NAME
 
 #-d /**
 #-d   \brief Load Steerer Description Database
