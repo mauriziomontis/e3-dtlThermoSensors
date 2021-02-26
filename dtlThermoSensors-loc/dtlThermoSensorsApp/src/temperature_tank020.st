@@ -3,7 +3,7 @@
 #
 # Principal States:
 # - Initialization:
-# 	* Initilize State Machine when EPICS application starts
+# 	* Initialize State Machine when EPICS application starts
 # - Self-Check:
 #       * Verify HW status (connections, devices\'' health, etc.)
 # - Start-Up:
@@ -22,7 +22,7 @@
 # mail: maurizio.montis@lnl.infn.it
 */
 
-program functional_tank020
+program temperature_tank020
 
 /*
 # Libraries
@@ -890,7 +890,7 @@ state ready_for_operation {
 				/* Reset MaintenanceReset command */
         MaintenanceReset=0;
         pvPut(MaintenanceReset);
-				
+
     } state initialization
 
 

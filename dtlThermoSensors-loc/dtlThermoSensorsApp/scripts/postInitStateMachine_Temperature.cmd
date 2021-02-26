@@ -15,4 +15,4 @@
 #-d   \endcode
 #-d */
 
-afterInit(seq functional_tank${TANK}  "SECTION_NAME=${SECTION_NAME}")
+afterInit(seq temperature_tank${TANK}  "SECTION_NAME=${SECTION_NAME}")

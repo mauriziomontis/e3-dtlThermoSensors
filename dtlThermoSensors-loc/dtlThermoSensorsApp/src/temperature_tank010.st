@@ -22,7 +22,7 @@
 # mail: maurizio.montis@lnl.infn.it
 */
 
-program functional_tank010
+program temperature_tank010
 
 /*
 # Libraries
@@ -1352,7 +1352,7 @@ state ready_for_operation {
         /* Reset FaultReset command */
         FaultReset=0;
         pvPut(FaultReset);
-        
+
     } state maintenance
 
   }

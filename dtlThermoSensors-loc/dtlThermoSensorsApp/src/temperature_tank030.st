@@ -22,7 +22,7 @@
 # mail: maurizio.montis@lnl.infn.it
 */
 
-program functional_tank030
+program temperature_tank030
 
 /*
 # Libraries

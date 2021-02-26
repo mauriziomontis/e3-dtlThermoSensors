@@ -1,6 +1,6 @@
 #==============================================================================
 # postInitStateMachine_Steerer.cmd
-#- Arguments:
+#- Arguments: SECTION_NAME, TANK
 
 #-d /**
 #-d   \brief Execute DTL Steerer State Machine.
